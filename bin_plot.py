@@ -78,75 +78,131 @@ cbar3.set_label(r'average stellar mass $[log M_{\odot}]$ in each bin', fontsize=
 P.tight_layout()
 P.savefig('average_mass_binned_all.png')
 
-colour = ['red', 'green', 'blue']
-mass = [9.0, 9.5, 10.0, 10.5, 11.0, 11.5]
-morph = ['t01_smooth_or_features_a01_smooth_flag', 't01_smooth_or_features_a02_features_or_disk_flag']
-morphl = ['smooth', 'disc']
-for n in range(len(colour)):
-	j = 0
-	print j
-	P.figure(figsize=(7, 15))
-	for m in range(len(mass)):
-		if m == (len(mass)-1):
-			pass
-		else:
-			for k in range(len(morph)):
-				j+=1
-				try:
-					bdxagns = N.digitize(agns['best_t'], bx)
-					bdyagns = N.digitize(agns['best_tau'], by)
-					bdxagni = N.digitize(agns['best_t'][N.where((agns[colour[n]]==1)& (agns[morph[k]]==1)& (agns['log_mstellar']>mass[m])& (agns['log_mstellar']<mass[m+1]))], bx)
-					bdyagni = N.digitize(agns['best_tau'][N.where((agns[colour[n]]==1)& (agns[morph[k]]==1)& (agns['log_mstellar']>mass[m])& (agns['log_mstellar']<mass[m+1]))], by)
-				except ValueError:
-					continue
-				agn = agns['agn?']
-				agn[N.where(agn < 0)]=0
-				agni = agn[N.where((agns[colour[n]]==1)& (agns[morph[k]]==1)& (agns['log_mstellar']>mass[m])& (agns['log_mstellar']<mass[m+1]))]
-				a, frac, c = bin_calc(agn, bdxagns, bdyagns)
-				b, frac, d = bin_calc(agni, bdxagni, bdyagni)
-				ax3 = P.subplot(len(mass)-1,len(morph),j)
-				ap3 = ax3.imshow(b/c, origin='lower', aspect='auto', extent=(0, 13.8, 0, 4), interpolation='nearest', cmap=P.cm.gist_heat_r)
-				ax3.set_xlabel(r'$t_q$ [Gyr]')
-				ax3.set_ylabel(r'$\tau$ [Gyr]')
-				ax3.text(5.0, 3.5, str(mass[m])+' < M < '+str(mass[m+1]), fontsize=9)
-				cbar3 = P.colorbar(ap3)
-				cbar3.set_label(r'fractional count of AGN', fontsize=9)
-				print j, k, m, n
-	P.tight_layout()
-	P.savefig('fractional_count_AGN_binned_for '+str(colour[n])+'_by_morph_and_mass.png')
+alpha = 8.13
+beta = 4.02
+sigma_0 = 200
+sigma = N.nan_to_num(agns['sigma'][N.where(agns['sigma']>40)])
+log_mbh = alpha + beta*(N.log10(sigma/sigma_0))
+avg_bh_bin = bin_avg(log_mbh, bdxagn, bdyagn)
+P.figure()
+ax3 = P.subplot(111)
+ap3 = ax3.imshow(avg_bh_bin, origin='lower', aspect='auto', extent=(0, 13.8, 0, 4), interpolation='nearest')
+ax3.set_xlabel(r'$t_q$ [Gyr]')
+ax3.set_ylabel(r'$\tau$ [Gyr]')
+cbar3 = P.colorbar(ap3)
+cbar3.set_label(r'average $log [M_{BH}/M_{\odot}]$ in each bin', fontsize=8)
+P.tight_layout()
+P.savefig('average_log_bh_mass_binned_all.png')
 
-lum = agns['L_03']
-colour = ['red', 'green', 'blue']
-mass = [9.0, 9.5, 10.0, 10.5, 11.0, 11.5]
-morph = ['t01_smooth_or_features_a01_smooth_flag', 't01_smooth_or_features_a02_features_or_disk_flag']
-morphl = ['smooth', 'disc']
-for n in range(len(colour)):
-	j = 0
-	print j
-	P.figure(figsize=(7, 15))
-	for m in range(len(mass)):
-		if m == (len(mass)-1):
-			pass
-		else:
-			for k in range(len(morph)):
-				j+=1
-				try:
-					bdxagn = N.digitize(agns[N.where((agns['L_03']>0) & (agns[colour[n]]==1)& (agns[morph[k]]==1)& (agns['log_mstellar']>mass[m])& (agns['log_mstellar']<mass[m+1]))]['best_t'], bx)
-					bdyagn = N.digitize(agns[N.where((agns['L_03']>0) & (agns[colour[n]]==1)& (agns[morph[k]]==1)& (agns['log_mstellar']>mass[m])& (agns['log_mstellar']<mass[m+1]))]['best_tau'], by)
-				except ValueError:
-					continue
-				agn_lum = lum[N.where((agns['L_03']>0) & (agns[colour[n]]==1)& (agns[morph[k]]==1)& (agns['log_mstellar']>mass[m])& (agns['log_mstellar']<mass[m+1]))]
-				avg_agn_bin = bin_avg(agn_lum, bdxagn, bdyagn)
-				ax3 = P.subplot(len(mass)-1,len(morph),j)
-				ap3 = ax3.imshow(N.log10(avg_agn_bin), origin='lower', aspect='auto', vmin=38, vmax=55, extent=(0, 13.8, 0, 4), interpolation='nearest', cmap=P.cm.gist_heat_r)
-				ax3.set_xlabel(r'$t_q$ [Gyr]')
-				ax3.set_ylabel(r'$\tau$ [Gyr]')
-				ax3.text(5.0, 3.5, str(mass[m])+' < M < '+str(mass[m+1]), fontsize=9)
-				cbar3 = P.colorbar(ap3)
-				cbar3.set_label(r'average log $L[OIII]$ (erg/s)', fontsize=9)
-				print j, k, m, n
-	P.tight_layout()
-	P.savefig('average_agn_lum_binned_for '+str(colour[n])+'_by_morph_and_mass.png')
+
+# colour = ['red', 'green', 'blue']
+# mass = [9.0, 9.5, 10.0, 10.5, 11.0, 11.5]
+# morph = ['t01_smooth_or_features_a01_smooth_flag', 't01_smooth_or_features_a02_features_or_disk_flag']
+# morphl = ['smooth', 'disc']
+# for n in range(len(colour)):
+# 	j = 0
+# 	print j
+# 	P.figure(figsize=(7, 15))
+# 	for m in range(len(mass)):
+# 		if m == (len(mass)-1):
+# 			pass
+# 		else:
+# 			for k in range(len(morph)):
+# 				j+=1
+# 				try:
+# 					bdxagns = N.digitize(agns['best_t'], bx)
+# 					bdyagns = N.digitize(agns['best_tau'], by)
+# 					bdxagni = N.digitize(agns['best_t'][N.where((agns['bpt_class'] > 2) & (agns[colour[n]]==1)& (agns[morph[k]]==1)& (agns['log_mstellar']>mass[m])& (agns['log_mstellar']<mass[m+1]))], bx)
+# 					bdyagni = N.digitize(agns['best_tau'][N.where((agns['bpt_class'] > 2) & (agns[colour[n]]==1)& (agns[morph[k]]==1)& (agns['log_mstellar']>mass[m])& (agns['log_mstellar']<mass[m+1]))], by)
+# 				except ValueError:
+# 					continue
+# 				agn = agns['agn?']
+# 				agn[N.where(agn < 0)]=0
+# 				agni = agn[N.where((agns['bpt_class'] > 2) & (agns[colour[n]]==1)& (agns[morph[k]]==1)& (agns['log_mstellar']>mass[m])& (agns['log_mstellar']<mass[m+1]))]
+# 				a, frac, c = bin_calc(agn, bdxagns, bdyagns)
+# 				b, frac, d = bin_calc(agni, bdxagni, bdyagni)
+# 				ax3 = P.subplot(len(mass)-1,len(morph),j)
+# 				ap3 = ax3.imshow(b/c, origin='lower', aspect='auto', extent=(0, 13.8, 0, 4), interpolation='nearest', cmap=P.cm.gist_heat_r)
+# 				ax3.set_xlabel(r'$t_q$ [Gyr]')
+# 				ax3.set_ylabel(r'$\tau$ [Gyr]')
+# 				ax3.text(5.0, 3.5, str(mass[m])+' < M < '+str(mass[m+1]), fontsize=9)
+# 				cbar3 = P.colorbar(ap3)
+# 				cbar3.set_label(r'fractional count of AGN', fontsize=9)
+# 				print j, k, m, n
+# 	P.tight_layout()
+# 	P.savefig('fractional_count_AGN_binned_for '+str(colour[n])+'_by_morph_and_mass.png')
+
+# lum = agns['L_03']
+# colour = ['red', 'green', 'blue']
+# mass = [9.0, 9.5, 10.0, 10.5, 11.0, 11.5]
+# morph = ['t01_smooth_or_features_a01_smooth_flag', 't01_smooth_or_features_a02_features_or_disk_flag']
+# morphl = ['smooth', 'disc']
+# for n in range(len(colour)):
+# 	j = 0
+# 	print j
+# 	P.figure(figsize=(7, 15))
+# 	for m in range(len(mass)):
+# 		if m == (len(mass)-1):
+# 			pass
+# 		else:
+# 			for k in range(len(morph)):
+# 				j+=1
+# 				try:
+# 					bdxagn = N.digitize(agns[N.where((agns['bpt_class'] > 2) & (agns['L_03']>0) & (agns[colour[n]]==1)& (agns[morph[k]]==1)& (agns['log_mstellar']>mass[m])& (agns['log_mstellar']<mass[m+1]))]['best_t'], bx)
+# 					bdyagn = N.digitize(agns[N.where((agns['bpt_class'] > 2) & (agns['L_03']>0) & (agns[colour[n]]==1)& (agns[morph[k]]==1)& (agns['log_mstellar']>mass[m])& (agns['log_mstellar']<mass[m+1]))]['best_tau'], by)
+# 				except ValueError:
+# 					continue
+# 				agn_lum = lum[N.where((agns['bpt_class'] > 2) & (agns['L_03']>0) & (agns[colour[n]]==1)& (agns[morph[k]]==1)& (agns['log_mstellar']>mass[m])& (agns['log_mstellar']<mass[m+1]))]
+# 				avg_agn_bin = bin_avg(agn_lum, bdxagn, bdyagn)
+# 				ax3 = P.subplot(len(mass)-1,len(morph),j)
+# 				ap3 = ax3.imshow(N.log10(avg_agn_bin), origin='lower', aspect='auto', extent=(0, 13.8, 0, 4), interpolation='nearest', cmap=P.cm.gist_heat_r)
+# 				ax3.set_xlabel(r'$t_q$ [Gyr]')
+# 				ax3.set_ylabel(r'$\tau$ [Gyr]')
+# 				ax3.text(5.0, 3.5, str(mass[m])+' < M < '+str(mass[m+1]), fontsize=9)
+# 				cbar3 = P.colorbar(ap3)
+# 				cbar3.set_label(r'average log $L[OIII]$ (erg/s)', fontsize=9)
+# 				print j, k, m, n
+# 	P.tight_layout()
+# 	P.savefig('average_agn_lum_binned_for '+str(colour[n])+'_by_morph_and_mass.png')
+
+
+# alpha = 8.13
+# beta = 4.02
+# sigma_0 = 200
+# sigma = agns['sigma']
+# log_mbh = alpha + beta*(N.log10(sigma/sigma_0))
+# colour = ['red', 'green', 'blue']
+# mass = [9.0, 9.5, 10.0, 10.5, 11.0, 11.5]
+# morph = ['t01_smooth_or_features_a01_smooth_flag', 't01_smooth_or_features_a02_features_or_disk_flag']
+# morphl = ['smooth', 'disc']
+# for n in range(len(colour)):
+# 	j = 0
+# 	print j
+# 	P.figure(figsize=(7, 15))
+# 	for m in range(len(mass)):
+# 		if m == (len(mass)-1):
+# 			pass
+# 		else:
+# 			for k in range(len(morph)):
+# 				j+=1
+# 				try:
+# 					bdxagn = N.digitize(agns[N.where((agns['bpt_class'] > 2) & (agns['sigma']>=40) & (agns['L_03']>0) & (agns[colour[n]]==1)& (agns[morph[k]]==1)& (agns['log_mstellar']>mass[m])& (agns['log_mstellar']<mass[m+1]))]['best_t'], bx)
+# 					bdyagn = N.digitize(agns[N.where((agns['bpt_class'] > 2) & (agns['sigma']>=40) & (agns['L_03']>0) & (agns[colour[n]]==1)& (agns[morph[k]]==1)& (agns['log_mstellar']>mass[m])& (agns['log_mstellar']<mass[m+1]))]['best_tau'], by)
+# 				except ValueError:
+# 					continue
+# 				agn_bh_mass = log_mbh[N.where((agns['bpt_class'] > 2) & (agns['sigma']>=40) & (agns['L_03']>0) & (agns[colour[n]]==1)& (agns[morph[k]]==1)& (agns['log_mstellar']>mass[m])& (agns['log_mstellar']<mass[m+1]))]
+# 				print len(agn_bh_mass)
+# 				avg_bh_mass_bin = bin_avg(agn_bh_mass, bdxagn, bdyagn)
+# 				ax3 = P.subplot(len(mass)-1,len(morph),j)
+# 				ap3 = ax3.imshow(avg_bh_mass_bin, origin='lower', aspect='auto', extent=(0, 13.8, 0, 4), vmin=5.4, vmax=8.4, interpolation='nearest', cmap=P.cm.gist_heat_r)
+# 				ax3.set_xlabel(r'$t_q$ [Gyr]')
+# 				ax3.set_ylabel(r'$\tau$ [Gyr]')
+# 				ax3.text(5.0, 3.5, str(mass[m])+' < M < '+str(mass[m+1]), fontsize=9)
+# 				cbar3 = P.colorbar(ap3)
+# 				cbar3.set_label(r'average log $[M_{BH}/M_{\odot}]$', fontsize=9)
+# 				print j, k, m, n
+# 	P.tight_layout()
+# 	P.savefig('average_black_hole_mass_binned_for '+str(colour[n])+'_by_morph_and_mass.png')
 
 smooth = data['t01_smooth_or_features_a01_smooth_flag']
 smooth[N.where(smooth==-99)]=0
@@ -159,77 +215,84 @@ disc[N.where(disc==-99)]=0
 disc_bin, frac_disc, frac_all = bin_calc(disc, bdx, bdy)
 bin_plot(frac_all, frac_disc, disc_bin, 'disc')
 
-agn = agns['agn?']
-agn[N.where(agn==-32768)]=0
+agn = (agns['bpt_class'] > 2)
+#bdxagns = N.digitize(agns['best_t'][N.where((agns['bpt_class'] > 2))], bx)
+#bdyagns = N.digitize(agns['best_tau'][N.where((agns['bpt_class'] > 2))], by)
+
+#agn[N.where(agn==-32768)]=0
 agn_bin, frac_agn, frac_all = bin_calc(agn, bdxagn, bdyagn)
 bin_plot(frac_all, frac_agn, agn_bin, 'agn')
 
-disc_agn = agns['t01_smooth_or_features_a02_features_or_disk_flag']
-disc_agn_bin, frac_agn_disc, frac_discs = bin_calc(disc_agn, bdxagn, bdyagn)
+disc_agn = agns['t01_smooth_or_features_a02_features_or_disk_flag'][N.where((agns['bpt_class'] > 2) & (agns['L_03']>0) & (agns['t01_smooth_or_features_a02_features_or_disk_flag']==1))]
+bdxagns = N.digitize(agns[N.where((agns['bpt_class'] > 2) & (agns['L_03']>0) & (agns['t01_smooth_or_features_a02_features_or_disk_flag']==1))]['best_t'], bx)
+bdyagns = N.digitize(agns[N.where((agns['bpt_class'] > 2) & (agns['L_03']>0) & (agns['t01_smooth_or_features_a02_features_or_disk_flag']==1))]['best_tau'], by)
+disc_agn_bin, frac_agn_disc, frac_discs = bin_calc(disc_agn, bdxagns, bdyagns)
 bin_plot(frac_discs, frac_agn_disc, disc_agn_bin, 'agn in discs')
 
-smooth_agn = agns['t01_smooth_or_features_a01_smooth_flag']
-smooth_agn_bin, frac_agn_smooth, frac_smooth = bin_calc(smooth_agn, bdxagn, bdyagn)
+smooth_agn = agns['t01_smooth_or_features_a01_smooth_flag'][N.where((agns['bpt_class'] > 2) & (agns['L_03']>0) & (agns['t01_smooth_or_features_a01_smooth_flag']==1))]
+bdxagns = N.digitize(agns[N.where((agns['bpt_class'] > 2) & (agns['L_03']>0) & (agns['t01_smooth_or_features_a01_smooth_flag']==1))]['best_t'], bx)
+bdyagns = N.digitize(agns[N.where((agns['bpt_class'] > 2) & (agns['L_03']>0) & (agns['t01_smooth_or_features_a01_smooth_flag']==1))]['best_tau'], by)
+smooth_agn_bin, frac_agn_smooth, frac_smooth = bin_calc(smooth_agn, bdxagns, bdyagns)
 bin_plot(frac_smooth, frac_agn_smooth, smooth_agn_bin, 'agn in ellipticals')
 
-red = agn[N.where(agns['RED'] == 1)]
+red = agn[N.where((agns['RED'] == 1) & (agns['bpt_class'] > 2))]
 bdxagn = N.digitize(agns[N.where(agns['RED']==1)]['best_t'], bx)
 bdyagn = N.digitize(agns[N.where(agns['RED']==1)]['best_tau'], by)
 red_agn_bin, frac_agn_red, frac_red = bin_calc(red, bdxagn, bdyagn)
 bin_plot(frac_red, frac_agn_red, red_agn_bin, 'agn in red galaxies')
 
-green = agn[N.where(agns['GREEN'] == 1)]
+green = agn[N.where((agns['GREEN'] == 1) & (agns['bpt_class'] > 2))]
 bdxagn = N.digitize(agns[N.where(agns['GREEN']==1)]['best_t'], bx)
 bdyagn = N.digitize(agns[N.where(agns['GREEN']==1)]['best_tau'], by)
 green_agn_bin, frac_agn_green, frac_green = bin_calc(green, bdxagn, bdyagn)
 bin_plot(frac_green, frac_agn_green, green_agn_bin, 'agn in green galaxies')
 
-blue = agn[N.where(agns['BLUE'] == 1)]
+blue = agn[N.where((agns['BLUE'] == 1) & (agns['bpt_class'] > 2))]
 bdxagn = N.digitize(agns[N.where(agns['BLUE']==1)]['best_t'], bx)
 bdyagn = N.digitize(agns[N.where(agns['BLUE']==1)]['best_tau'], by)
 blue_agn_bin, frac_agn_blue, frac_blue = bin_calc(blue, bdxagn, bdyagn)
 bin_plot(frac_blue, frac_agn_blue, blue_agn_bin, 'agn in blue galaxies')
 
 lum = agns['L_03']
-bdxagn = N.digitize(agns[N.where((agns['L_03']>0) & (agns['RED']==1)& (agns['t01_smooth_or_features_a01_smooth_flag']==1))]['best_t'], bx)
-bdyagn = N.digitize(agns[N.where((agns['L_03']>0) & (agns['RED']==1)& (agns['t01_smooth_or_features_a01_smooth_flag']==1))]['best_tau'], by)
+bdxagn = N.digitize(agns[N.where((agns['bpt_class'] > 2) & (agns['L_03']>0) & (agns['RED']==1)& (agns['t01_smooth_or_features_a01_smooth_flag']==1))]['best_t'], bx)
+bdyagn = N.digitize(agns[N.where((agns['bpt_class'] > 2) & (agns['L_03']>0) & (agns['RED']==1)& (agns['t01_smooth_or_features_a01_smooth_flag']==1))]['best_tau'], by)
 
-agn_lum = lum[N.where((agns['L_03']>0) & (agns['RED']==1)& (agns['t01_smooth_or_features_a01_smooth_flag']==1))]
+agn_lum = lum[N.where((agns['bpt_class'] > 2) & (agns['L_03']>0) & (agns['RED']==1)& (agns['t01_smooth_or_features_a01_smooth_flag']==1))]
 avg_agn_bin = bin_avg(agn_lum, bdxagn, bdyagn)
 bin_plot(frac_all, N.log10(avg_agn_bin), agn_bin, 'average agn luminosity for red smooth')
 
 lum = agns['L_03']
-bdxagn = N.digitize(agns[N.where((agns['L_03']>0) & (agns['GREEN']==1)& (agns['t01_smooth_or_features_a01_smooth_flag']==1))]['best_t'], bx)
-bdyagn = N.digitize(agns[N.where((agns['L_03']>0) & (agns['GREEN']==1)& (agns['t01_smooth_or_features_a01_smooth_flag']==1))]['best_tau'], by)
+bdxagn = N.digitize(agns[N.where((agns['bpt_class'] > 2) & (agns['L_03']>0) & (agns['GREEN']==1)& (agns['t01_smooth_or_features_a01_smooth_flag']==1))]['best_t'], bx)
+bdyagn = N.digitize(agns[N.where((agns['bpt_class'] > 2) & (agns['L_03']>0) & (agns['GREEN']==1)& (agns['t01_smooth_or_features_a01_smooth_flag']==1))]['best_tau'], by)
 
-agn_lum = lum[N.where((agns['L_03']>0) & (agns['GREEN']==1)& (agns['t01_smooth_or_features_a01_smooth_flag']==1))]
+agn_lum = lum[N.where((agns['bpt_class'] > 2) & (agns['L_03']>0) & (agns['GREEN']==1)& (agns['t01_smooth_or_features_a01_smooth_flag']==1))]
 avg_agn_bin = bin_avg(agn_lum, bdxagn, bdyagn)
 bin_plot(frac_all, N.log10(avg_agn_bin), agn_bin, 'average agn luminosity for green smooth')
 
 lum = agns['L_03']
-bdxagn = N.digitize(agns[N.where((agns['L_03']>0) & (agns['BLUE']==1)& (agns['t01_smooth_or_features_a01_smooth_flag']==1))]['best_t'], bx)
-bdyagn = N.digitize(agns[N.where((agns['L_03']>0) & (agns['BLUE']==1)& (agns['t01_smooth_or_features_a01_smooth_flag']==1))]['best_tau'], by)
+bdxagn = N.digitize(agns[N.where((agns['bpt_class'] > 2) & (agns['L_03']>0) & (agns['BLUE']==1)& (agns['t01_smooth_or_features_a01_smooth_flag']==1))]['best_t'], bx)
+bdyagn = N.digitize(agns[N.where((agns['bpt_class'] > 2) & (agns['L_03']>0) & (agns['BLUE']==1)& (agns['t01_smooth_or_features_a01_smooth_flag']==1))]['best_tau'], by)
 
-agn_lum = lum[N.where((agns['L_03']>0) & (agns['BLUE']==1)& (agns['t01_smooth_or_features_a01_smooth_flag']==1))]
+agn_lum = lum[N.where((agns['bpt_class'] > 2) & (agns['L_03']>0) & (agns['BLUE']==1)& (agns['t01_smooth_or_features_a01_smooth_flag']==1))]
 avg_agn_bin = bin_avg(agn_lum, bdxagn, bdyagn)
 bin_plot(frac_all, N.log10(avg_agn_bin), agn_bin, 'average agn luminosity for blue smooth')
 
 
 mstellar = agns['log_mstellar']
 
-bdxagn = N.digitize(agns[N.where(agns['log_mstellar']>0)]['best_t'], bx)
-bdyagn = N.digitize(agns[N.where(agns['log_mstellar']>0)]['best_tau'], by)
+bdxagn = N.digitize(agns[N.where(agns['log_mstellar']>0) & (agns['bpt_class'] > 2)]['best_t'], bx)
+bdyagn = N.digitize(agns[N.where(agns['log_mstellar']>0) & (agns['bpt_class'] > 2)]['best_tau'], by)
 
-agn_mstellar = mstellar[N.where(agns['log_mstellar']>0)]
+agn_mstellar = mstellar[N.where(agns['log_mstellar']>0) & (agns['bpt_class'] > 2)]
 avg_mstellar_bin = bin_avg(agn_mstellar, bdxagn, bdyagn)
 bin_plot(frac_all, avg_mstellar_bin, agn_bin, 'average stellar mass of agn')
 
 sigma = agns['sigma']
 
-bdxagn = N.digitize(agns[N.where(agns['sigma']>0)]['best_t'], bx)
-bdyagn = N.digitize(agns[N.where(agns['sigma']>0)]['best_tau'], by)
+bdxagn = N.digitize(agns[N.where(agns['sigma']>0) & (agns['bpt_class'] > 2)]['best_t'], bx)
+bdyagn = N.digitize(agns[N.where(agns['sigma']>0) & (agns['bpt_class'] > 2)]['best_tau'], by)
 
-agn_sigma = sigma[N.where(agns['sigma']>0)]
+agn_sigma = sigma[N.where(agns['sigma']>0) & (agns['bpt_class'] > 2)]
 avg_sigma_bin = bin_avg(agn_sigma, bdxagn, bdyagn)
 bin_plot(frac_all, avg_sigma_bin, agn_bin, 'average sigma of agn')
 

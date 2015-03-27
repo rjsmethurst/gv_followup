@@ -14,7 +14,7 @@
 \def\starpy {\textsc{starpy}}
 
 \begin{document}
-\title[AGN & Star Formation]{Galaxy Zoo: Two modes of black hole growth driven by star formation}
+\title[AGN \& Star Formation]{Galaxy Zoo: Two modes of black hole growth driven by star formation}
 \author[Smethurst et al. 2014]{R. ~J. ~Smethurst,$^{1}$ C. ~J. ~Lintott,$^{1}$ B. ~D. ~Simmons,$^{1}$
 \\ $^1$ Oxford Astrophysics, Department of Physics, University of Oxford, Denys Wilkinson Building, Keble Road, Oxford, OX1 3RH, UK 
 \\
@@ -39,30 +39,50 @@ Previous studies shown that two different modes of black hole growth in late typ
 
 Largest fraction of AGN found in green valley suggesting some link to the process of quenching star formation in order for a galaxy to progress from the blue cloud to the red sequence. 
 
-Here we try to link the star formation history of galaxies to the presence of AGN with the use of novel new Bayesian code \starpy which given NUV and optical colours and using SSP models can effectively describe the SFH of a galaxy with two parameters. 
+Here we try to link the star formation history of galaxies to the presence of AGN with the use of novel new code implementing a Bayesian method; \starpy~which, given NUV and optical colours and using SSP models, can effectively describe the SFH of a galaxy with two parameters. 
 
 
 \section{Data}
 
-\subsection{Galaxy Zoo 2}\label{galzoo}
-
-Galaxy Zoo is awesome. Especially GZ2 which provides us with a huge probabilistic data set with reliable morphological classifications of a huge set of galaxies. 
-
-\begin{figure*}
-\centering{
-\includegraphics[width=\textwidth]{mosaic_agn_smooth_fraction.pdf}}
-\caption{{\newchange Randomly selected SDSS \emph{gri} composite images showing the continuous probabilistic nature of the Galaxy Zoo sample from a redshift range $0.040 < z < 0.045$. The debiased smooth vote fraction (see \citealt{GZ2}) for each galaxy is shown. The scale for each image is $0.099~\rm{arcsec/pixel}$.}}
-\label{mosaic}
-\end{figure*}
-
-
 \subsection{\sc{STARPY}}
 
-\starpy is awesome. It gives Bayesian derived quenched SFHs of galaxies described by two parameters. We used it and described it fully in \cite{Sme2015}. 
+\starpy~ is a \textsc{python} code which allows the user to derive the quenched star formation history of a galaxy through a Bayesian Markov Chain Monte Carlo method through the input of two observed photometric colours and a redshift. This quenched star formation history is described by two parameters $[t_q, \tau]$ where $t$ is the time at which the onset of quenching begins $[Gyr]$ and $\tau$ is the exponential rate at which quenching occurs $[Gyr]$. The SFH if one assumes that all galaxies formed at $t=0$ Gyr with an initial burst of star formation can therefore be described as: 
+
+\begin{equation}\label{sfh}
+SFR =
+\begin{cases}
+i_{sfr}(t_q) & \text{if } t < t_q \\
+i_{sfr}(t_q) \times exp{\left( \frac{-(t-t_{q})}{\tau}\right)} & \text{if } t > t_q 
+\end{cases}
+\end{equation}
+
+where $i_{sfr}$ is an initial constant star formation rate dependent on $t_q$.  A smaller $\tau$ value corresponds to a rapid quench, whereas a larger $\tau$ value corresponds to a slower quench. The probabilistic fitting methods to this SFH for an observed galaxy are described in detail in \cite{Sme2015} wherein the \starpy ~code was run on a sample of $126,316$ galaxies from the Galaxy Zoo project. 
 
 \subsection{AGN Selection}
 
-\cite{Sch2010} made a sample of AGN from GZ - it is publicly available on the web. These galaxies have been run through \starpy to get the best description of their quenched star formation histories. 
+\cite{Sch2010} selected a sample of $942$ narrow line AGN galaxies from a parent magnitude limited sample of $47,675$ SDSS galaxies with $0.02 < z < 0.05$ and $r < 17$ AB mag and $M_{z, Petro} < -19.5$ AB mag with morphological classifications from Galaxy Zoo. They further select AGN galaxies by measuring the emission line fluxes of each galaxy using GANDALF \citep{Sar2006} and utilising emission line diagrams  (see Figure 2 of \citealt{Sch2010} of the narrow line flux ratio's of $[OIII]/H\beta$, $[NII]/H\alpha$, $[SII]/H\alpha$ and $[OI]/H\alpha$. This is the same as the method outlined previously in \cite{Sch07}. 
+
+\subsection{Galaxy Zoo 2}\label{galzoo}
+
+\begin{figure*}
+\centering{
+\includegraphics[width=\textwidth]{mosaic_agn_seyfert_disc_fraction.pdf}}
+\caption{Randomly selected SDSS \emph{gri} composite images from the sample of $439$ narrow-line AGN showing the continuous probabilistic nature of the Galaxy Zoo sample from a redshift range $0.040 < z < 0.045$. The debiased `disc or featured' vote fraction (see \citealt{GZ2}) for each galaxy is shown. The scale for each image is $0.099~\rm{arcsec/pixel}$.}
+\label{mosaic}
+\end{figure*}
+
+In this investigation we use visual classifications of galaxy morphologies from the Galaxy Zoo 2\footnote{\url{http://zoo2.galaxyzoo.org/}} citizen science project \citep{GZ2}, which obtains multiple independent classifications for each optical galaxy image; the full question tree for each image is shown in Figure 1 of \citealt{GZ2}.  
+
+The Galaxy Zoo 2 (GZ2) project consists of $304, 022$ images from the SDSS DR8 (a subset of those classified in Galaxy Zoo 1; GZ1) all classified by \emph{at least} 17 independent users, with the mean number of classifications standing at $\sim42$.
+
+Further to this, we required NUV photometry from the GALEX survey, within which $\sim42\%$ of the GZ2 sample were observed, giving a total sample size of $126, 316$ galaxies. The completeness of this subsample of GZ2 matched to GALEX is shown in Figure 2 of \cite{Sme2015} with the $u$-band absolute magnitude against redshift for this sample compared with the SDSS data set. Typical Milky Way $L_*$ galaxies with $M_u \sim -20.5$ are still included in the GZ2 subsample out to the highest redshift of $z \sim 0.25$; however dwarf and lower mass galaxies are only detected at the lowest redshifts.
+
+This sample of $126, 316$ galaxies was then matched to the AGN sample from Galaxy Zoo 1 selected by \cite{Sch2010} to give $21,713$ galaxies with morphological classifications from GZ2 and SFH parameters from starpy. This resulted in a sub-sample of $439$ narrow-line AGN giving a lower limit on the AGN fraction of $2\%$, as we do not include LINERS, obscured AGN or broad-line AGN, as in \cite{Sch2010}.
+
+
+
+
+
 
 \section{Results}
 
@@ -104,6 +124,10 @@ This publication made extensive use of the Tool for Operations on Catalogues And
 \bibitem[\protect\citeauthoryear{Lintott et al.}{2011}]{Lintott11} Lintott, C. J. et al., 2011, MNRAS, 410, 166
 
 \bibitem[\protect\citeauthoryear{Robitaille et al.}{2013}]{Rob13} Robitaille, T. P. et al., 2013, A\&A, 558, A33
+
+\bibitem[\protect\citeauthoryear{Sarzi et al.}{2006}]{Sar2006} Sarzi, M. et al., 2006, MNRAS, 366, 1151
+
+\bibitem[\protect\citeauthoryear{Schawinski et al.}{2007}]{Sch07} Schawinski, et al., 2007, MNRAS, 382, 1415
 
 \bibitem[\protect\citeauthoryear{Schawinski et al.}{2010}]{Sch2010} Schawinski, K. et al., 2010, MNRAS, 711, 284
 
