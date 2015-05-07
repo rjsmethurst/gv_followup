@@ -14,7 +14,7 @@
 \def\starpy {\textsc{starpy}}
 
 \begin{document}
-\title[AGN \& Star Formation]{Galaxy Zoo: Two modes of black hole growth driven by star formation}
+\title[Quenching by AGN]{Galaxy Zoo: Evidence for quenching caused by AGN feedback}
 \author[Smethurst et al. 2014]{R. ~J. ~Smethurst,$^{1}$ C. ~J. ~Lintott,$^{1}$ B. ~D. ~Simmons,$^{1}$
 \\ $^1$ Oxford Astrophysics, Department of Physics, University of Oxford, Denys Wilkinson Building, Keble Road, Oxford, OX1 3RH, UK 
 \\
@@ -23,7 +23,7 @@
 \maketitle
 
 \begin{abstract}
-Two modes of black hole growth in early and late type galaxies but no correlation to mechanisms. New Bayesian SFH tool \starpy let's us investigate the SFH as two parameters $[t, \tau]$ and investigate the AGN fraction, duty cycle and average AGN luminosity across this parameter space. We find that rapid quenching mechanisms give rise to high luminosity AGN and slow quenching mechanisms to low luminosity AGN.\footnotemark[1]
+Evidence of recent quenching in galaxies with AGN. New Bayesian SFH tool \starpy let's us investigate the SFH as two parameters $[t, \tau]$ and investigate the parameter likelihood in this space of active and inactive galactic nuclei. We find that galaxies currently hosting an AGN have undergone very recent rapid quenching across all mass bins. This is not seen in those galaxies without current AGN.  \footnotemark[1]
 
 \end{abstract}
 
@@ -56,11 +56,13 @@ i_{sfr}(t_q) \times exp{\left( \frac{-(t-t_{q})}{\tau}\right)} & \text{if } t > 
 \end{cases}
 \end{equation}
 
-where $i_{sfr}$ is an initial constant star formation rate dependent on $t_q$.  A smaller $\tau$ value corresponds to a rapid quench, whereas a larger $\tau$ value corresponds to a slower quench. The probabilistic fitting methods to this SFH for an observed galaxy are described in detail in \cite{Sme2015} wherein the \starpy ~code was run on a sample of $126,316$ galaxies from the Galaxy Zoo project. 
+where $i_{sfr}$ is an initial constant star formation rate dependent on $t_q$.  A smaller $\tau$ value corresponds to a rapid quench, whereas a larger $\tau$ value corresponds to a slower quench. The probabilistic fitting methods to this SFH for an observed galaxy are described in detail in \cite{Sme2015} wherein the \starpy ~code was run on a sample of $126,316$ galaxies from the Galaxy Zoo project. This will be referred to as the {\sc GZ2-starpy} sample. 
 
 \subsection{AGN Selection}
 
-\cite{Sch2010} selected a sample of $942$ narrow line AGN galaxies from a parent magnitude limited sample of $47,675$ SDSS galaxies with $0.02 < z < 0.05$ and $r < 17$ AB mag and $M_{z, Petro} < -19.5$ AB mag with morphological classifications from Galaxy Zoo. They further select AGN galaxies by measuring the emission line fluxes of each galaxy using GANDALF \citep{Sar2006} and utilising emission line diagrams  (see Figure 2 of \citealt{Sch2010} of the narrow line flux ratio's of $[OIII]/H\beta$, $[NII]/H\alpha$, $[SII]/H\alpha$ and $[OI]/H\alpha$. This is the same as the method outlined previously in \cite{Sch07}. 
+Describe sample from Oh et al. (2015). Matched to the {\sc GZ2-starpy} sample to give 1357 AGN hosting galaxies. 202 low mass ($M_* < 10.25 M_{\odot}$). 756 medium mass  ($ 10.25 < M_* [M_{\odot}] < 10.75 $). 399 high mass ($M_* > 10.75 M_{\odot}$) . 
+
+%\cite{Sch2010} selected a sample of $942$ narrow line AGN galaxies from a parent magnitude limited sample of $47,675$ SDSS galaxies with $0.02 < z < 0.05$ and $r < 17$ AB mag and $M_{z, Petro} < -19.5$ AB mag with morphological classifications from Galaxy Zoo. They further select AGN galaxies by measuring the emission line fluxes of each galaxy using GANDALF \citep{Sar2006} and utilising emission line diagrams  (see Figure 2 of \citealt{Sch2010} of the narrow line flux ratio's of $[OIII]/H\beta$, $[NII]/H\alpha$, $[SII]/H\alpha$ and $[OI]/H\alpha$. This is the same as the method outlined previously in \cite{Sch07}. 
 
 \subsection{Galaxy Zoo 2}\label{galzoo}
 
@@ -86,23 +88,52 @@ This sample of $126, 316$ galaxies was then matched to the AGN sample from Galax
 
 \section{Results}
 
-Here are all the ridiculous amounts of plots I made condensed down into 1 or 2 easy to understand plots that gets the point across. 
+Across different mass bins in Figure \ref{agn} compared to Figure {inactive} we see an increase in the likelihoood across the parameter space for rapid quenching at recent times for AGN hosting galaxies. 
+
+\begin{figure*}
+\includegraphics[width=0.4\textwidth]{sum_weight_low_mass_smooth_agn_oh_sample.png}
+\includegraphics[width=0.4\textwidth]{sum_weight_low_mass_disc_agn_oh_sample.png}
+\includegraphics[width=0.4\textwidth]{sum_weight_med_mass_smooth_agn_oh_sample.png}
+\includegraphics[width=0.4\textwidth]{sum_weight_med_mass_disc_agn_oh_sample.png}
+\includegraphics[width=0.4\textwidth]{sum_weight_high_mass_smooth_agn_oh_sample.png}
+\includegraphics[width=0.4\textwidth]{sum_weight_high_mass_disc_agn_oh_sample.png}
+\caption{SLB plots for galaxies with AGN. Split into low (top), medium (middle) and high (bottom) mass galaxies which are weighted by their GZ2 vote fraction for either smooth (left) or disc (right) galaxies.}
+\label{agn}
+\end{figure*}
+
+\begin{figure*}
+\includegraphics[width=0.4\textwidth]{oh_sample/sum_weight_low_mass_smooth_no_agn_oh_sample.png}
+\includegraphics[width=0.4\textwidth]{oh_sample/sum_weight_low_mass_disc_no_agn_oh_sample.png}
+\includegraphics[width=0.4\textwidth]{oh_sample/sum_weight_med_mass_smooth_no_agn_oh_sample.png}
+\includegraphics[width=0.4\textwidth]{oh_sample/sum_weight_med_mass_disc_no_agn_oh_sample.png}
+\includegraphics[width=0.4\textwidth]{oh_sample/sum_weight_high_mass_smooth_no_agn_oh_sample.png}
+\includegraphics[width=0.4\textwidth]{oh_sample/sum_weight_high_mass_disc_no_agn_oh_sample.png}
+\caption{SLB plots for galaxies which are inactive. Split into low (top), medium (middle) and high (bottom) mass galaxies which are weighted by their GZ2 vote fraction for either smooth (left) or disc (right) galaxies.}
+\label{agn}
+\end{figure*}
+
 
 \section{Discussion}
 
-Rapid quench results in high luminosity AGN. 
+Rapid quench results in high luminosity AGN?
 
-Slow quench results in low luminosity AGN. 
+Slow quench results in low luminosity AGN?
 
-Majority of disc galaxies with AGN found at slow quenching timescales but with low luminosity AGN. 
+Majority of disc galaxies with AGN found at slow quenching timescales but with low luminosity AGN?
 
-Small fraction of AGN are in smooth galaxies found at rapid quenching timescales with high luminosity AGN. 
+Small fraction of AGN are in smooth galaxies found at rapid quenching timescales with high luminosity AGN?
 
-Two modes of black hole growth clearly highlighted. 
+How significant is the quenching? Is this a sample where AGN feedback was important or just one where it happened.
+
+How many galaxies (as discussed earlier) - are they unusual?
+
+Is this a significant chunk of a galaxy population?
+
+Are there AGN out there somewhere which aren't quenching?
 
 \section{Conclusion}
 
-AGN and SFH linked. Rapid == high luminosity but there's not a lot of those. Slow == low luminosity and there's loads of those. 
+AGN and SFH linked. Rapid == high luminosity but there's not a lot of those. Slow == low luminosity and there's loads of those. Clear evidence for quenching driven by AGN - negative feedback. 
 
 \section*{Acknowledgements}
 
