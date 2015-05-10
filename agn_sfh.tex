@@ -35,34 +35,18 @@ There is clearly a relationship between central black hole and evolution of gala
 
 This effect seems to be strongest during AGN phase of black hole growth. 
 
-Previous studies shown that two different modes of black hole growth in late types and early types. 
+Theorised that AGN can have negative feedback on galaxy SFR. This is supported by the observational evidence that the largest fraction of AGN are found in green valley, suggesting some link to the process of quenching star formation in order for a galaxy to progress from the blue cloud to the red sequence. 
 
-Largest fraction of AGN found in green valley suggesting some link to the process of quenching star formation in order for a galaxy to progress from the blue cloud to the red sequence. 
+Here we find indirect observational evidence linking the star formation history (SFH) of a galaxy to the presence of a current AGN with the use of a novel new code implementing a Bayesian method; \starpy. Given NUV and optical colours and using SSP models, \starpy can effectively describe the SFH of a galaxy with two parameters. 
 
-Here we try to link the star formation history of galaxies to the presence of AGN with the use of novel new code implementing a Bayesian method; \starpy~which, given NUV and optical colours and using SSP models, can effectively describe the SFH of a galaxy with two parameters. 
+Through this approach, we aim to determine the following:
+\begin{enumerate}
+\item{Are galaxies currently hosting an AGN undergoing quenching?}
+\end{enumerate}
+This paper proceeds as follows. Section 2 contains a description of the sample data, which is used in the Bayesian analysis of an exponentially declining star formation history model. Section 3 contains the results produced by this analysis, with Section 4 providing a detailed discussion of the results obtained. We also summarise our findings in Section 6. The zero points of all ugriz magnitudes are in the AB system and where necessary we adopt the WMAP Seven-Year Cosmological parameters (Jarosik et al. 2011) with (Ωm , Ω? , h) = (0.26, 0.73, 0.71).
 
 
 \section{Data}
-
-\subsection{\sc{STARPY}}
-
-\starpy~ is a \textsc{python} code which allows the user to derive the quenched star formation history of a galaxy through a Bayesian Markov Chain Monte Carlo method through the input of two observed photometric colours and a redshift. This quenched star formation history is described by two parameters $[t_q, \tau]$ where $t$ is the time at which the onset of quenching begins $[Gyr]$ and $\tau$ is the exponential rate at which quenching occurs $[Gyr]$. The SFH if one assumes that all galaxies formed at $t=0$ Gyr with an initial burst of star formation can therefore be described as: 
-
-\begin{equation}\label{sfh}
-SFR =
-\begin{cases}
-i_{sfr}(t_q) & \text{if } t < t_q \\
-i_{sfr}(t_q) \times exp{\left( \frac{-(t-t_{q})}{\tau}\right)} & \text{if } t > t_q 
-\end{cases}
-\end{equation}
-
-where $i_{sfr}$ is an initial constant star formation rate dependent on $t_q$.  A smaller $\tau$ value corresponds to a rapid quench, whereas a larger $\tau$ value corresponds to a slower quench. The probabilistic fitting methods to this SFH for an observed galaxy are described in detail in \cite{Sme2015} wherein the \starpy ~code was run on a sample of $126,316$ galaxies from the Galaxy Zoo project. This will be referred to as the {\sc GZ2-starpy} sample. 
-
-\subsection{AGN Selection}
-
-Describe sample from Oh et al. (2015). Matched to the {\sc GZ2-starpy} sample to give 1357 AGN hosting galaxies. 202 low mass ($M_* < 10.25 M_{\odot}$). 756 medium mass  ($ 10.25 < M_* [M_{\odot}] < 10.75 $). 399 high mass ($M_* > 10.75 M_{\odot}$) . 
-
-%\cite{Sch2010} selected a sample of $942$ narrow line AGN galaxies from a parent magnitude limited sample of $47,675$ SDSS galaxies with $0.02 < z < 0.05$ and $r < 17$ AB mag and $M_{z, Petro} < -19.5$ AB mag with morphological classifications from Galaxy Zoo. They further select AGN galaxies by measuring the emission line fluxes of each galaxy using GANDALF \citep{Sar2006} and utilising emission line diagrams  (see Figure 2 of \citealt{Sch2010} of the narrow line flux ratio's of $[OIII]/H\beta$, $[NII]/H\alpha$, $[SII]/H\alpha$ and $[OI]/H\alpha$. This is the same as the method outlined previously in \cite{Sch07}. 
 
 \subsection{Galaxy Zoo 2}\label{galzoo}
 
@@ -79,12 +63,34 @@ The Galaxy Zoo 2 (GZ2) project consists of $304, 022$ images from the SDSS DR8 (
 
 Further to this, we required NUV photometry from the GALEX survey, within which $\sim42\%$ of the GZ2 sample were observed, giving a total sample size of $126, 316$ galaxies. The completeness of this subsample of GZ2 matched to GALEX is shown in Figure 2 of \cite{Sme2015} with the $u$-band absolute magnitude against redshift for this sample compared with the SDSS data set. Typical Milky Way $L_*$ galaxies with $M_u \sim -20.5$ are still included in the GZ2 subsample out to the highest redshift of $z \sim 0.25$; however dwarf and lower mass galaxies are only detected at the lowest redshifts.
 
-This sample of $126, 316$ galaxies was then matched to the AGN sample from Galaxy Zoo 1 selected by \cite{Sch2010} to give $21,713$ galaxies with morphological classifications from GZ2 and SFH parameters from starpy. This resulted in a sub-sample of $439$ narrow-line AGN giving a lower limit on the AGN fraction of $2\%$, as we do not include LINERS, obscured AGN or broad-line AGN, as in \cite{Sch2010}.
 
+\subsection{\sc{STARPY}}
 
+\starpy~ is a \textsc{python} code which allows the user to derive the quenched star formation history (SFH) of a galaxy through a Bayesian Markov Chain Monte Carlo method through the input of two observed photometric colours and a redshift, and the use of the SSP models of \citep{BC03}. The star formation history template is an exponential decline of the SFR and is described by two parameters $[t_q, \tau]$ where $t$ is the time at which the onset of quenching begins $[Gyr]$ and $\tau$ is the exponential rate at which quenching occurs $[Gyr]$. Under the simplifying assumption that all galaxies formed at $t=0$ Gyr with an initial burst of star formation, the SFH can therefore be described as: 
 
+\begin{equation}\label{sfh}
+SFR =
+\begin{cases}
+i_{sfr}(t_q) & \text{if } t < t_q \\
+i_{sfr}(t_q) \times exp{\left( \frac{-(t-t_{q})}{\tau}\right)} & \text{if } t > t_q 
+\end{cases}
+\end{equation}
 
+where $i_{sfr}$ is an initial constant star formation rate dependent on $t_q$.  A smaller $\tau$ value corresponds to a rapid quench, whereas a larger $\tau$ value corresponds to a slower quench. The output of \starpy is probabilistic in nature and provides the likelihood across the entirety of the two parameter space for each individual galaxy. These individual galaxy likelihoods can be combined to visualise the areas of high probability in the model parameter space for a given population of galaxies (e.g. the green valley as in \citealt{Sme2015} and here with active and inactive galaxies). The GZ2 data also provides uniquely powerful continuous measurements of a galaxy’s morphology, therefore we utilise the user vote fractions to obtain separate model likelihood parameter distributions for both smooth and disc galaxies; obtained by weighting by the morphology vote fraction of each galaxy when combined. We stress that this portion of the methodology is a non-Bayesian visualisation of the combined individual galaxy results for each population.
 
+The probabilistic fitting methods to this SFH for an observed galaxy are described in full detail in \cite{Sme2015} wherein the \starpy ~code was run on a volume limited sample ($0.01 < z < 0.25$)  of $126,316$ galaxies of the Galaxy Zoo 2 project from SDSS DR8 \citep{York2000, Aihara11}. This will be referred to as the {\sc GZ2-starpy} sample. 
+
+\subsection{AGN Sample} 
+
+We utilise a new sample of type 1 AGN selected by \citep{Oh15} who built on the selection techniques of the OSSY catalogue \footnote{http://gem.yonsei.ac.kr/ossy/} described in \citep{Oh11}. To search for broad line region (BLR) AGN \citep{Oh15} used a flux ratio between between two regions near the $H\alpha$ emission line in SDSS DR7 spectra. The two regions were $6460-6480 \AA$ and $6523 - 6543 \AA$ to give a ratio between $F_{6533}/F_{6470}$; which if high identified those candidate galaxies which could currently hosting an AGN. Each spectra was fit using the {\sc IDL ppxf} and {\sc gandalf} programs with the \citep{BC03} and {\sc MILES} stellar libraries using the Levenberg Marquardt minimisation method \citep{Mark09}. From the measured continuums and emission line widths type 1 AGN were selected with the following criteria:
+
+\begin{enumerate}
+\item{$0.00 < z < 0.20$}
+\item{FWHM of $H\alpha > 800 ~\rm{km~s^{-1}}$}
+\item{A/N of broad $H\alpha > 3$}
+\end{enumerate}
+
+This resulted in a sample of 9,671 type 1 AGN identified by cite{Oh15} with broad line and luminosity measurements provided in the published catalogue. This sample was then matched to the {\sc GZ2-starpy} sample to give $1,357$ galaxies currently hosting AGN. This sample is studied in three different mass bins with $202$ low mass ($M_* < 10.25 M_{\odot}$), $756$ medium mass  ($ 10.25 < M_* [M_{\odot}] < 10.75 $) and $399$ high mass ($M_* > 10.75 M_{\odot}$) galaxies. 
 
 \section{Results}
 
@@ -150,23 +156,35 @@ This publication made extensive use of the Tool for Operations on Catalogues And
 
 \begin{thebibliography}{}
 
+\bibitem[\protect\citeauthoryear{Aihara et al.}{2011}]{Aihara11} Aihara, H. et al., 2011, ApJSS, 193, 29
+
+\bibitem[\protect\citeauthoryear{Bruzua \& Charlot}{2003}]{BC03} Bruzual, G. \& Charlot, S., 2003, MNRAS, 344, 1000
+
 \bibitem[\protect\citeauthoryear{Lintott et al.}{2008}]{Lintott09} Lintott, C. J. et al., 2008, MNRAS, 389, 1179
 
 \bibitem[\protect\citeauthoryear{Lintott et al.}{2011}]{Lintott11} Lintott, C. J. et al., 2011, MNRAS, 410, 166
 
+\bibitem[\protect\citeauthoryear{Markwardt et al.}{2009}]{Mark09} Markwardt, C. B. 2009, in Astronomical Society of the Pacific Conference Series, Vol. 411, Astronomical Data Analysis Software and Systems XVIII, ed. D. A. Bohlender, D. Durand \& P. Dowler, 251
+
+\bibitem[\protect\citeauthoryear{Oh et al.}{2011}]{Oh11} Oh, K., Sarzi, M., Schawinski, K., \& Yi, S. K., 2011, ApJS, 195, 13
+
+\bibitem[\protect\citeauthoryear{Oh et al.}{2015}]{Oh15} arXiv: 1504.07247
+
 \bibitem[\protect\citeauthoryear{Robitaille et al.}{2013}]{Rob13} Robitaille, T. P. et al., 2013, A\&A, 558, A33
 
 \bibitem[\protect\citeauthoryear{Sarzi et al.}{2006}]{Sar2006} Sarzi, M. et al., 2006, MNRAS, 366, 1151
-
+ph
 \bibitem[\protect\citeauthoryear{Schawinski et al.}{2007}]{Sch07} Schawinski, et al., 2007, MNRAS, 382, 1415
 
 \bibitem[\protect\citeauthoryear{Schawinski et al.}{2010}]{Sch2010} Schawinski, K. et al., 2010, MNRAS, 711, 284
 
-\bibitem[\protect\citeauthoryear{Smethurst et al.}{2015}]{Sme2015} Smethurst, R. J. et al., 2015, arXiv: 1501.05955
+\bibitem[\protect\citeauthoryear{Smethurst et al.}{2015}]{Sme2015} Smethurst, R. J. et al., 2015, MNRAS, 450, 435
 
 \bibitem[\protect\citeauthoryear{Taylor}{2005}]{Taylor05} Taylor, M. B., 2005, ASP Conference Series, 347
 
 \bibitem[\protect\citeauthoryear{Willett et al.}{2013}]{GZ2} Willett, K. et al., 2013, MNRAS, 435, 2835
+
+\bibitem[\protect\citeauthoryear{York et al.}{2009}]{York2000} York, D. G. et al., 2000, AJ, 120, 1579
 
 \end{thebibliography}{}
 
