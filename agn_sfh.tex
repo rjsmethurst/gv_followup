@@ -23,7 +23,7 @@
 \maketitle
 
 \begin{abstract}
-Evidence of recent quenching in galaxies with AGN. New Bayesian SFH tool \starpy ~let's us investigate the SFH as two parameters $[t, \tau]$ and investigate the parameter likelihood in this space of active and inactive galactic nuclei. We find that galaxies currently hosting an AGN have undergone very recent rapid quenching across all mass bins. This is not seen in those galaxies without current AGN.  \footnotemark[1]
+Evidence of recent quenching in galaxies with AGN. New Bayesian SFH tool \starpy ~~lets us investigate the SFH as two parameters $[t, \tau]$ and investigate the 2D likelihood distribution in this space of active and inactive galactic nuclei host galaxies. We find that galaxies currently hosting an AGN have undergone very recent rapid quenching across all mass bins. This is not seen in those galaxies without current AGN. Downsizing, whilst apparent for the inactive galaxies is a secondary effect to that of theaGN impact on the SFH of active host galaxies particularly for lower mass galaxies. This suggests AGN are the cause/consequence of quenching. \footnotemark[1]
 
 \end{abstract}
 
@@ -35,21 +35,21 @@ There is an observable obvious relationship between the evolution of a central b
 
 This effect seems to be strongest during AGN phase of black hole growth (???). 
 
-It has been theorised that AGN can have `negative feedback' on the SFR of a galaxy. This is supported by the observational evidence that the largest fraction of AGN are found in green valley \citep{Sch2010}, suggesting some link to the process of quenching star formation in order for a galaxy to progress from the blue cloud to the red sequence. 
+It has been theorised that AGN can have `negative feedback' on the star formation rate (SFR) of a galaxy. This is supported by the observational evidence that the largest fraction of AGN are found in green valley \citep{Sch2010}, suggesting some link to the process of quenching star formation in order for a galaxy to progress from the blue cloud to the red sequence. 
 
-Here we find indirect observational evidence linking the star formation history (SFH) of a galaxy to the presence of a current AGN with the use of a novel new code implementing a Bayesian method, \starpy. Given a NUV and an optical colour of an observed galaxy and by utilising SSP models, \starpy ~can effectively model the SFH of a galaxy with two parameters. 
+Here we find indirect observational evidence linking the star formation history (SFH) of a galaxy to the presence of a current AGN with the use of a novel new code implementing a Bayesian method, \starpy . Given a NUV and an optical colour of an observed galaxy and by utilising SSP models, \starpy ~can effectively model the SFH of a galaxy with two parameters. 
 
 Through this approach, we aim to determine the following:
 \begin{enumerate}
 \item{Are galaxies currently hosting an AGN undergoing quenching?}
 \item{If so, at what rate does this quenching occur?}
-\item{Is the AGN the cause of quenching, or has some other quenching mechanism triggered an AGN?}
+\item{Are the AGN the cause or consequence of any quenching?}
 \end{enumerate}
 
-This letter proceeds as follows. Section 2 contains a description of the sample data, which is used in the Bayesian analysis of an exponentially declining star formation history model. Section 3 contains the results produced by this analysis, with Section 4 providing a detailed discussion of the results obtained. We also summarise our findings in Section 6. The zero points of all ugriz magnitudes are in the AB system and where necessary we adopt the WMAP Seven-Year Cosmological parameters (Jarosik et al. 2011) with $(\Omega_m , ~\Omega_\lambda , ~h) = (0.26, 0.73, 0.71)$.
+This letter proceeds as follows. Section 2 contains a description of the sample data, which is used in the Bayesian analysis of an exponentially declining star formation history model. Section 3 contains the results produced by this analysis, with Section 4 providing a detailed discussion of the results obtained. We also summarise our findings in Section 5. The zero points of all ugriz magnitudes are in the AB system and where necessary we adopt the WMAP Seven-Year Cosmological parameters (Jarosik et al. 2011) with $(\Omega_m , ~\Omega_\lambda , ~h) = (0.26, 0.73, 0.71)$.
 
 
-\section{Data}
+\section{Data \& Methods}
 
 \subsection{Galaxy Zoo 2}\label{galzoo}
 
@@ -69,7 +69,7 @@ Further to this, we required NUV photometry from the GALEX survey, within which 
 
 \subsection{STARPY}
 
-\starpy ~ is a \textsc{python} code which allows the user to derive the quenched star formation history (SFH) of a galaxy through a Bayesian Markov Chain Monte Carlo method through the input of two observed photometric colours and a redshift, and the use of the SSP models of \cite{BC03}. The star formation history template is an exponential decline of the SFR and is described by two parameters $[t_q, \tau]$ where $t$ is the time at which the onset of quenching begins $[Gyr]$ and $\tau$ is the exponential rate at which quenching occurs $[Gyr]$. Under the simplifying assumption that all galaxies formed at $t=0$ Gyr with an initial burst of star formation, the SFH can therefore be described as: 
+\starpy ~ is a \textsc{python} code which allows the user to derive the quenched star formation history (SFH) of a galaxy through a Bayesian Markov Chain Monte Carlo method with the input of two observed photometric colours, a redshift, and the use of the SSP models of \cite{BC03}. The star formation history template is an exponential decline of the SFR and is described by two parameters $[t_q, \tau]$ where $t_q$ is the time at which the onset of quenching begins $[Gyr]$ and $\tau$ is the exponential rate at which quenching occurs $[Gyr]$. Under the simplifying assumption that all galaxies formed at $t=0$ Gyr with an initial burst of star formation, the SFH can therefore be described as: 
 
 \begin{equation}\label{sfh}
 SFR =
@@ -79,13 +79,15 @@ i_{sfr}(t_q) \times exp{\left( \frac{-(t-t_{q})}{\tau}\right)} & \text{if } t > 
 \end{cases}
 \end{equation}
 
-where $i_{sfr}$ is an initial constant star formation rate dependent on $t_q$.  A smaller $\tau$ value corresponds to a rapid quench, whereas a larger $\tau$ value corresponds to a slower quench. The output of \starpy  ~is probabilistic in nature and provides the likelihood across the entirety of the two parameter space for each individual galaxy. These individual galaxy likelihoods can be combined to visualise the areas of high probability in the model parameter space for a given population of galaxies (e.g. the green valley as in \citealt{Sme2015} and here with active and inactive galaxies). The GZ2 data also provides uniquely powerful continuous measurements of a galaxy’s morphology, therefore we utilise the user vote fractions to obtain separate model likelihood parameter distributions for both smooth and disc galaxies; obtained by weighting by the morphology vote fraction of each galaxy when combined. We stress that this portion of the methodology is a non-Bayesian visualisation of the combined individual galaxy results for each population.
+where $i_{sfr}$ is an initial constant star formation rate dependent on $t_q$ (see \citealt{Sme15}).  A smaller $\tau$ value corresponds to a rapid quench, whereas a larger $\tau$ value corresponds to a slower quench. The output of \starpy  ~is probabilistic in nature and provides the likelihood across the entirety of the two parameter space for each individual galaxy. 
+
+%These individual galaxy likelihoods can be combined to visualise the areas of high probability in the model parameter space for a given population of galaxies (e.g. the green valley as in \citealt{Sme2015} and here with active and inactive galaxies). The GZ2 data also provides uniquely powerful continuous measurements of a galaxy’s morphology, therefore we utilise the user vote fractions to obtain separate model likelihood parameter distributions for both smooth and disc galaxies; obtained by weighting by the morphology vote fraction of each galaxy when combined. We stress that this portion of the methodology is a non-Bayesian visualisation of the combined individual galaxy results for each population.
 
 The probabilistic fitting methods to this SFH for an observed galaxy are described in full detail in \cite{Sme2015} wherein the \starpy ~~code was run on a volume limited sample ($0.01 < z < 0.25$)  of $126,316$ galaxies of the Galaxy Zoo 2 project from SDSS DR8 \citep{York2000, Aihara11}. This will be referred to as the \textsc{GZ2-starpy} sample. 
 
-\subsection{AGN Sample} 
+\subsection{AGN Sample}\label{agnsample}
 
-We utilise a new sample of type 1 AGN selected by \citet{Oh15} who built on the selection techniques of the OSSY catalogue \footnote{http://gem.yonsei.ac.kr/ossy/} \citep{Oh11}. To search for broad line region (BLR) AGN \cite{Oh15} used a flux ratio between between two regions near the $H\alpha$ emission line in SDSS DR7 spectra. The two regions were $6460-6480 \AA$ and $6523 - 6543 \AA$ to give a ratio between $F_{6533}/F_{6470}$; which if high identified those candidate galaxies which could currently hosting an AGN. Each spectra was fit using the \textsc{IDL ppxf} and \textsc{gandalf} programs with the \citep{BC03} and \textsc{MILES} stellar libraries using the Levenberg Marquardt minimisation method \citep{Mark09}. From the measured continuums and emission line widths type 1 AGN were selected with the following criteria:
+We utilise a new sample of type 1 AGN selected by \citet{Oh15} who built on the selection techniques of the OSSY catalogue\footnote{http://gem.yonsei.ac.kr/ossy/} \citep{Oh11}. To search for broad line region (BLR) AGN \cite{Oh15} used a flux ratio between between two regions near the $H\alpha$ emission line in SDSS DR7 spectra. The two regions were $6460-6480 \AA$ and $6523 - 6543 \AA$ to give a flux ratio, $F_{6533}/F_{6470}$; which identified, if high, those candidate AGN host galaxies. Each spectra was fit using the \textsc{IDL ppxf} and \textsc{gandalf} programs with the \citep{BC03} and \textsc{MILES} stellar libraries using the Levenberg Marquardt minimisation method \citep{Mark09}. From the measured continuums and emission line widths type 1 AGN were selected with the following criteria:
 
 \begin{enumerate}
 \item[-]{$0.00 < z < 0.20$}
@@ -97,13 +99,14 @@ This resulted in a sample of 9,671 type 1 AGN identified by \cite{Oh15} with bro
 
 As the optical and NUV photometry are used to predict the most likely star formation history model of these galaxies, the flux contribution from the AGN at the centre of each galaxy had to be removed from the overall petrosian flux to give only the stellar contribution. This becomes an obvious method when the bright central point sources of the AGN in each galaxy of Figure \ref{mosaic} are noted. 
 
-This was calculated using the petrosian and \textsc{sf} magnitudes provided by SDSS and the \textsc{`auto'} and `aperture 3' magnitudes provided by GALEX. The GALEX \textsc{psf} size is quoted at $5-6''$ therefore to chose an equivalent magnitude to the SDSS \textsc{psf} magnitudes an aperture of similar size had to be selected. The possible magnitudes were therefore `aperture 2' or `aperture 3' which were $4.5''$ or $7''$ respectively. In order to ensure that the entirety of the flux contribution from the AGN was removed the larger $7''$ `aperture 5' was selected. These magnitudes were k-corrected to $z=0$ with the routine provided in \citet{Chil10} and extinction corrected using the dust maps of \citet{Sch98}\footnote{Software for extracting the $E(B-V)$ values from the Schlegel et al. (1998) dust maps is available at \url{github.com/rjsmethurst/ebvpy}} and optical and NUV $A/E(B-V)$ values from \citet{SchFink11} and \cite{Sei05} respectively. 
+This was achieved using the petrosian and \textsc{sf} magnitudes provided by SDSS and the \textsc{`auto'} and `aperture 3' magnitudes provided by GALEX. The GALEX \textsc{psf} size is quoted at $5-6''$ therefore in order to ensure that the entirety of the flux contribution from the AGN was removed the larger $7''$ `aperture 3' was selected (as opposed to the smaller $4.5''$ `aperture 2' provided by GALEX). These magnitudes were k-corrected to $z=0$ with the routine provided in \citet{Chil10} and extinction corrected using the dust maps of \citet{Sch98}\footnote{Software for extracting the $E(B-V)$ values from the Schlegel et al. (1998) dust maps is available at \url{github.com/rjsmethurst/ebvpy}} and optical and NUV $A/E(B-V)$ values from \citet{SchFink11} and \cite{Sei05} respectively. 
 
-This sample is studied in three different mass bins with $112 ~(11\%)$ low mass ($M_* < 10.25 ~M_{\odot}$), $572 ~(58\%)$ medium mass  ($ 10.25 < M_* [M_{\odot}] < 10.75 $) and $300 ~(31\%)$ high mass ($M_* > 10.75 ~M_{\odot}$) galaxies. This sample is compared to the larger \textsc{GZ2-starpy} sample of $125,332$ presumed inactive galaxies in the three different mass bins defined above, with $41,698 ~(33\%)$ low mass, $47,391 ~(38\%)$ medium mass and $36,243 ~(29\%)$ high mass galaxies. 
+%to chose an equivalent magnitude to the SDSS \textsc{psf} magnitudes an aperture of similar size had to be selected. The possible magnitudes were therefore `aperture 2' or `aperture 3' which were $4.5''$ or $7''$ respectively. 
+This sample is studied in three different mass bins with $112 ~(11\%)$ low mass ($M_* < 10.25 ~M_{\odot}$), $572 ~(58\%)$ medium mass  ($ 10.25 < M_* [M_{\odot}] < 10.75 $) and $300 ~(31\%)$ high mass ($M_* > 10.75 ~M_{\odot}$) galaxies and is compared to the larger \textsc{GZ2-starpy} sample of $125,332$ presumed inactive galaxies in the three different mass bins defined above, with $41,698 ~(33\%)$ low mass, $47,391 ~(38\%)$ medium mass and $36,243 ~(29\%)$ high mass galaxies. 
 
 \section{Results}
 
-Across different mass bins in Figures \ref{smooth} and \ref{disc} we see an increase in the likelihoood across the parameter space for rapid quenching at recent times for AGN hosting galaxies. 
+Each galaxy was run through \starpy ~ to obtain the 2D likelihood across the $[t_q, \tau]$ parameter space. These individual likelihood distributions of each galaxy are combined across the three mass bins defined in Secition \ref{agnsample} for active and inactive nuclei host galaxies. We also utilise the GZ2 morphologies and weight by the vote fractions to split the sample as smooth and disc galaxies. We stress that this portion is purely for visualisation purposes and is no longer a Bayesian method. Figures \ref{smooth} and \ref{disc} show these summed likelihood distributions across the parameter space for smooth and disc galaxies respectively across the three mass bins comparing AGN host galaxies and inactive galaxies. 
 
 \begin{figure*}
 \includegraphics[width=0.28\textwidth]{oh_sample/kcor/sum_weight_low_mass_smooth_agn_oh_sample_aper_5_kcor.pdf}
@@ -130,21 +133,29 @@ Across different mass bins in Figures \ref{smooth} and \ref{disc} we see an incr
 
 \section{Discussion}
 
-Rapid quench results in high luminosity AGN?
+%Rapid quench results in high luminosity AGN?
 
-Slow quench results in low luminosity AGN?
+%Slow quench results in low luminosity AGN?
 
-Majority of disc galaxies with AGN found at slow quenching timescales but with low luminosity AGN?
+%Majority of disc galaxies with AGN found at slow quenching timescales but with low luminosity AGN?
 
-Small fraction of AGN are in smooth galaxies found at rapid quenching timescales with high luminosity AGN?
+%Small fraction of AGN are in smooth galaxies found at rapid quenching timescales with high luminosity AGN?
 
-How significant is the quenching? Is this a sample where AGN feedback was important or just one where it happened.
+%How significant is the quenching? Is this a sample where AGN feedback was important or just one where it happened.
 
-How many galaxies (as discussed earlier) - are they unusual?
+%How many galaxies (as discussed earlier) - are they unusual?
 
-Is this a significant chunk of a galaxy population?
+%Is this a significant chunk of a galaxy population?
 
-Are there AGN out there somewhere which aren't quenching?
+%Are there AGN out there somewhere which aren't quenching?
+
+Distinct difference between the distribution of likelihood for AGN and inactive galaxies. Peak at rapid, recent quenching times for AGN hosts as opposed to a drop in the likelihood at recent quenching times for inactive galaxies. 
+
+This is evident of downsizing - stars in massive galaxies form first and star formation at later times is suppressed, therefore minimal quenching occurs at later times because there is no SF to quench. Evident in most massive galaxies, both smooth and disc. Downsizing still apparent in the AGN hosting galaxies at higher masses, just also have extra "boost" of quenching occurring at the rapid, recent timescales. This is the dominant mechanism for low mass galaxies which is smeared out to due to the secondary effects of downsizing in higher mass galaxies. 
+
+Slow quenching is the most likely quenching track for disc galaxies, as shown by \cite{Sme15}. In inactive galaxies this likelihood increases with decreasing mass, however for galaxies currently hosting AGN likelihood increases for increasing mass. 
+
+Is the AGN the cause or consequence of quenching? Could argue both ways; (i) lack of likelihood of recent rapid quenching tracks for inactive galaxies suggests they are the cause but (ii) the shift of the peak of the time when the most quenching is occurring to later times for the active galaxies with increasing mass suggest a consequence ,otherwise the lifetime of the AGN is not long enough to be detected. 
 
 \section{Conclusion}
 
