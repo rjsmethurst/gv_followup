@@ -106,29 +106,21 @@ This sample is studied in three different mass bins with $112 ~(11\%)$ low mass 
 
 \section{Results}
 
-Each galaxy was run through \starpy ~ to obtain the 2D likelihood across the $[t_q, \tau]$ parameter space. These individual likelihood distributions of each galaxy are combined across the three mass bins defined in Secition \ref{agnsample} for active and inactive nuclei host galaxies. We also utilise the GZ2 morphologies and weight by the vote fractions to split the sample as smooth and disc galaxies. We stress that this portion is purely for visualisation purposes and is no longer a Bayesian method. Figures \ref{smooth} and \ref{disc} show these summed likelihood distributions across the parameter space for smooth and disc galaxies respectively across the three mass bins comparing AGN host galaxies and inactive galaxies. 
+Each galaxy was run through \starpy ~ to obtain the 2D likelihood across the $[t_q, \tau]$ parameter space. These individual likelihood distributions of each galaxy are combined across the three mass bins defined in Secition \ref{agnsample} for active and inactive nuclei host galaxies. We also utilise the GZ2 morphologies and weight by the vote fractions to split the sample as smooth and disc galaxies. We stress that this portion is purely for visualisation purposes and is no longer a Bayesian method. These 2D likelihoods are summed across each parameter axis and normalised to produce the one dimensional histograms shown in Figures \ref{time} and \ref{rate} for the quenching time, $t_q$ and quenching rate $\tau$ respectively. In each figure the summed 1D normalised probability distribution across the given parameter is shown for smooth (red) and disc (blue) galaxies split into the three mass bins; low (top), medium (middle) and high (bottom) mass galaxies for the AGN host (left) and inactive galaxies (right). 
 
-\begin{figure*}
-\includegraphics[width=0.28\textwidth]{oh_sample/kcor/sum_weight_low_mass_smooth_agn_oh_sample_aper_5_kcor.pdf}
-\includegraphics[width=0.28\textwidth]{oh_sample/kcor/sum_weight_med_mass_smooth_agn_oh_sample_aper_5_kcor.pdf}
-\includegraphics[width=0.28\textwidth]{oh_sample/kcor/sum_weight_high_mass_smooth_agn_oh_sample_aper_5_kcor.pdf}
-\includegraphics[width=0.28\textwidth]{oh_sample/sum_weight_low_mass_smooth_no_agn_oh_sample.png}
-\includegraphics[width=0.28\textwidth]{oh_sample/sum_weight_med_mass_smooth_no_agn_oh_sample.png}
-\includegraphics[width=0.28\textwidth]{oh_sample/sum_weight_high_mass_smooth_no_agn_oh_sample.png}
-\caption{SLB plots for smooth AGN hosting galaxies (top) and smooth inactive galaxies (bottom). Split into low (left), medium (middle) and high (right) mass galaxies.}
-\label{smooth}
-\end{figure*}
 
-\begin{figure*}
-\includegraphics[width=0.28\textwidth]{oh_sample/kcor/sum_weight_low_mass_disc_agn_oh_sample_aper_5_kcor.pdf}
-\includegraphics[width=0.28\textwidth]{oh_sample/kcor/sum_weight_med_mass_disc_agn_oh_sample_aper_5_kcor.pdf}
-\includegraphics[width=0.28\textwidth]{oh_sample/kcor/sum_weight_high_mass_disc_agn_oh_sample_aper_5_kcor.pdf}
-\includegraphics[width=0.28\textwidth]{oh_sample/sum_weight_low_mass_disc_no_agn_oh_sample.png}
-\includegraphics[width=0.28\textwidth]{oh_sample/sum_weight_med_mass_disc_no_agn_oh_sample.png}
-\includegraphics[width=0.28\textwidth]{oh_sample/sum_weight_high_mass_disc_no_agn_oh_sample.png}
-\caption{SLB plots for disc AGN hosting galaxies (top) and disc inactive galaxies (bottom). Split into low (left), medium (middle) and high (right) mass galaxies.}
-\label{disc}
-\end{figure*}
+\begin{figure}
+\includegraphics[width=0.45\textwidth]{quenching_time_histograms_smooth_red_disc_blue_vertical.png}
+\caption{1D summed distribution of 2D likelihood in quenching time for AGN (left) host and inactive (right) galaxies, split into low (top), medium (middle) and high (bottom) mass galaxies for smooth (red) and disc (blue) galaxies.}
+\label{time}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=0.45\textwidth]{quenching_rate_histograms_smooth_red_disc_blue_vertical.png}
+\caption{1D summed distribution of 2D likelihood in quenching rate for AGN (left) host and inactive (right) galaxies, split into low (top), medium (middle) and high (bottom) mass galaxies for smooth (red) and disc (blue) galaxies.}
+\label{rate}
+\end{figure}
+
 
 
 \section{Discussion}
