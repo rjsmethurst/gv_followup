@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.1.23)  29 MAY 2015 15:12
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.1.23)  3 JUN 2015 17:52
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -256,24 +256,19 @@ Overfull \hbox (1.71568pt too wide) in paragraph at lines 23--23
 [][]  
  []
 
-! Use of \starpy doesn't match its definition.
-l.38 ...e use of a new piece of software, \starpy,
-                                                    ~implementing a Bayesian...
-
-? 
 <mosaic_agn_oh_sample_1.pdf, id=1, 722.7pt x 289.08pt>
 File: mosaic_agn_oh_sample_1.pdf Graphic file (type pdf)
 
 <use mosaic_agn_oh_sample_1.pdf>
 Package pdftex.def Info: mosaic_agn_oh_sample_1.pdf used on input line 55.
 (pdftex.def)             Requested size: 504.0pt x 201.60033pt.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 64.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 63.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 64.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 63.
  [1{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
@@ -284,91 +279,95 @@ LaTeX Warning: Command \r invalid in math mode on input line 87.
 
 LaTeX Warning: Command \r invalid in math mode on input line 87.
 
+<colour_colour_mag_comparison_agn_inactive.png, id=23, 578.16pt x 289.08pt>
+File: colour_colour_mag_comparison_agn_inactive.png Graphic file (type png)
 
-<quenching_time_histograms_smooth_red_disc_blue_vertical.pdf, id=24, 722.7pt x 
-505.89pt>
-File: quenching_time_histograms_smooth_red_disc_blue_vertical.pdf Graphic file 
-(type pdf)
- <use quenching_time_histograms_smooth_red_disc_blue_vertical.pdf>
-Package pdftex.def Info: quenching_time_histograms_smooth_red_disc_blue_vertica
-l.pdf used on input line 98.
-(pdftex.def)             Requested size: 252.0pt x 176.40028pt.
+<use colour_colour_mag_comparison_agn_inactive.png>
+Package pdftex.def Info: colour_colour_mag_comparison_agn_inactive.png used on 
+input line 98.
+(pdftex.def)             Requested size: 252.0pt x 126.0002pt.
 
 Overfull \hbox (12.0pt too wide) in paragraph at lines 98--99
 [][] 
  []
 
-[2 <./mosaic_agn_oh_sample_1.pdf>]
-<quenching_rate_histograms_smooth_red_disc_blue_vertical.pdf, id=98, 722.7pt x 
-505.89pt>
+[2 <./mosaic_agn_oh_sample_1.pdf>] [3 <./colour_colour_mag_comparison_agn_inact
+ive.png>]
+<quenching_time_histograms_smooth_red_disc_blue_vertical.pdf, id=103, 722.7pt x
+ 505.89pt>
+File: quenching_time_histograms_smooth_red_disc_blue_vertical.pdf Graphic file 
+(type pdf)
+ <use quenching_time_histograms_smooth_red_disc_blue_vertical.pdf>
+Package pdftex.def Info: quenching_time_histograms_smooth_red_disc_blue_vertica
+l.pdf used on input line 134.
+(pdftex.def)             Requested size: 252.0pt x 176.40028pt.
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 134--135
+[][] 
+ []
+
+
+<quenching_rate_histograms_smooth_red_disc_blue_vertical.pdf, id=104, 722.7pt x
+ 505.89pt>
 File: quenching_rate_histograms_smooth_red_disc_blue_vertical.pdf Graphic file 
 (type pdf)
  <use quenching_rate_histograms_smooth_red_disc_blue_vertical.pdf>
 Package pdftex.def Info: quenching_rate_histograms_smooth_red_disc_blue_vertica
-l.pdf used on input line 116.
+l.pdf used on input line 140.
 (pdftex.def)             Requested size: 252.0pt x 176.40028pt.
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 116--117
+Overfull \hbox (12.0pt too wide) in paragraph at lines 140--141
 [][] 
  []
 
-[3 <./quenching_time_histograms_smooth_red_disc_blue_vertical.pdf> <./quenching
+
+Underfull \hbox (badness 2020) in paragraph at lines 150--151
+\OT1/cmr/m/n/9 Galaxy Zoo 2 project to de-ter-mine the morphology-
+ []
+
+[4 <./quenching_time_histograms_smooth_red_disc_blue_vertical.pdf> <./quenching
 _rate_histograms_smooth_red_disc_blue_vertical.pdf
 
 pdfTeX warning: /usr/texbin/pdflatex (file ./quenching_rate_histograms_smooth_r
 ed_disc_blue_vertical.pdf): PDF inclusion: multiple pdfs with page group includ
 ed in a single page
->]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 2020) in paragraph at lines 137--138
-\OT1/cmr/m/n/9 Galaxy Zoo 2 project to de-ter-mine the morphology-
- []
-
-[4] [5
-
-] (./agn_sfh.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+>] [5] (./agn_sfh.aux) ) 
 Here is how much of TeX's memory you used:
- 3007 strings out of 493488
- 39675 string characters out of 3141326
- 109002 words of memory out of 3000000
- 6254 multiletter control sequences out of 15000+200000
+ 3095 strings out of 493488
+ 41135 string characters out of 3141326
+ 110930 words of memory out of 3000000
+ 6340 multiletter control sequences out of 15000+200000
  18726 words of font info for 67 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,11n,34p,1295b,287s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><
-/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></u
-sr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></u
-sr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb>
-</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></u
-sr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr
-/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/l
-ocal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/loc
-al/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local
-/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/t
-exlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/tex
-live/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texliv
-e/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2
-012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2012
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2012/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2012/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2012/texmf
--dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2012/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2012/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2012/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2012/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on agn_sfh.pdf (5 pages, 901699 bytes).
+ 38i,11n,34p,1169b,287s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/texlive/2012/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmbx12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmbx8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmbx9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmcsc10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfo
+nts/cmextra/cmex9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi5.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmi7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.
+pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
+></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></
+usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></us
+r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/
+local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/lo
+cal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/loc
+al/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local
+/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/t
+exlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/tex
+live/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on agn_sfh.pdf (5 pages, 977534 bytes).
 PDF statistics:
- 292 PDF objects out of 1000 (max. 8388607)
- 133 compressed objects within 2 object streams
+ 294 PDF objects out of 1000 (max. 8388607)
+ 134 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
