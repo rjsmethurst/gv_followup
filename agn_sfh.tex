@@ -27,16 +27,17 @@
 
 %BASIC INTRO
 
+A black hole resides at the centre of every galaxy whereby it co-evolves with it's host. Despite it's relatively small size, an active black hole (active galactic nucleus; AGN) can have an impact on the evolution of it's host galaxy through the feedback of energy into the galaxy system.    
 %MORE DETAILED
-
+The largest fraction of AGN are commonly found in the `green valley', suggesting a relation between the AGN and the suppression (quench) of star formation, causing the galaxy to transition from the star forming `blue cloud' to the dead `red sequence'.
 %GENERAL PROBLEM
-
+Though observational evidence has been found for both positive and negative feedback caused by an AGN, the effect on the galaxy wide star formation history (SFH) due to the presence of an AGN has not been studied.
 %MAIN RESULT
-
+Here we present the first observational population study of the SFH of AGN host galaxies, in comparison with a population inactive galaxies using a Bayesian method. We find evidence for an AGN host galaxy to have undergone a recent and rapid drop in it's star formation rate. 
 %RESULT COMPARISON
-
+This result is not seen for the inactive galaxies whose SFHs are dominated by the effects of downsizing at earlier epochs; a secondary effect for the AGN host galaxies. We show that rapid quenching histories cannot account fully for the quenching of all the star formation across the population of AGN host galaxies and that slower quenching histories, attributed to non-violent processes of evolution are also key in their evolution.
 %RESULTS IN GENERAL CONTEXT
-
+This is against the typically accepted merger driven scenario of the co-evolution of black holes and their galaxies. The availability, and ability to be replenished, of gas in the reservoirs of a galaxy is the key driver behind this co-evolution.  
 %BROAD PERSPECTIVE
 
 \end{abstract}
@@ -66,7 +67,7 @@ This letter proceeds as follows. Section 2 contains a description of the sample 
 
 \begin{figure*}
 \centering{
-\includegraphics[width=\textwidth]{mosaic_agn_oh_sample_1.pdf}}
+\includegraphics[width=0.9\textwidth]{mosaic_agn_oh_sample_1.pdf}}
 \caption{Randomly selected SDSS \emph{gri} composite images from the sample of $984$ Type 1 AGN showing the continuous probabilistic nature of the Galaxy Zoo sample from a redshift range $0.040 < z < 0.05$. The debiased `disc or featured' vote fraction (see \citealt{GZ2}) for each galaxy is shown. Note the bright point source of the AGN in the centre of each galaxy. The scale for each image is $0.099~\rm{arcsec/pixel}$.}
 \label{mosaic}
 \end{figure*}
@@ -130,20 +131,15 @@ The \textsc{gz2-starpy} sample will contain some obscured AGN, Seyfert's, LINERS
 \section{Results}
 
 
+
+Each galaxy was run through \starpy ~ to obtain a 2D likelihood distribution across the $[t_q, \tau]$ parameter space. The individual likelihood distributions of each galaxy were combined across the three mass bins defined in Secition \ref{agnsample} for the \textsc{agn-host} and \textsc{gz2-starpy} galaxies. Here we utilise the GZ2 morphologies to weight by the vote fractions to split the sample into smooth and disc dominated populations. We stress that this portion is purely for visualisation purposes and is no longer a Bayesian method. 
+
 \begin{figure}
 \includegraphics[width=0.485\textwidth]{quenching_time_histograms_smooth_red_disc_blue_vertical.pdf}
 \caption{1D summed distribution of 2D likelihood in quenching time for AGN (left) host and inactive (right) galaxies, split into low (top), medium (middle) and high (bottom) mass galaxies for smooth (red) and disc (blue) galaxies. A low value of $t_q$ corresponds to the early Universe and a high value to the recent Universe.}
 \label{time}
 \end{figure}
 
-\begin{figure}
-\includegraphics[width=0.485\textwidth]{quenching_rate_histograms_smooth_red_disc_blue_vertical.pdf}
-\caption{1D summed distribution of 2D likelihood in quenching rate for AGN (left) host and inactive (right) galaxies, split into low (top), medium (middle) and high (bottom) mass galaxies for smooth (red) and disc (blue) galaxies. The dashed lines show the separation between rapid ($\tau < 1.0$ Gyr), intermediate ($1.0 < \tau ~\rm{[Gyr]} < 2.0$) and slow ($\tau > 2.0$ Gyr) quenching timescales with the fraction of the likelihood distribution in each region shown. A small (large) value of $\tau$ corresponds to a rapid (slow) quenching rate.}
-\label{rate}
-\end{figure}
-
-
-Each galaxy was run through \starpy ~ to obtain a 2D likelihood distribution across the $[t_q, \tau]$ parameter space. The individual likelihood distributions of each galaxy were combined across the three mass bins defined in Secition \ref{agnsample} for the \textsc{agn-host} and \textsc{gz2-starpy} galaxies. Here we utilise the GZ2 morphologies to weight by the vote fractions to split the sample into smooth and disc dominated populations. We stress that this portion is purely for visualisation purposes and is no longer a Bayesian method. 
 
 These 2D likelihoods are summed across each parameter axis and normalised to produce the one dimensional histograms shown in Figures \ref{time} and \ref{rate} for the quenching time, $t_q$ and quenching rate $\tau$ respectively. In each figure the summed 1D normalised probability distribution across the given parameter is shown for smooth (red) and disc (blue) galaxies split into the three mass bins; low (top), medium (middle) and high (bottom) mass galaxies for the AGN host (left) and inactive galaxies (right). In Figure \ref{rate} the percentage likelihood in each region of quenching rate shown by the dashed lines for rapid ($\tau < 1$ Gyr), intermediate ($1 < \tau ~\rm{[Gyr]} < 2$) and slow ($\tau > 2$ Gyr) quenching timescales. 
 
@@ -155,6 +151,12 @@ The distribution of likelihoods for the rate of quenching, $\tau$, in Figure \re
 
 However, the distribution of likelihood of the rate of quenching for the AGN host galaxies is in fact the opposite to that seen for inactive galaxies. The likelihood for rapid quenching decreases with increasing mass for both smooth and disc dominated populations, whereas for slow quenching rates the likelihood increases with increasing mass for the disc dominated population.   
 
+
+\begin{figure}
+\includegraphics[width=0.485\textwidth]{quenching_rate_histograms_smooth_red_disc_blue_vertical.pdf}
+\caption{1D summed distribution of 2D likelihood in quenching rate for AGN (left) host and inactive (right) galaxies, split into low (top), medium (middle) and high (bottom) mass galaxies for smooth (red) and disc (blue) galaxies. The dashed lines show the separation between rapid ($\tau < 1.0$ Gyr), intermediate ($1.0 < \tau ~\rm{[Gyr]} < 2.0$) and slow ($\tau > 2.0$ Gyr) quenching timescales with the fraction of the likelihood distribution in each region shown. A small (large) value of $\tau$ corresponds to a rapid (slow) quenching rate.}
+\label{rate}
+\end{figure}
 
 \section{Discussion}
 
@@ -174,15 +176,12 @@ We have used morphological classifications from the Galaxy Zoo 2 project to dete
 
 \section*{Acknowledgements}
 
-RS acknowledges funding from the Science and Technology Facilities Council Grant Code ST/K502236/1. BDS gratefully acknowledges support from the Oxford Martin School, Worcester College and Balliol College, Oxford. KS gratefully acknowledges support from Swiss National Science Foundation Grant PP00P2\_138979/1.
+RS acknowledges funding from the Science and Technology Facilities Council Grant Code ST/K502236/1. BDS gratefully acknowledges support from the Oxford Martin School, Worcester College and Balliol College, Oxford. 
 
 The development of Galaxy Zoo was supported in part by the Alfred P. Sloan Foundation. Galaxy Zoo was supported by The Leverhulme Trust. 
 
-Based on observations made with the NASA Galaxy Evolution Explorer.  GALEX is operated for NASA by the California Institute of Technology under NASA contract NAS5-98034
-
-Funding for the SDSS and SDSS-II has been provided by the Alfred P. Sloan Foundation, the Participating Institutions, the National Science Foundation, the U.S. Department of Energy, the National Aeronautics and Space Administration, the Japanese Monbukagakusho, the Max Planck Society, and the Higher Education Funding Council for England. The SDSS Web Site is \url{http://www.sdss.org/}.
-The SDSS is managed by the Astrophysical Research Consortium for the Participating Institutions. The Participating Institutions are the American Museum of Natural History, Astrophysical Institute Potsdam, University of Basel, University of Cambridge, Case Western Reserve University, University of Chicago, Drexel University, Fermilab, the Institute for Advanced Study, the Japan Participation Group, Johns Hopkins University, the Joint Institute for Nuclear Astrophysics, the Kavli Institute for Particle Astrophysics and Cosmology, the Korean Scientist Group, the Chinese Academy of Sciences (LAMOST), Los Alamos National Laboratory, the Max-Planck-Institute for Astronomy (MPIA), the Max-Planck-Institute for Astrophysics (MPA), New Mexico State University, Ohio State University, University of Pittsburgh, University of Portsmouth, Princeton University, the United States Naval Observatory, and the University of Washington.
-
+Based on observations made with the NASA Galaxy Evolution Explorer.  GALEX is operated for NASA by the California Institute of Technology under NASA contract NAS5-98034. Funding for the SDSS and SDSS-II has been provided by the Alfred P. Sloan Foundation, the Participating Institutions, the National Science Foundation, the U.S. Department of Energy, the National Aeronautics and Space Administration, the Japanese Monbukagakusho, the Max Planck Society, and the Higher Education Funding Council for England. The SDSS Web Site is \url{http://www.sdss.org/}.
+%The SDSS is managed by the Astrophysical Research Consortium for the Participating Institutions. The Participating Institutions are the American Museum of Natural History, Astrophysical Institute Potsdam, University of Basel, University of Cambridge, Case Western Reserve University, University of Chicago, Drexel University, Fermilab, the Institute for Advanced Study, the Japan Participation Group, Johns Hopkins University, the Joint Institute for Nuclear Astrophysics, the Kavli Institute for Particle Astrophysics and Cosmology, the Korean Scientist Group, the Chinese Academy of Sciences (LAMOST), Los Alamos National Laboratory, the Max-Planck-Institute for Astronomy (MPIA), the Max-Planck-Institute for Astrophysics (MPA), New Mexico State University, Ohio State University, University of Pittsburgh, University of Portsmouth, Princeton University, the United States Naval Observatory, and the University of Washington.
 This publication made extensive use of the Tool for Operations on Catalogues And Tables (TOPCAT; ~\citealt{Taylor05}) which can be found at \url{http://www.star.bris.ac.uk/~mbt/topcat/}. Ages were calculated from the observed redshifts using the \emph{cosmolopy} package provided in the Python module \emph{astroPy}\footnote{\url{http://www.astropy.org/}}; \citealt{Rob13}). This research has also made use of NASA's ADS service and Cornell's ArXiv. 
 
 \begin{thebibliography}{}
