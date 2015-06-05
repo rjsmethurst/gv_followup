@@ -52,11 +52,7 @@ The strongest observational evidence for this feedback is that the largest fract
 
 Here we present the first large observational population study of AGN host galaxies with the use of a new \textsc{python} routine, \starpy  ~, implementing a Bayesian method to effectively model the SFH of a galaxy with two parameters given the observed near ultra-violet (NUV) \& optical colours.
 
-We therefore aim to determine the following:
-\begin{enumerate}
-\item{Are galaxies currently hosting an AGN undergoing quenching?}
-\item{If so, when and at what rate does this quenching occur?}
-\end{enumerate}
+We therefore aim to determine the following: (i) Are galaxies currently hosting an AGN undergoing quenching? (ii) If so, when and at what rate does this quenching occur?
 
 This letter proceeds as follows. Section 2 contains a description of the sample data, and details of the Bayesian analysis of an exponentially declining star formation history model. Section 3 contains the results produced by this analysis, with Section 4 providing a detailed discussion and a summary of the results obtained. The zero points of all ugriz magnitudes are in the AB system and where necessary we adopt the WMAP Seven-Year Cosmological parameters (Jarosik et al. 2011) with $(\Omega_m , ~\Omega_\lambda , ~h) = (0.26, 0.73, 0.71)$.
 
@@ -99,13 +95,7 @@ The probabilistic fitting methods to this SFH for an observed galaxy are describ
 
 \subsection{AGN Sample}\label{agnsample}
 
-We utilise a new sample of type 1 AGN selected by \citet{Oh15} who built on the selection techniques of the OSSY catalogue\footnote{http://gem.yonsei.ac.kr/ossy/} \citep{Oh11}. To search for broad line region (BLR) AGN \cite{Oh15} used a flux ratio between between two regions near the $H\alpha$ emission line in SDSS DR7 spectra. The two regions were $6460-6480 \AA$ and $6523 - 6543 \AA$ to give a flux ratio, $F_{6533}/F_{6470}$; which identified, if high, those candidate AGN host galaxies. Each spectra was fit using the \textsc{IDL ppxf} and \textsc{gandalf} programs with the \cite{BC03} and \textsc{miles} stellar libraries using the Levenberg Marquardt minimisation method \citep{Mark09}. From the measured continuums and emission line widths, Type 1 AGN were selected with the following criteria:
-
-\begin{enumerate}
-\item[-]{$0.00 < z < 0.20$}
-\item[-]{FWHM of $H\alpha > 800 ~\rm{km~s^{-1}}$}
-\item[-]{A/N of broad $H\alpha > 3$}
-\end{enumerate}
+We utilise a new sample of type 1 AGN selected by \citet{Oh15} who built on the selection techniques of the OSSY catalogue\footnote{http://gem.yonsei.ac.kr/ossy/} \citep{Oh11}. To search for broad line region (BLR) AGN \cite{Oh15} used a flux ratio between between two regions near the $H\alpha$ emission line in SDSS DR7 spectra. The two regions were $6460-6480 \AA$ and $6523 - 6543 \AA$ to give a flux ratio, $F_{6533}/F_{6470}$; which identified, if high, those candidate AGN host galaxies. Each spectra was fit using the \textsc{IDL ppxf} and \textsc{gandalf} programs with the \cite{BC03} and \textsc{miles} stellar libraries using the Levenberg Marquardt minimisation method \citep{Mark09}. From the measured continuums and emission line widths, Type 1 AGN were selected with the following criteria: (i) $0.00 < z < 0.20$, (ii) FWHM of $H\alpha > 800 ~\rm{km~s^{-1}}$ and (iii) A/N of broad $H\alpha > 3$.
 
 This resulted in a sample of 9,671 Type 1 AGN identified by \cite{Oh15} with broad line and luminosity measurements provided in the published catalogue. This sample was then matched to the \textsc{gz2-starpy} sample to give $984$ galaxies currently hosting AGN. This will be referred to as the \textsc{agn-host} sample.
 
@@ -164,7 +154,11 @@ The vast differences between the distribution of likelihood for the AGN host and
 
 As well as the clear evidence for downsizing in the inactive galaxy population in Figure \ref{time}, we can also see it's effect on the AGN host galaxies. Although recent quenching is the dominant history, quenching at earlier times also has significant likelihood with increasing mass. These galaxies may have undergone downsizing earlier in life with the current AGN also having an effect on the SFR through feedback, causing a recent, rapid quench of any residual star formation. 
 
+\cite{Torbra09} find by modelling the effects of negative AGN feedback on a typical early type (i.e. smooth) galaxy the time between the current galaxy age, $t_{gal}$ and the time that the feedback began $t_{AGN}$, peaks at $t_{gal} - t_{AGN} \sim 0.85 ~\rm{Gyr}$. This is in agreement with the location of the peak in Figure \ref{time} for the low mass galaxies, where the difference between the peak of the likelihood and the average age of the population (calculated from the redshift and assuming all galaxies form at $t=0$) is $\sim0.83 ~\rm{Gyr}$ for both smooth and disc dominated populations. This suggests that this dominant recent quenching history is caused directly by negative AGN feedback.   
+
 If a slowly `dying' or `dead' galaxy has an infall of gas either through a minor merger, galaxy interaction or environmental change, this can trigger further star formation and feed the central black hole, igniting an AGN. In turn this AGN can then quench the recent boost in star formation. This track is similar to the evolution history theorised for blue ellipticals \citep{Kav13, McIntosh14, Haines15}. As for the disc galaxies, it also follows from the ideas of previously isolated discs evolving slowly by the Kennicutt-Schmidt (KS; \citealt{Schmidt59, Kennicutt97}) law which can then undergo an interaction or merger to reinvigorate star formation and feed the central black hole.
+
+
 
 %PARAGRAPH HERE ON TORTORA FINDINGS OF T - T_AGN ~ 0.85 COINCIDE WITH AVERAGE AGE FROM REDSHIFT - PEAK OF T_Q FOR LOW MASS GALAXIES. SUGGESTS THESE ARE DOMINATED BY QUENCHING THE CAUSE OF WHICH IS AGN FEEDBACK. 
  
@@ -182,7 +176,7 @@ The development of Galaxy Zoo was supported in part by the Alfred P. Sloan Found
 
 Based on observations made with the NASA Galaxy Evolution Explorer.  GALEX is operated for NASA by the California Institute of Technology under NASA contract NAS5-98034. Funding for the SDSS and SDSS-II has been provided by the Alfred P. Sloan Foundation, the Participating Institutions, the National Science Foundation, the U.S. Department of Energy, the National Aeronautics and Space Administration, the Japanese Monbukagakusho, the Max Planck Society, and the Higher Education Funding Council for England. The SDSS Web Site is \url{http://www.sdss.org/}.
 %The SDSS is managed by the Astrophysical Research Consortium for the Participating Institutions. The Participating Institutions are the American Museum of Natural History, Astrophysical Institute Potsdam, University of Basel, University of Cambridge, Case Western Reserve University, University of Chicago, Drexel University, Fermilab, the Institute for Advanced Study, the Japan Participation Group, Johns Hopkins University, the Joint Institute for Nuclear Astrophysics, the Kavli Institute for Particle Astrophysics and Cosmology, the Korean Scientist Group, the Chinese Academy of Sciences (LAMOST), Los Alamos National Laboratory, the Max-Planck-Institute for Astronomy (MPIA), the Max-Planck-Institute for Astrophysics (MPA), New Mexico State University, Ohio State University, University of Pittsburgh, University of Portsmouth, Princeton University, the United States Naval Observatory, and the University of Washington.
-This publication made extensive use of the Tool for Operations on Catalogues And Tables (TOPCAT; ~\citealt{Taylor05}). This research has also made use of NASA's ADS service and Cornell's ArXiv. 
+%This publication made extensive use of the Tool for Operations on Catalogues And Tables (TOPCAT; ~\citealt{Taylor05}). This research has also made use of NASA's ADS service and Cornell's ArXiv. 
 
 \begin{thebibliography}{}
 
