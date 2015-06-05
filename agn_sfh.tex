@@ -15,7 +15,7 @@
 
 \begin{document}
 \title[Quenching by AGN]{Galaxy Zoo: Evidence for quenching caused by AGN feedback}
-\author[Smethurst et al. 2015]{R. ~J. ~Smethurst,$^{1}$ C. ~J. ~Lintott,$^{1}$ B. ~D. ~Simmons,$^{1}$
+\author[Smethurst et al. 2015]{R. ~J. ~Smethurst,$^{1}$ C. ~J. ~Lintott,$^{1}$ B. ~D. ~Simmons,$^{1}$ \& the Galaxy Zoo Team
 \\ $^1$ Oxford Astrophysics, Department of Physics, University of Oxford, Denys Wilkinson Building, Keble Road, Oxford, OX1 3RH, UK 
 \\
 }
@@ -50,9 +50,7 @@ Two of the most important issues in current astrophysical understanding are: (i)
 
 The strongest observational evidence for this feedback is that the largest fraction of AGN are found in the green valley \citep{CB08, Hickox09, Sch2010}, suggesting some link to the process of quenching star formation in order for a galaxy to progress from the blue cloud to the red sequence. However, the rate at which this quenching occurs and it's effect on the galaxy population as a whole, has not been studied.
 
-Here we present the first large observational population study of AGN host galaxies with the use of a new \textsc{python} routine, \starpy  ~, implementing a Bayesian method to effectively model the SFH of a galaxy with two parameters given the observed near ultra-violet (NUV) \& optical colours.
-
-We therefore aim to determine the following: (i) Are galaxies currently hosting an AGN undergoing quenching? (ii) If so, when and at what rate does this quenching occur?
+Here we present the first large observational population study of AGN host galaxies with the use of a new \textsc{python} routine, \starpy  ~, implementing a Bayesian method to effectively model the SFH of a galaxy with two parameters given the observed near ultra-violet (NUV) \& optical colours. We therefore aim to determine the following: (i) Are galaxies currently hosting an AGN undergoing quenching? (ii) If so, when and at what rate does this quenching occur?
 
 This letter proceeds as follows. Section 2 contains a description of the sample data, and details of the Bayesian analysis of an exponentially declining star formation history model. Section 3 contains the results produced by this analysis, with Section 4 providing a detailed discussion and a summary of the results obtained. The zero points of all ugriz magnitudes are in the AB system and where necessary we adopt the WMAP Seven-Year Cosmological parameters (Jarosik et al. 2011) with $(\Omega_m , ~\Omega_\lambda , ~h) = (0.26, 0.73, 0.71)$.
 
@@ -63,7 +61,7 @@ This letter proceeds as follows. Section 2 contains a description of the sample 
 
 \begin{figure*}
 \centering{
-\includegraphics[width=0.9\textwidth]{mosaic_agn_oh_sample_1.pdf}}
+\includegraphics[width=0.84\textwidth]{mosaic_agn_oh_sample_1.pdf}}
 \caption{Randomly selected SDSS \emph{gri} composite images from the sample of $984$ Type 1 AGN showing the continuous probabilistic nature of the Galaxy Zoo sample from a redshift range $0.040 < z < 0.05$. The debiased `disc or featured' vote fraction (see \citealt{GZ2}) for each galaxy is shown. Note the bright point source of the AGN in the centre of each galaxy. The scale for each image is $0.099~\rm{arcsec/pixel}$.}
 \label{mosaic}
 \end{figure*}
@@ -116,7 +114,7 @@ The colours calculated from these corrected magnitudes are shown in Figure \ref{
  
 The \textsc{agn-host} sample is studied in three different mass bins with $112 ~(11\%)$ low mass ($M_* < 10.25 ~M_{\odot}$), $572 ~(58\%)$ medium mass  ($ 10.25 < M_* [M_{\odot}] < 10.75 $) and $300 ~(31\%)$ high mass ($M_* > 10.75 ~M_{\odot}$) galaxies and is compared to the larger \textsc{gz2-starpy} sample of $125,332$ galaxies in the three different mass bins defined above, with $41,698 ~(33\%)$ low mass, $47,391 ~(38\%)$ medium mass and $36,243 ~(29\%)$ high mass galaxies. 
 
-The \textsc{gz2-starpy} sample will contain some obscured AGN, Seyfert's, LINERS etc. however these types of active galaxies are a minimal proportion of the galaxy population (ref,ref,ref). Due to the high numbers of galaxies in this sample, the effects of these minority galaxies will get washed out and the `typical' galaxy which is representative of each population will dominate the likelihoods of the population SFHs. To remove them completely with a BPT diagram would have also removed quiescent galaxies and given a sample of purely star forming galaxies which would not be representative of the galaxy population. We therefore utilise the \textsc{gz2-starpy} sample as a control sample of inactive galaxies against the \text{agn-host} sample.
+The \textsc{gz2-starpy} sample will contain some obscured AGN, Seyfert's, LINERS etc. however these types of active galaxies are a minimal ($\sim 10\%$) proportion of the local galaxy population \citep{Eastman07, Haggard10, Aird10}. Due to the high numbers of galaxies in this sample, the effects of these minority galaxies will get washed out and the `typical' galaxy which is representative of each population will dominate the likelihoods of the population SFHs. To remove them completely with a BPT diagram would have also removed quiescent galaxies and given a sample of purely star forming galaxies which would not be representative of the galaxy population. We therefore utilise the \textsc{gz2-starpy} sample as a control sample of inactive galaxies against the \text{agn-host} sample.
 
 \section{Results}
 
@@ -170,17 +168,15 @@ We have used morphological classifications from the Galaxy Zoo 2 project to dete
 
 \section*{Acknowledgements}
 
-RS acknowledges funding from the Science and Technology Facilities Council Grant Code ST/K502236/1. BDS gratefully acknowledges support from the Oxford Martin School, Worcester College and Balliol College, Oxford. 
-
-The development of Galaxy Zoo was supported in part by the Alfred P. Sloan Foundation. Galaxy Zoo was supported by The Leverhulme Trust. 
-
-Based on observations made with the NASA Galaxy Evolution Explorer.  GALEX is operated for NASA by the California Institute of Technology under NASA contract NAS5-98034. Funding for the SDSS and SDSS-II has been provided by the Alfred P. Sloan Foundation, the Participating Institutions, the National Science Foundation, the U.S. Department of Energy, the National Aeronautics and Space Administration, the Japanese Monbukagakusho, the Max Planck Society, and the Higher Education Funding Council for England. The SDSS Web Site is \url{http://www.sdss.org/}.
+RS acknowledges funding from the Science and Technology Facilities Council Grant Code ST/K502236/1. BDS gratefully acknowledges support from the Oxford Martin School, Worcester College and Balliol College, Oxford. The development of Galaxy Zoo was supported in part by the Alfred P. Sloan Foundation. Galaxy Zoo was supported by The Leverhulme Trust. Based on observations made with the NASA Galaxy Evolution Explorer.  GALEX is operated for NASA by the California Institute of Technology under NASA contract NAS5-98034. Funding for the SDSS and SDSS-II has been provided by the Alfred P. Sloan Foundation, the Participating Institutions, the National Science Foundation, the U.S. Department of Energy, the National Aeronautics and Space Administration, the Japanese Monbukagakusho, the Max Planck Society, and the Higher Education Funding Council for England. %The SDSS Web Site is \url{http://www.sdss.org/}.
 %The SDSS is managed by the Astrophysical Research Consortium for the Participating Institutions. The Participating Institutions are the American Museum of Natural History, Astrophysical Institute Potsdam, University of Basel, University of Cambridge, Case Western Reserve University, University of Chicago, Drexel University, Fermilab, the Institute for Advanced Study, the Japan Participation Group, Johns Hopkins University, the Joint Institute for Nuclear Astrophysics, the Kavli Institute for Particle Astrophysics and Cosmology, the Korean Scientist Group, the Chinese Academy of Sciences (LAMOST), Los Alamos National Laboratory, the Max-Planck-Institute for Astronomy (MPIA), the Max-Planck-Institute for Astrophysics (MPA), New Mexico State University, Ohio State University, University of Pittsburgh, University of Portsmouth, Princeton University, the United States Naval Observatory, and the University of Washington.
 %This publication made extensive use of the Tool for Operations on Catalogues And Tables (TOPCAT; ~\citealt{Taylor05}). This research has also made use of NASA's ADS service and Cornell's ArXiv. 
 
 \begin{thebibliography}{}
 
 \bibitem[\protect\citeauthoryear{Aihara et al.}{2011}]{Aihara11} Aihara, H. et al., 2011, ApJSS, 193, 29
+
+\bibitem[\protect\citeauthoryear{Aird et al.}{2010}]{Aird10} Aird, J. et al., 2010, MNRAS, 401, 2531
 
 \bibitem[\protect\citeauthoryear{Bamford et al.}{2009}]{Bamford09} Bamford, S. et al., 2009, MNRAS, 393, 1324
 
@@ -200,9 +196,13 @@ Based on observations made with the NASA Galaxy Evolution Explorer.  GALEX is op
 
 \bibitem[\protect\citeauthoryear{Croton et al.}{2006}]{Croton06} Croton, D. J. et al., 2006, MNRAS, 365, 11
 
+\bibitem[\protect\citeauthoryear{Eastman et al.}{2007}]{Eastman07} Eastman, J. et al., 2007, ApJ, 664, L9
+
 \bibitem[\protect\citeauthoryear{Emsellem et al.}{2015}]{Em15} Emsellem, E. et al. 2015, MNRAS, 446, 2468
 
 \bibitem[\protect\citeauthoryear{Fabian}{2006}]{Fab06} Fabian, A. C. 2006, ARA\&A, 50, 455
+
+\bibitem[\protect\citeauthoryear{Haggard et al.}{2010}]{Haggard10} Haggard, D. et al., 2010, ApJ, 723, 1447
 
 \bibitem[\protect\citeauthoryear{Haines et al.}{2015}]{Haines15} Haines, T. et al., 2015, arXiv:1505.01493
 
