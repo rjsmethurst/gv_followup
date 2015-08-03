@@ -9,6 +9,9 @@
 \usepackage{multirow}
 \voffset=-0.5in
 
+\setlength{\parsep}{0pt}
+\setlength{\partopsep}{0pt}
+
 \definecolor{nc}{rgb}{0,0,0}
 \def\changed    {\color{nc} }
 
@@ -57,9 +60,9 @@ This is in agreement with recent results showing both merger-driven and non-merg
 %Two open issues in modern astrophysics are: (i) how do galaxies and their central black holes co-evolve and (ii) what are the effects, if any, of AGN feedback. There is an obvious relationship between the mass of a central black hole and its host galaxy, commonly referred to as the Maggorian relationship \citep{Mag98, MH03, HR04}. 
 The nature of the observed co-evolution of galaxies and their central supermassive black holes \citep{Mag98, MH03, HR04} and the effects of AGN feedback on galaxies are two of the most important open issues in galaxy evolution. AGN feedback was first suggested as a mechanism for regulating star formation in simulations \citep{SR98, Croton06, Bower06, Somer08} and some indirect evidence has been observed for both positive and negative feedback in various systems (see the comprehensive review from \citealt{Fab06}). 
 
-The strongest observational evidence for AGN feedback in a population is that the largest fraction of AGN are found in the green valley \citep{CB08, Hickox09, Sch2010}, suggesting some link between AGN activity and  the process of quenching which moves a galaxy from the blue cloud to the red sequence. However, concrete statistical evidence for the effect of AGN feedback on the host galaxy population has so far been elusive. 
+The strongest observational evidence for AGN feedback in a population is that the largest fraction of AGN are found in the green valley \citep{CB08, Hickox09, Sch2010}, suggesting some link between AGN activity and  the process of quenching which moves a galaxy from the blue cloud to the red sequence. However, concrete statistical evidence for the effect of AGN feedback on the host galaxy population has so far been elusive.
 
-Here we present a large observational population study of the quenching of the host galaxies of Type 2 AGN identified by line diagnostics. We use a new Bayesian method\footnote{Publicly available: \url{http://github.com/zooniverse/starpy}} \citep{Sme2015} to effectively model the SFH of a galaxy with two parameters, time of quenching, $t_q$, and exponential rate, $\tau$, given the observed near ultra-violet (NUV) and optical colours. We aim to determine the following: (i) Are galaxies currently hosting an AGN undergoing quenching? (ii) If so, when and at what rate does this quenching occur? (iii) Is this quenching occurring at different times and rates compared to a control sample of inactive galaxies?
+Here we present a large observational population study of the quenching of the host galaxies of Type 2 AGN identified by line diagnostics. We use a new Bayesian method \citep{Sme2015} to effectively model the SFH of a galaxy with two parameters, time of quenching, $t_q$, and exponential rate, $\tau$, given the observed near ultra-violet (NUV) and optical colours. We aim to determine the following: (i) Are galaxies currently hosting an AGN undergoing quenching? (ii) If so, when and at what rate does this quenching occur? (iii) Is this quenching occurring at different times and rates compared to a control sample of inactive galaxies?
 
 The zero points of all magnitudes are in the AB system and where necessary, we adopt the WMAP Seven-Year Cosmology (Jarosik et al. 2011) with $(\Omega_m , ~\Omega_\Lambda , ~h) = (0.26, 0.73, 0.71)$.
 
@@ -97,7 +100,7 @@ where $i_{sfr}$ is an initial constant star formation rate dependent on $t_q$ \c
 \subsection{AGN Sample}\label{agnsample}
 
 \begin{figure*}
-\includegraphics[width=0.95\textwidth]{bpt/GZ2_GALEX_sample_bpt_diagram_SNR_gtr_3_type_1_seyferts_only.png}
+\includegraphics[width=0.94\textwidth]{bpt/GZ2_GALEX_sample_bpt_diagram_SNR_gtr_3_type_1_seyferts_only.png}
 \caption{BPT diagrams for galaxies in the \textsc{gz2-galex} sample (black crosses) with S/N $> 3$ for each emission line. Inequalities defined in: \cite{Kew01} to separate SF galaxies from AGN (dashed lines), \cite{Kauff03b} to separate SF from composite SF-AGN galaxies (solid line) and \cite{Kew06} to separate LINERS and Seyferts (dotted lines). Galaxies are included in the \textsc{agn-host} sample (red circles) if they satisfy all the inequalities to be classified as Seyferts. LINERs are excluded for purity.}
 \label{bpt}
 \end{figure*}
@@ -161,7 +164,7 @@ The differences between the distribution of likelihood for the \textsc{agn-host}
 %As well as the evidence for downsizing in the \textsc{inactive} population (Figure \ref{time}), we can also see its effect on the \textsc{agn-host} population. Although recent quenching is the dominant history, quenching at earlier times has significant likelihood, increasing with mass. These galaxies may have been affected by downsizing earlier in life with the current AGN also having an effect on the SFR through feedback, causing a recent, rapid quench of any residual star formation. 
 
 
-The difference between the \textsc{agn-host} and \textsc{inactive} population distribution of likelihood in Figure \ref{rate} for the rate of quenching, $\tau$, tells a story of gas reservoirs. The distribution of probability for higher mass \textsc{agn-host} galaxies is dominated by slower, early quenching implying another mechanism is responsible for the cessation of star formation in these high mass galaxies prior to the triggering of the current AGN.  This preference for slower evolution timescales follows from the ideas of previously isolated discs evolving slowly by the Kennicutt-Schmidt \citep{Schmidt59, Kennicutt97} law which can then undergo an interaction or merger to reinvigorate star formation, feed the central black hole and trigger a current AGN \citep{Varela04, Em15}. These galaxies would need a large enough gas reservoir to fuel both SF throughout their lifetimes and the recent AGN. These high mass galaxies also play host to the most luminous AGN (mean $\log L[OIII] [\rm{erg}~s^{-1}] \sim 41.6$) and so this SFH challenges the typical merger-driven theory for the co-evolution of the most luminous black holes and their host galaxies. 
+The difference between the \textsc{agn-host} and \textsc{inactive} population distribution of likelihood in Figure \ref{rate} for the rate of quenching, $\tau$, tells a story of gas reservoirs. The distribution of probability for higher mass \textsc{agn-host} galaxies is dominated by slower, early quenching implying another mechanism is responsible for the cessation of star formation in these high mass galaxies prior to the triggering of the current AGN.  This preference for slower evolution timescales follows from the ideas of previously isolated discs evolving slowly by the Kennicutt-Schmidt \citep{Schmidt59, Kennicutt97} law which can then undergo an interaction or merger to reinvigorate star formation, feed the central black hole and trigger an AGN \citep{Varela04, Em15}. These galaxies would need a large enough gas reservoir to fuel both SF throughout their lifetimes and the recent AGN. These high mass galaxies also play host to the most luminous AGN (mean $\log L[OIII] [\rm{erg}~s^{-1}] \sim 41.6$) and so this SFH challenges the typical merger-driven theory for the co-evolution of luminous black holes and their host galaxies. 
 
 \begin{figure}
 \includegraphics[width=0.485\textwidth]{bpt/quenching_rate_histograms_smooth_red_disc_blue_verticalbpt_seyf_only_hardcut_minimal.pdf}
