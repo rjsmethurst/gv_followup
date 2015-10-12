@@ -120,43 +120,66 @@ Figure \ref{bpt} shows those galaxies in the \textsc{agn-host} sample marked in 
 
 %All of the galaxies satisfying any of the inequalities defined in \cite{Kew01} are removed from the \textsc{gz2-galex} sample along with any of those identified as Type 1 AGN by \citet{Oh15} to produce a largely inactive sample of typical galaxies. These inactive galaxies are used as a control sample to the Type 2 AGN sample and will be referred to as the \textsc{inactive} sample. 
 
-We constructed a sample of inactive galaxies by removing from the \textsc{gz2-galex} sample all galaxies in the \textsc{agn-host} sample, as well as sources identified as Type 1 AGN by the presence of broad emission lines \citep{Oh15}. We refer to this sample as the \textsc{inactive} sample. A Kolmogorov-Smirnov test revealed the redshift distributions of the \textsc{inactive} and \textsc{agn-host} samples are statistically indistinguishable ($D \sim 0.16$, $p \sim 0.88). 
+We constructed a sample of inactive galaxies by removing from the \textsc{gz2-galex} sample {\changed all those galaxies above the \citet*{Kauff03b} line separating star forming from active galaxies on the BPT diagram}, as well as sources identified as Type 1 AGN by the presence of broad emission lines \citep{Oh15}. {\changed Each galaxy in the \textsc{agn-host} sample was matched by stellar mass (to within $\pm5\%$) and GZ `smooth' and `disc' vote fractions, $p_s$ and $p_d$ (to within $\pm 0.1$) to at least one, and up to five, inactive galaxies to give $6107$ galaxies.} We refer to this sample as the \textsc{inactive} sample. A Kolmogorov-Smirnov test revealed the redshift distributions of the \textsc{inactive} and \textsc{agn-host} samples are statistically indistinguishable ($D \sim 0.16$, $p \sim 0.88). 
 
 Since this investigation is focussed on whether an AGN can have an impact on the SF of its host galaxy, we must consider whether there is a selection effect present in this identification method. The extent to which SF could be obscured by AGN emission was addressed by \cite{Sch2010}. They showed, through a simple empirical experiment which simulated the addition of an AGN of known luminosity to a star forming galaxy, that BPT-based selection of AGN produces a complete sample, even in the blue cloud, at luminosities of $L[OIII] > 10^{40} \rm{erg~s}^{-1}$. Above this limit we therefore assume we have selected a complete sample of AGN independent of host galaxy SFR.
 
-We also split both the \textsc{agn-host} and \textsc{inactive} samples into low, medium and high mass ranges (see Table \ref{massbins}) to investigate any trends in the SFH with mass. Masses were calculated using the $(u-r)$ colour and absolute $r$-band magnitude with the method outlined in \cite{Baldry06}.
+We also split both the \textsc{agn-host} and \textsc{inactive} samples into low, medium and high mass ranges (see Table \ref{massbins}) to investigate any trends in the SFH with mass. {\changed The mass boundaries were chosen to give roughly equal numbers of inactive galaxies in each bin prior to the mass matching to the \textsc{agn-host} sample.} Masses were calculated using the $(u-r)$ colour and absolute $r$-band magnitude with the method outlined in \cite{Baldry06}.
 
 
 \section{Results}
 
-We apply the method outlined in Section \ref{starpy} to obtain a 2-dimensional likelihood distribution across the $[t_q, \tau]$ parameter space. We combine individual galaxy likelihood distributions within the \textsc{agn-host} and \textsc{inactive} galaxy samples, additionally weighting by GZ2 morphologies to produce quenching parameter likelihood distributions for both disc- and smooth-dominated galaxy populations in the three mass bins defined in Table \ref{massbins}. \cite{Sch2014} showed the morphological dependance of quenching histories therefore it is important to distinguish by morphological type. 
-\begin{table}
-\centering
-\caption{Table showing the number of galaxies in each of the three mass bins for both the \textsc{agn-hosts} and \textsc{inactive} galaxy samples.}
-\label{massbins}
-\begin{tabular}{c|cc}
-\hline
- Mass Bin                                    & \textsc{agn-hosts} & \textsc{inactive} \\ \hline
-$\log [M_*/M_{\odot}] < 10.25 $           & 165 (13.3\%)         & 41197 (33.4\%)      \\
-$10.25 < \log [M_*/M_{\odot}] < 10.75$ & 630 (50.6\%)         & 46428 (37.7\%)      \\
-$\log [M_*/M_{\odot}] > 10.75$           & 449 (36.1\%)         & 35618  (28.9\%)  \\\hline          
-\end{tabular}
-\end{table}
+%We apply the method outlined in Section \ref{starpy} to obtain a 2-dimensional likelihood distribution across the $[t_q, \tau]$ parameter space. We combine individual galaxy likelihood distributions within the \textsc{agn-host} and \textsc{inactive} galaxy samples, additionally weighting by GZ2 morphologies to produce quenching parameter likelihood distributions for both disc- and smooth-dominated galaxy populations in the three mass bins defined in Table \ref{massbins}. \cite{Sch2014} showed the morphological dependance of quenching histories therefore it is important to distinguish by morphological type. 
+%\begin{table}
+%\centering
+%\caption{Table showing the number of galaxies in each of the three mass bins for both the \textsc{agn-hosts} and \textsc{inactive} galaxy samples and the percentage of the summed PDF across each population found in the rapid, intermediate and slow quenching regimes.}
+%\label{massbins}
+%\begin{tabular}{c|cc}
+%\hline
+% Mass Bin                                    & \textsc{agn-hosts} & \textsc{inactive} \\ \hline
+%$\log [M_*/M_{\odot}] < 10.25 $           & 165 (13.3\%)         & 41197 (33.4\%)      \\
+%$10.25 < \log [M_*/M_{\odot}] < 10.75$ & 630 (50.6\%)         & 46428 (37.7\%)      \\
+%$\log [M_*/M_{\odot}] > 10.75$           & 449 (36.1\%)         & 35618  (28.9\%)  \\\hline          
+%\end{tabular}
+%\end{table}
 
-These 2-dimensional likelihoods are summed across each parameter axis and normalised to produce the one dimensional histograms shown in Figures \ref{time} and \ref{rate} for the quenching time, $t_q$ and exponential quenching rate, $\tau$, respectively. In each figure the summed 1-dimensional normalised probability distribution across the given parameter is shown for smooth and disc dominated galaxies across three mass bins for the \textsc{agn-host} and \textsc{inactive} samples. In Figure \ref{rate} the percentage likelihoods in each region of quenching rate, shown by the dashed lines for rapid ($\tau < 1$ Gyr), intermediate ($1 < \tau ~\rm{[Gyr]} < 2$) and slow ($\tau > 2$ Gyr) quenching timescales, are shown.
+\begin{table*}
+\centering
+\caption{Table showing the number of galaxies in each of the three mass bins for both the \textsc{agn-hosts} and \textsc{inactive} galaxy samples and the percentage of the summed PDF across each population found in the rapid, intermediate and slow quenching regimes.}
+\label{massbins}
+\begin{tabular}{c|c|c|c|c|c|c}
+\hline
+\textsc{sample}                     & \textsc{mass bin}                                        & \textsc{weighting}                  & $\tau < 1 ~\rm{[Gyr]}$                             & $1 < \tau ~\rm{[Gyr]} < 2 $          & $\tau > 2 ~\rm{[Gyr]}$                               & \textsc{number}                                        \\ \hline \hline
+\multirow{6}{*}{AGN-HOSTS} & \multirow{2}{*}{$\log [M_*/M_{\odot}] < 10.25 $}                       & $p_d$     & $60\pm_{5}^{23}$                    & $13\pm_{9}^{9}$                    & $28\pm_{19}^{6}$       & \multirow{2}{*}{$165 (13.3\%)$}                      \\
+                           &                                                 & $p_s$     & $69\pm_{6}^{14}$                    & $17\pm_{14}^{6}$                   & $14\pm_{7}^{3}$        &                                                      \\ \cline{2-7} 
+                           & \multirow{2}{*}{$10.25 < \log [M_*/M_{\odot}] < 10.75$}                    & $p_d$     & $33\pm_{5}^{3}$                     & $15\pm_{4}^{4}$                    & $51\pm_{7}^{4}$        & \multirow{2}{*}{$630 (50.6\%)$}                      \\
+                           &                                                 & $p_s$     & $69\pm_{5}^{4}$                     & $7\pm_{4}^{4}$                     & $26\pm_{9}^{5}$        &                                                      \\ \cline{2-7} 
+                           & \multirow{2}{*}{$\log [M_*/M_{\odot}] > 10.75$}                      & $p_d$     & $20\pm_{4}^{5}$ & $25\pm_{5}^{7}$                    & $56\pm_{12}^{8}$       & \multirow{2}{*}{$449 (36.1\%)$}                      \\
+                           &                                                 & $p_s$     & $24\pm_{3}^{4}$                     & $26\pm_{6}^{5}$                    & $50\pm_{7}^{7}$        &                                                      \\ \hline \hline
+\multirow{6}{*}{INACTIVE}  & \multirow{2}{*}{$\log [M_*/M_{\odot}] < 10.25 $}                       & $p_d$     & $37\pm_{14}^{8}$                    & $39\pm_{6}^{8}$                    & $24\pm_{6}^{8}$        & \multirow{2}{*}{$807 (13.2\%)$}                      \\
+                           &                                                 & $p_s$     & $47\pm_{11}^{5}$                    & $36\pm_{5}^{9}$                    & $17\pm_{5}^{4}$        &                                                      \\ \cline{2-7} 
+                           & \multirow{2}{*}{$10.25 < \log [M_*/M_{\odot}] < 10.75$}                    & $p_d$     &                                    &                                   &                       & \multirow{2}{*}{$3094 (50.7\%)$}                     \\
+                           &                                                 & $p_s$     & \multicolumn{1}{l}{}               & \multicolumn{1}{l}{}              & \multicolumn{1}{l|}{} &                                                      \\ \cline{2-7} 
+                           & \multicolumn{1}{l|}{\multirow{2}{*}{$\log [M_*/M_{\odot}] > 10.75$}} & $p_d$     & \multicolumn{1}{l}{}               & \multicolumn{1}{l}{}              & \multicolumn{1}{l|}{} & \multicolumn{1}{l}{\multirow{2}{*}{$2206 (36.1\%)$}} \\
+                           & \multicolumn{1}{l|}{}                           & $p_s$      & \multicolumn{1}{l}{}               & \multicolumn{1}{l}{}              & \multicolumn{1}{l|}{} & \multicolumn{1}{l}{}                                 \\ \hline                       
+\end{tabular}
+\end{table*}
+
+These 2-dimensional likelihoods are summed across each parameter axis and normalised to produce the one dimensional histograms shown in Figures \ref{time} and \ref{rate} for the quenching time, $t_q$ and exponential quenching rate, $\tau$, respectively. In each figure the summed 1-dimensional normalised posterior probability distribution across the given parameter is shown for smooth and disc dominated galaxies across three mass bins for the \textsc{agn-host} and \textsc{inactive} samples.{\changed In Table \ref{massbins} the percentage of the summed posterior distribution in each quenching regime} for rapid ($\tau < 1$ Gyr), intermediate ($1 < \tau ~\rm{[Gyr]} < 2$) and slow ($\tau > 2$ Gyr) quenching timescales, are shown. {\changed Errors on the percentages are calculated from the range of values spanned by $1000$ bootstrap iterations each sampling $90\%$ of the population.}
 
 It is immediately apparent from Figures \ref{time} and \ref{rate} that there is a distinct difference between the distribution of likelihood for \textsc{agn-host} and \textsc{inactive} populations.%For the \textsc{inactive} sample, the likelihood for quenching at later times decreases with increasing mass; for the lower mass galaxies the quenching is roughly constant with time for both morphologies (right panel Figure \ref{time}). 
 
 
 At all masses, the distribution of likelihood for the \textsc{agn-host} population across the quenching time $t_q$ parameter (left panels of Figure \ref{time}) is different from that of the inactive galaxies (right panels of Figure \ref{time}). Recent quenching ($t > 11$ Gyr) of \textsc{agn-host} galaxies is the dominant history for low and medium mass galaxies, particularly for the smooth galaxy population. However, this effect is less dominant in higher mass galaxies where quenching at earlier times has significant likelihood.
 
-\begin{figure}
-\includegraphics[width=0.485\textwidth]{bpt/quenching_time_histograms_smooth_red_disc_blue_verticalbpt_seyf_only_hardcut_minimal.pdf}
-\caption{Likehood distribution for the quenching time, $t_q$ parameter normalised so that the areas under the curves are equal. \textsc{agn-host} (left) and \textsc{inactive} (right) galaxies are split into low (top), medium (middle) and high (bottom) mass for smooth (red dashed) and disc (blue solid) galaxies. A low value of $t_q$ corresponds to the early Universe and a high value to the recent Universe.}
-\label{time}
-\end{figure}
 
 The distributions of likelihood for the quenching rate, $\tau$, in Figure \ref{rate} show the dominance of rapid quenching ($\tau < 1$ Gyr) across the \textsc{agn-host} population, particularly for smooth galaxies. With increasing mass the dominant quenching rate becomes slow ($\tau > 2$ Gyr) especially for disc galaxies hosting an AGN. Similar trends in likelihood are observed for the \textsc{inactive} population but the overall distribution of likelihood is very different. 
+
+\begin{figure}
+\includegraphics[width=0.485\textwidth]{bpt/quenching_time_histograms_smooth_red_disc_blue_inactive_mass_matched_5pc_sample_with_mode_and_66pc_around_mode.pdf}
+\caption{Normalised posterior probability distribution for the quenching time, $t_q$ parameter normalised so that the areas under the curves are equal. \textsc{agn-host} (left) and \textsc{inactive} (right) galaxies are split into low (top), medium (middle) and high (bottom) mass for smooth (red dashed) and disc (blue solid) galaxies. {\changed The mode, along with $\pm1\sigma$, are shown by the solid and dashed lines respectively for each distribution.} A low value of $t_q$ corresponds to the early Universe and a high value to the recent Universe.}
+\label{time}
+\end{figure}
 
 The likelihood distribution for the \textsc{agn-host} galaxies therefore shows evidence for the dominance of rapid, recent quenching having occurred across the entire population. This result implies the importance of AGN feedback for the evolution of these galaxies.
 
@@ -171,8 +194,8 @@ The differences between the distribution of likelihood for the \textsc{agn-host}
 The difference between the \textsc{agn-host} and \textsc{inactive} population distribution of likelihood in Figure \ref{rate} for the rate of quenching, $\tau$, tells a story of gas reservoirs. The distribution of probability for higher mass \textsc{agn-host} galaxies is dominated by slow, early quenching implying another mechanism is responsible for the cessation of star formation in these high mass galaxies prior to the triggering of the current AGN.  This preference for slow evolution timescales follows from the ideas of previously isolated discs evolving slowly by the Kennicutt-Schmidt \citep{Schmidt59, Kennicutt97} law which can then undergo an interaction or merger to reinvigorate star formation, feed the central black hole and trigger an AGN \citep{Varela04, Em15}. These galaxies would need a large enough gas reservoir to fuel both SF throughout their lifetimes and the recent AGN. These high mass galaxies also play host to the most luminous AGN (mean $\log (L[OIII] ~[\rm{erg}~s^{-1}]) \sim 41.6$) and so this SFH challenges the usual explanation for the co-evolution of luminous black holes and their host galaxies driven by merger growth. 
 
 \begin{figure}
-\includegraphics[width=0.485\textwidth]{bpt/quenching_rate_histograms_smooth_red_disc_blue_verticalbpt_seyf_only_hardcut_minimal.pdf}
-\caption{Likehood distribution for the quenching rate, $\tau$ normalised so that the areas under the curves are equal. \textsc{agn-host} (left) host and \textsc{inactive} (right) galaxies are split into low (top), medium (middle) and high (bottom) mass for smooth (red dashed) and disc (blue solid) galaxies. The black dashed lines show the separation between rapid ($\tau < 1.0$ Gyr), intermediate ($1.0 < \tau ~\rm{[Gyr]} < 2.0$) and slow ($\tau > 2.0$ Gyr) quenching timescales with the percentage likelihood distribution in each region for disc (blue) and smooth (red) populations. A small (large) value of $\tau$ corresponds to a rapid (slow) quench.}
+\includegraphics[width=0.485\textwidth]{bpt/quenching_rate_histograms_smooth_red_disc_blue_inactive_mass_matched_5pc_sample_with_mode_and_66pc_around_mode.pdf}
+\caption{Likehood distribution for the quenching rate, $\tau$ normalised so that the areas under the curves are equal. \textsc{agn-host} (left) host and \textsc{inactive} (right) galaxies are split into low (top), medium (middle) and high (bottom) mass for smooth (red dashed) and disc (blue solid) galaxies. {\changed The mode, along with $\pm1\sigma$, are shown by the solid and dashed lines respectively for each distribution.} A small (large) value of $\tau$ corresponds to a rapid (slow) quench.}
 \label{rate}
 \end{figure}
 
@@ -205,7 +228,7 @@ We have used morphological classifications from the Galaxy Zoo 2 project to dete
 
 %\section*{Acknowledgements}
 
-%RS acknowledges funding from the STFC Grant Code ST/K502236/1. BDS gratefully acknowledges support from Balliol College, Oxford. KS gratefully acknowledges support from Swiss National Science Foundation Grant PP00P2\_138979/1. SJK acknowledges funding from the STFC Grant Code ST/MJ0371X/1. KLM acknowledges funding from The Leverhulme Trust as a 2010 Early Career Fellow. KWW acknowledges funding from NSF grant AST-1413610. OIW acknowledges a Super Science Fellowship from the Australian Research Council. The authors would like to thank S. Kaviraj for helpful discussions. The development of GZ was supported by the Alfred P. Sloan Foundation and The Leverhulme Trust. Based on observations made with the NASA GALEX\footnote{\url{http://galex.stsci.edu/GR6/}} and the SDSS\footnote{\url{https://www.sdss3.org/collaboration/boiler-plate.php}}.
+%RS acknowledges funding from the STFC Grant Code ST/K502236/1. BDS gratefully acknowledges support from Balliol College, Oxford. KS gratefully acknowledges support from Swiss National Science Foundation Grant PP00P2_138979/1. SJK acknowledges funding from the STFC Grant Code ST/MJ0371X/1. KLM acknowledges funding from The Leverhulme Trust as a 2010 Early Career Fellow. KWW acknowledges funding from NSF grant AST-1413610. OIW acknowledges a Super Science Fellowship from the Australian Research Council. The authors would like to thank S. Kaviraj for helpful discussions. The development of GZ was supported by the Alfred P. Sloan Foundation and The Leverhulme Trust. Based on observations made with the NASA GALEX\footnote{\url{http://galex.stsci.edu/GR6/}} and the SDSS\footnote{\url{https://www.sdss3.org/collaboration/boiler-plate.php}}.
 
 %GALEX is operated for NASA by the California Institute of Technology under NASA contract NAS5-98034. Funding for the SDSS and SDSS-II has been provided by the Alfred P. Sloan Foundation, the Participating Institutions, the National Science Foundation, the U.S. Department of Energy, the National Aeronautics and Space Administration, the Japanese Monbukagakusho, the Max Planck Society, and the Higher Education Funding Council for England. %The SDSS Web Site is \url{http://www.sdss.org/}.
 %The SDSS is managed by the Astrophysical Research Consortium for the Participating Institutions. The Participating Institutions are the American Museum of Natural History, Astrophysical Institute Potsdam, University of Basel, University of Cambridge, Case Western Reserve University, University of Chicago, Drexel University, Fermilab, the Institute for Advanced Study, the Japan Participation Group, Johns Hopkins University, the Joint Institute for Nuclear Astrophysics, the Kavli Institute for Particle Astrophysics and Cosmology, the Korean Scientist Group, the Chinese Academy of Sciences (LAMOST), Los Alamos National Laboratory, the Max-Planck-Institute for Astronomy (MPIA), the Max-Planck-Institute for Astrophysics (MPA), New Mexico State University, Ohio State University, University of Pittsburgh, University of Portsmouth, Princeton University, the United States Naval Observatory, and the University of Washington.
