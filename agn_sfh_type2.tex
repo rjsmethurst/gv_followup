@@ -8,11 +8,11 @@
 \usepackage{url}
 \usepackage{multirow}
 \voffset=-0.5in
-
+\pdfminorversion=5
 \setlength{\parsep}{0pt}
 \setlength{\partopsep}{0pt}
 
-\definecolor{nc}{rgb}{0,0,0}
+\definecolor{nc}{rgb}{1,0,0}
 \def\changed    {\color{nc} }
 
 \def\starpy ~{\textsc{starpy}}
@@ -44,9 +44,9 @@
 %Though observational evidence has been found for both positive and negative feedback caused by an AGN, the effect on the galaxy wide star formation history (SFH) due to the presence of an AGN has not been studied.
 %MAIN RESULT
 %Here 
-We present a population study of the star formation history of $1,244$ Type 2 AGN host galaxies, compared to $123,243$ inactive galaxies using a Bayesian method. We find evidence for the Type 2 AGN host galaxies having undergone a recent (within $2$ Gyr) and rapid (exponential rate $\tau < 1$ Gyr) drop in their star formation rate. AGN feedback is therefore important at least for this population of galaxies.
+We present a population study of the star formation history of $1,244$ Type 2 AGN host galaxies, compared to $123,243$ inactive galaxies using a Bayesian method. We find evidence for the Type 2 AGN host galaxies having undergone a recent (within $2$ Gyr) and rapid drop in their star formation rate. AGN feedback is therefore important at least for this population of galaxies.
 %RESULT COMPARISON
-This result is not seen for the inactive galaxies whose star formation histories are dominated by the effects of downsizing at earlier epochs, a secondary effect for the AGN host galaxies. We show that  histories of rapid quenching cannot account fully for the quenching of all the star formation in a galaxy's lifetime across the population of AGN host galaxies, and that histories of slower quenching, attributed to secular evolution, are also key in their evolution.
+This result is not seen for the inactive galaxies whose star formation histories are dominated by the effects of downsizing at earlier epochs, a secondary effect for the AGN host galaxies. We show that  histories of rapid quenching cannot account fully for the quenching of all the star formation in a galaxy's lifetime across the population of AGN host galaxies, and that histories of slower quenching, attributed to secular (non-violent) evolution, are also key in their evolution.
 %RESULTS IN GENERAL CONTEXT
 This is in agreement with recent results showing both merger-driven and non-merger processes are contributing to the co-evolution of galaxies and supermassive black holes. The availability of gas in the reservoirs of a galaxy, and its ability to be replenished, appear to be the key drivers behind this co-evolution.
 %BROAD PERSPECTIVE
@@ -62,21 +62,24 @@ The nature of the observed co-evolution of galaxies and their central supermassi
 
 The strongest observational evidence for AGN feedback in a population is that the largest fraction of AGN are found in the green valley \citep{CB08, Hickox09, Sch2010}, suggesting some link between AGN activity and  the process of quenching which moves a galaxy from the blue cloud to the red sequence. However, concrete statistical evidence for the effect of AGN feedback on the host galaxy population has so far been elusive.
 
-Here we present a large observational population study of the quenching of the host galaxies of Type 2 AGN identified by line diagnostics. We use a new Bayesian method \citep{Sme2015} to effectively model the SFH of a galaxy with two parameters, time of quenching, $t_q$, and exponential rate, $\tau$, given the observed near ultra-violet (NUV) and optical colours. We aim to determine the following: (i) Are galaxies currently hosting an AGN undergoing quenching? (ii) If so, when and at what rate does this quenching occur? (iii) Is this quenching occurring at different times and rates compared to a control sample of inactive galaxies?
+Here we present a large observational population study of the quenching of Type 2 AGN the host galaxies identified by line diagnostics. We use a new Bayesian method \citep{Sme2015} to effectively model the SFH of a galaxy with two parameters, time of quenching, $t_q$, and exponential rate, $\tau$, given the observed near ultra-violet (NUV) and optical colours. {\changed This is comparable to the work of  \citet{Martin07} who using a similar model, estimated mass fluxes across the green valley, however this work demonstrates a significant improvement over this previous study through the use of a Bayesian-MCMC methodology.} Through this we aim to determine the following: (i) Are galaxies currently hosting an AGN undergoing quenching? (ii) If so, when and at what rate does this quenching occur? (iii) Is this quenching occurring at different times and rates compared to a control sample of inactive galaxies?
 
 The zero points of all magnitudes are in the AB system and where necessary, we adopt the WMAP Seven-Year Cosmology (Jarosik et al. 2011) with $(\Omega_m , ~\Omega_\Lambda , ~h) = (0.26, 0.73, 0.71)$.
 
-\begin{figure*}
-\includegraphics[width=\textwidth]{bpt/mosaic_agn_type_2_blue_one_line_4.pdf}
-\caption{Randomly selected SDSS \emph{gri} composite images from the sample of $1,244$ Type 2 AGN in a redshift range $0.04 < z < 0.05$.  The galaxies are ordered from least to most featured according to their debiased `disc or featured' vote fraction, $p_d$ (see \citealt{GZ2}). The scale for each image is $0.099~\rm{arcsec/pixel}$.}
-\label{mosaic}
-\end{figure*}
+%\begin{figure*}
+%\includegraphics[width=\textwidth]{fig1.pdf}
+%\caption{Randomly selected SDSS \emph{gri} composite images from the sample of $1,244$ Type 2 AGN in a redshift range $0.04 < z < 0.05$.  The galaxies are ordered from least to most featured according to their debiased `disc or featured' vote fraction, $p_d$ (see \citealt{GZ2}). The scale for each image is $0.099~\rm{arcsec/pixel}$.}
+%\label{mosaic}
+%\end{figure*}
 
 \section{Data \& Methods}
 
 In this investigation we use visual classifications of galaxy morphologies from the Galaxy Zoo 2\footnote{\url{http://zoo2.galaxyzoo.org/}} (GZ2) citizen science project \citep{GZ2}, which obtains multiple independent classifications for each optical image. The full question tree for an image is shown in Figure 1 of \citeauthor{GZ2}  The GZ2 project used $304, 022$ images from the Sloan Digital Sky Survey Data Release 7 (SDSS; \citealt{York2000, Abazajian09}) all classified by \emph{at least} 17 independent users, with a mean number of classifications of $\sim42$.
 
-Further to this, we required NUV photometry from the GALEX survey, within which $\sim42\%$ of the GZ2 sample was observed, giving $126, 316$ galaxies total ($0.01 < z < 0.25$). This will be referred to as the \textsc{gz2-galex} sample. The completeness of this sample ($-22 < M_u < -15$) is shown in Figure 2 of \cite{Sme2015} with the $u$-band absolute magnitude against redshift for this sample in comparison to the SDSS data set. 
+Further to this, we required NUV photometry from the GALEX survey, within which $\sim42\%$ of the GZ2 sample was observed, giving $126, 316$ galaxies total ($0.01 < z < 0.25$). This will be referred to as the \textsc{gz2-galex} sample. The completeness of this sample ($-22 < M_u < -15$) is shown in Figure 2 of \cite{Sme2015}. 
+
+{\changed Observed fluxes are corrected for galactic extinction \citep{Oh11} by applying the \citet*{Cardelli89} law. We also adopt k-corrections to $z = 0.0$ and obtain absolute magnitudes from the NYU-VAGC \citep{Blanton05, Pad08, BR07}.}
+%with the $u$-band absolute magnitude against redshift for this sample in comparison to the SDSS data set. 
 
 %Typical Milky Way $L_*$ galaxies with $M_u \sim -20.5$ are still included in the GZ2 subsample out to the highest redshift of $z \sim 0.25$; however dwarf and lower mass galaxies are only detected at the lowest redshifts. 
 
@@ -84,7 +87,7 @@ Further to this, we required NUV photometry from the GALEX survey, within which 
 
 \subsection{Bayesian SFH Determination}\label{starpy}
 
-\textsc{starpy}\footnote{Publicly available: \url{http://github.com/zooniverse/starpy}} is a \textsc{python} code which allows the user to derive the quenched star formation history (SFH) of a galaxy through a Bayesian Markov Chain Monte Carlo method \citep{Dan}\footnote{\url{http://dan.iel.fm/emcee/}} with the input of the observed $u-r$ and $NUV-u$ colours, a redshift, and the use of the stellar population models of \cite{BC03}. The star formation history template is an exponential decline of the SFR and is described by two parameters $[t_q, \tau]$, where $t_q$ is the time at which the onset of quenching begins $\rm{[Gyr]}$ and $\tau$ is the exponential rate at which quenching occurs $\rm{[Gyr]}$. Under the simplifying assumption that all galaxies formed at $t=0$ $\rm{ Gyr}$ with an initial burst of star formation, the SFH can be described as: 
+\textsc{starpy}\footnote{Publicly available: \url{http://github.com/zooniverse/starpy}} is a \textsc{python} code which allows the user to derive the quenched star formation history (SFH) of a galaxy through a Bayesian Markov Chain Monte Carlo method \citep{Dan}\footnote{\url{http://dan.iel.fm/emcee/}} with the input of the observed $u-r$ and $NUV-u$ colours, a redshift, and the use of the stellar population models of \cite{BC03}. {\changed These models are implemented using solar metallicity and a Chabrier IMF \citep{Chab03}}. The star formation history template is an exponential decline of the SFR and is described by two parameters $[t_q, \tau]$, where $t_q$ is the time at which the onset of quenching begins $\rm{[Gyr]}$ and $\tau$ is the exponential rate at which quenching occurs $\rm{[Gyr]}$. Under the simplifying assumption that all galaxies formed at $t=0$ $\rm{ Gyr}$ with an initial burst of star formation, the SFH can be described as: 
 \begin{equation}\label{sfh}
 SFR =
 \begin{cases}
@@ -92,15 +95,16 @@ i_{sfr}(t_q) & \text{if } t < t_q \\
 i_{sfr}(t_q) \times exp{\left( \frac{-(t-t_{q})}{\tau}\right)} & \text{if } t > t_q 
 \end{cases}
 \end{equation}
-where $i_{sfr}$ is an initial constant star formation rate dependent on $t_q$ \citep{Sch2014, Sme2015}.  A smaller $\tau$ value corresponds to a rapid quench, whereas a larger $\tau$ value corresponds to a slower quench. The output of \starpy  ~ is probabilistic in nature and provides the posterior probability distribution across the entirety of the two parameter space for each individual galaxy. The probabilistic fitting methods to this SFH for an observed galaxy are described in full detail in \cite{Sme2015} wherein the \starpy ~~code was used to characterise the SFHs of the \textsc{gz2-galex} sample. 
+where $i_{sfr}$ is an initial constant star formation rate dependent on $t_q$ \citep{Sch2014, Sme2015}.  A smaller $\tau$ value corresponds to a rapid quench, whereas a larger $\tau$ value corresponds to a slower quench. {\changed \cite{Martin07} showed that such an exponential SFH leads to the largest UV colour change over time giving an upper limit on the mass flux of galaxies quenching to the red sequence. They concluded that this SFH was the most appropriate when studying such a large population of galaxies in comparison to smooth, burst and complex SFHs. Such an investigation is also planned using \starpy~ in future work.} 
 
+The output of \starpy  ~ is probabilistic in nature and provides the posterior probability distribution across the entirety of the two parameter space for each individual galaxy. The probabilistic fitting methods to this SFH for an observed galaxy are described in full detail in {\changed Section 3.2 of} \cite{Sme2015} wherein the \starpy ~~code was used to characterise the SFHs of the \textsc{gz2-galex} sample. {\changed We assume a flat prior on all the model parameters and a double gaussian likelihood function for the $u-r$ and $NUV-u$ colours (Equation 2 in \citealt{Sme2015}).}
 %These individual galaxy likelihoods can be combined to visualise the areas of high probability in the model parameter space for a given population of galaxies (e.g. the green valley as in \citealt{Sme2015} and here with active and inactive galaxies). The GZ2 data also provides uniquely powerful continuous measurements of a galaxyÕs morphology, therefore we utilise the user vote fractions to obtain separate model likelihood parameter distributions for both smooth and disc galaxies; obtained by weighting by the morphology vote fraction of each galaxy when combined. We stress that this portion of the methodology is a non-Bayesian visualisation of the combined individual galaxy results for each population.
 
 
 \subsection{AGN Sample}\label{agnsample}
 
 \begin{figure*}
-\includegraphics[width=0.94\textwidth]{bpt/GZ2_GALEX_sample_bpt_diagram_SNR_gtr_3_type_1_seyferts_only.png}
+\includegraphics[width=0.94\textwidth]{bpt/GZ2_GALEX_sample_bpt_diagram_SNR_gtr_3_type_1_seyferts_only_better_quality.pdf}
 \caption{BPT diagrams for galaxies in the \textsc{gz2-galex} sample (black crosses) with S/N $> 3$ for each emission line. Inequalities defined in: \cite{Kew01} to separate SF galaxies from AGN (dashed lines), \cite{Kauff03b} to separate SF from composite SF-AGN galaxies (solid line) and \cite{Kew06} to separate LINERS and Seyferts (dotted lines). Galaxies are included in the \textsc{agn-host} sample (red circles) if they satisfy all the inequalities to be classified as Seyferts. LINERs are excluded for purity.}
 \label{bpt}
 \end{figure*}
@@ -110,9 +114,9 @@ We selected Type 2 AGN using a BPT diagram \citep{bpt81} using line and continuu
 
 Type 2 AGN were used in this analysis as opposed to Type 1 due to their photometric obscuration. Type 1 AGN contaminate their galaxy's photometric measurements which would need to be removed through aperture matching. Due to the requirement for NUV colours from GALEX, in order to be sensitive to any recent star formation, the aperture matching to SDSS becomes a non-trivial task.
 
-\cite{Simmons11} showed that the obscuration of a Type 2 AGN is more efficient in the NUV than in the optical. Residual NUV flux from the AGN can thus be neglected in comparison to that of the galaxy. However there is often some residual optical flux that can affect the measurements of the host galaxy's photometry. We can subtract this central optical AGN flux using the PSF magnitudes provided by SDSS (the aperture containing the central flux of a galaxy), however the change in the colours of these galaxies after this correction is negligible, with $\Delta(u-r) \sim 0.09$. We therefore use the uncorrected colours to avoid unnecessary complexity and minimise the propagation of uncertainty from the colours through to the SFHs. Including these corrected colours does not change the results described below.  
+\cite{Simmons11} showed that the obscuration of a Type 2 AGN is more efficient in the NUV than in the optical. Residual NUV flux from the AGN can thus be neglected in comparison to that of the galaxy. However there is often some residual optical flux that can affect the measurements of the host galaxy's photometry. We can subtract this central optical AGN flux using the magnitudes provided by SDSS fit to a central point spread function (PSF), however the change in the colours of these galaxies after this correction is negligible, with $\Delta(u-r) \sim 0.09$. We therefore use the uncorrected colours to avoid unnecessary complexity and minimise the propagation of uncertainty from the colours through to the SFHs. Including these corrected colours does not change the results described below.  
 
-Images from SDSS for ten randomly selected Type 2 AGN host galaxies from this sample are shown in Figure \ref{mosaic} and the entire sample is shown in Figure \ref{bpt} with those galaxies selected as Type 2 AGN marked in red and the matched \textsc{gz2-galex} galaxies in black.  For this sample the mean $\log L[OIII] ~[\rm{erg~s^{-1}}] \sim 41.3$ and median $\log L[OIII] ~[\rm{erg~s^{-1}}] \sim 41.0$, with a range of $\log L[OIII] ~[\rm{erg~s^{-1}}$] luminosities of $39.4-43.0$. 
+Figure \ref{bpt} shows those galaxies in the \textsc{agn-host} sample marked in red and the matched \textsc{gz2-galex} galaxies in black on a BPT diagram.  For the \textsc{agn-host} sample the mean $\log (L[OIII] ~[\rm{erg~s^{-1}}]) \sim 41.3$ and median $\log (L[OIII] ~[\rm{erg~s^{-1}}]) \sim 41.0$, with a range of $\log (L[OIII] ~[\rm{erg~s^{-1}}])$ luminosities of $39.4-43.0$. 
 
 %All of the galaxies satisfying any of the inequalities defined in \cite{Kew01} are removed from the \textsc{gz2-galex} sample along with any of those identified as Type 1 AGN by \citet{Oh15} to produce a largely inactive sample of typical galaxies. These inactive galaxies are used as a control sample to the Type 2 AGN sample and will be referred to as the \textsc{inactive} sample. 
 
@@ -144,7 +148,7 @@ These 2-dimensional likelihoods are summed across each parameter axis and normal
 It is immediately apparent from Figures \ref{time} and \ref{rate} that there is a distinct difference between the distribution of likelihood for \textsc{agn-host} and \textsc{inactive} populations.%For the \textsc{inactive} sample, the likelihood for quenching at later times decreases with increasing mass; for the lower mass galaxies the quenching is roughly constant with time for both morphologies (right panel Figure \ref{time}). 
 
 
-At all masses, the distribution of likelihood for the \textsc{agn-host} population across the quenching time $t_q$ parameter (left panels of Figure \ref{time}) is different from that of the inactive galaxies (right panels of Figure \ref{time}). Recent quenching ($t > 11$ Gyr) of \textsc{agn-host} galaxies is the dominant history for low and medium mass galaxies, particularly for the smooth dominated population. However, this effect is less dominant in higher mass galaxies where quenching at earlier times has significant likelihood.
+At all masses, the distribution of likelihood for the \textsc{agn-host} population across the quenching time $t_q$ parameter (left panels of Figure \ref{time}) is different from that of the inactive galaxies (right panels of Figure \ref{time}). Recent quenching ($t > 11$ Gyr) of \textsc{agn-host} galaxies is the dominant history for low and medium mass galaxies, particularly for the smooth galaxy population. However, this effect is less dominant in higher mass galaxies where quenching at earlier times has significant likelihood.
 
 \begin{figure}
 \includegraphics[width=0.485\textwidth]{bpt/quenching_time_histograms_smooth_red_disc_blue_verticalbpt_seyf_only_hardcut_minimal.pdf}
@@ -164,7 +168,7 @@ The differences between the distribution of likelihood for the \textsc{agn-host}
 %As well as the evidence for downsizing in the \textsc{inactive} population (Figure \ref{time}), we can also see its effect on the \textsc{agn-host} population. Although recent quenching is the dominant history, quenching at earlier times has significant likelihood, increasing with mass. These galaxies may have been affected by downsizing earlier in life with the current AGN also having an effect on the SFR through feedback, causing a recent, rapid quench of any residual star formation. 
 
 
-The difference between the \textsc{agn-host} and \textsc{inactive} population distribution of likelihood in Figure \ref{rate} for the rate of quenching, $\tau$, tells a story of gas reservoirs. The distribution of probability for higher mass \textsc{agn-host} galaxies is dominated by slower, early quenching implying another mechanism is responsible for the cessation of star formation in these high mass galaxies prior to the triggering of the current AGN.  This preference for slower evolution timescales follows from the ideas of previously isolated discs evolving slowly by the Kennicutt-Schmidt \citep{Schmidt59, Kennicutt97} law which can then undergo an interaction or merger to reinvigorate star formation, feed the central black hole and trigger an AGN \citep{Varela04, Em15}. These galaxies would need a large enough gas reservoir to fuel both SF throughout their lifetimes and the recent AGN. These high mass galaxies also play host to the most luminous AGN (mean $\log L[OIII] [\rm{erg}~s^{-1}] \sim 41.6$) and so this SFH challenges the typical merger-driven theory for the co-evolution of luminous black holes and their host galaxies. 
+The difference between the \textsc{agn-host} and \textsc{inactive} population distribution of likelihood in Figure \ref{rate} for the rate of quenching, $\tau$, tells a story of gas reservoirs. The distribution of probability for higher mass \textsc{agn-host} galaxies is dominated by slow, early quenching implying another mechanism is responsible for the cessation of star formation in these high mass galaxies prior to the triggering of the current AGN.  This preference for slow evolution timescales follows from the ideas of previously isolated discs evolving slowly by the Kennicutt-Schmidt \citep{Schmidt59, Kennicutt97} law which can then undergo an interaction or merger to reinvigorate star formation, feed the central black hole and trigger an AGN \citep{Varela04, Em15}. These galaxies would need a large enough gas reservoir to fuel both SF throughout their lifetimes and the recent AGN. These high mass galaxies also play host to the most luminous AGN (mean $\log (L[OIII] ~[\rm{erg}~s^{-1}]) \sim 41.6$) and so this SFH challenges the usual explanation for the co-evolution of luminous black holes and their host galaxies driven by merger growth. 
 
 \begin{figure}
 \includegraphics[width=0.485\textwidth]{bpt/quenching_rate_histograms_smooth_red_disc_blue_verticalbpt_seyf_only_hardcut_minimal.pdf}
@@ -198,9 +202,10 @@ For the medium mass \textsc{agn-host} population we see a bimodal distribution o
 \\
 \\
 We have used morphological classifications from the Galaxy Zoo 2 project to determine the morphology-dependent star formation histories of a population of $1,244$ Type 2 Seyfert AGN host galaxies, in comparison to an inactive galaxy population, via a Bayesian analysis of an exponentially declining star formation history model. We determined the most likely parameters for the quenching onset time, $t_q$, and exponential quenching rate, $\tau$, and find clear differences in the combined population likelihoods between inactive and AGN host galaxy populations. We have demonstrated a clear dependence on a galaxy currently hosting an AGN and its SFR. There is strong evidence for downsizing in massive inactive galaxies, which appears as a secondary effect in AGN host galaxies. The dominant quenching mechanism for galaxies currently hosting an AGN is for rapid quenching which has occurred very recently. This result demonstrates the importance of AGN feedback across the entire host galaxy population, in driving the evolution of galaxies across the colour-magnitude diagram.  
-\section*{Acknowledgements}
 
-RS acknowledges funding from the STFC Grant Code ST/K502236/1. BDS gratefully acknowledges support from Balliol College, Oxford. KS gratefully acknowledges support from Swiss National Science Foundation Grant PP00P2\_138979/1. SJK acknowledges funding from the STFC Grant Code ST/MJ0371X/1. KLM acknowledges funding from The Leverhulme Trust as a 2010 Early Career Fellow. KWW acknowledges funding from NSF grant AST-1413610. OIW acknowledges a Super Science Fellowship from the Australian Research Council. The authors would like to thank S. Kaviraj for helpful discussions. The development of GZ was supported by the Alfred P. Sloan Foundation and The Leverhulme Trust. Based on observations made with the NASA GALEX\footnote{\url{http://galex.stsci.edu/GR6/}} and the SDSS\footnote{\url{https://www.sdss3.org/collaboration/boiler-plate.php}}.
+%\section*{Acknowledgements}
+
+%RS acknowledges funding from the STFC Grant Code ST/K502236/1. BDS gratefully acknowledges support from Balliol College, Oxford. KS gratefully acknowledges support from Swiss National Science Foundation Grant PP00P2\_138979/1. SJK acknowledges funding from the STFC Grant Code ST/MJ0371X/1. KLM acknowledges funding from The Leverhulme Trust as a 2010 Early Career Fellow. KWW acknowledges funding from NSF grant AST-1413610. OIW acknowledges a Super Science Fellowship from the Australian Research Council. The authors would like to thank S. Kaviraj for helpful discussions. The development of GZ was supported by the Alfred P. Sloan Foundation and The Leverhulme Trust. Based on observations made with the NASA GALEX\footnote{\url{http://galex.stsci.edu/GR6/}} and the SDSS\footnote{\url{https://www.sdss3.org/collaboration/boiler-plate.php}}.
 
 %GALEX is operated for NASA by the California Institute of Technology under NASA contract NAS5-98034. Funding for the SDSS and SDSS-II has been provided by the Alfred P. Sloan Foundation, the Participating Institutions, the National Science Foundation, the U.S. Department of Energy, the National Aeronautics and Space Administration, the Japanese Monbukagakusho, the Max Planck Society, and the Higher Education Funding Council for England. %The SDSS Web Site is \url{http://www.sdss.org/}.
 %The SDSS is managed by the Astrophysical Research Consortium for the Participating Institutions. The Participating Institutions are the American Museum of Natural History, Astrophysical Institute Potsdam, University of Basel, University of Cambridge, Case Western Reserve University, University of Chicago, Drexel University, Fermilab, the Institute for Advanced Study, the Japan Participation Group, Johns Hopkins University, the Joint Institute for Nuclear Astrophysics, the Kavli Institute for Particle Astrophysics and Cosmology, the Korean Scientist Group, the Chinese Academy of Sciences (LAMOST), Los Alamos National Laboratory, the Max-Planck-Institute for Astronomy (MPIA), the Max-Planck-Institute for Astrophysics (MPA), New Mexico State University, Ohio State University, University of Pittsburgh, University of Portsmouth, Princeton University, the United States Naval Observatory, and the University of Washington.
@@ -216,13 +221,21 @@ RS acknowledges funding from the STFC Grant Code ST/K502236/1. BDS gratefully ac
 
 \bibitem[\protect\citeauthoryear{Bamford et al.}{2009}]{Bamford09} Bamford, S. et al., 2009, MNRAS, 393, 1324
 
+\bibitem[\protect\citeauthoryear{Blanton et al.}{2005}]{Blanton05} Blanton, M. R. et al., 2005, AJ, 129, 2562
+
+\bibitem[\protect\citeauthoryear{Blanton \& Roweis}{2007}]{BR07} Blanton, M. R. \& Roweis, S., 2007, AJ, 133, 734
+
 \bibitem[\protect\citeauthoryear{Bower et al.}{2006}]{Bower06} Bower, R. et al., 2006, MNRAS, 370, 645
 
 \bibitem[\protect\citeauthoryear{Brinchmann et al.}{2004}]{Brinch04} Brinchmann, J. et al., 2004, MNRAS, 351, 1151
 
 \bibitem[\protect\citeauthoryear{Bruzual \& Charlot}{2003}]{BC03} Bruzual, G. \& Charlot, S., 2003, MNRAS, 344, 1000
 
+\bibitem[\protect\citeauthoryear{Cardelli et al.}{1989}]{Cardelli89} Cardelli, J. A. et al., 1989, ApJ, 345, 245
+
 \bibitem[\protect\citeauthoryear{Cisternas et al.}{2011}]{Cisternas11} Cisternas, M. et al., 2011, ApJ, 726, 57
+
+\bibitem[\protect\citeauthoryear{Chabrier et al.}{2003}]{Chab03} Chabrier, G., 2003, PASP, 115, 763
 
 \bibitem[\protect\citeauthoryear{Conselice et al.}{2003}]{Con03} Conselice, C. J. et al., 2003, AJ, 126, 1183
 
@@ -272,11 +285,15 @@ RS acknowledges funding from the STFC Grant Code ST/K502236/1. BDS gratefully ac
 
 \bibitem[\protect\citeauthoryear{Marconi \& Hunt}{2003}]{MH03} Marconi, A. \& Hunt, L. K., 2003, ApJ, 589, 21
 
+\bibitem[\protect\citeauthoryear{Martin et al.}{2007}]{Martin07} Martin, D. C. et al., 2007, ApJSS, 173, 342
+
 \bibitem[\protect\citeauthoryear{McIntosh et al.}{2014}]{McIntosh14} McIntosh, D. et al., 2014, MNRAS, 442, 533
+
+\bibitem[\protect\citeauthoryear{Oh et al.}{2011}]{Oh11} Oh, K. et al., 2011, ApJS, 195, 13
 
 \bibitem[\protect\citeauthoryear{Oh et al.}{2015}]{Oh15} Oh, K. et al. 2015, arXiv: 1504.07247
 
-\bibitem[\protect\citeauthoryear{Yan \& Blanton}{2012}]{RB12} Yan, R. \& Blanton, M. R. 2012, ApJ, 747, 61
+\bibitem[\protect\citeauthoryear{Padmanabhan et al.}{2008}]{Pad08} Padmanabhan, N. et al., 2008, ApJ, 674, 1217
 
 \bibitem[\protect\citeauthoryear{Sarzi et al.}{2010}]{Sarzi10} Sarzi, M. et al., 2010, MNRAS, 402, 2187
 
@@ -307,6 +324,8 @@ RS acknowledges funding from the STFC Grant Code ST/K502236/1. BDS gratefully ac
 \bibitem[\protect\citeauthoryear{Varela et al.}{2004}]{Varela04} Varela, J. et al., 2004, A\&A, 420, 873
 
 \bibitem[\protect\citeauthoryear{Willett et al.}{2013}]{GZ2} Willett, K. et al., 2013, MNRAS, 435, 2835
+
+\bibitem[\protect\citeauthoryear{Yan \& Blanton}{2012}]{RB12} Yan, R. \& Blanton, M. R. 2012, ApJ, 747, 61
 
 \bibitem[\protect\citeauthoryear{York et al.}{2000}]{York2000} York, D. G. et al., 2000, AJ, 120, 1579
 
