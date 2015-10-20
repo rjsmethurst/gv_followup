@@ -62,21 +62,23 @@ The nature of the observed co-evolution of galaxies and their central supermassi
 
 The strongest observational evidence for AGN feedback in a population is that the largest fraction of AGN are found in the green valley \citep{CB08, Hickox09, Sch2010}, suggesting some link between AGN activity and  the process of quenching which moves a galaxy from the blue cloud to the red sequence. However, concrete statistical evidence for the effect of AGN feedback on the host galaxy population has so far been elusive.
 
-Here we present a large observational population study of the quenching of Type 2 AGN the host galaxies identified by line diagnostics. We use a new Bayesian method \citep{Sme2015} to effectively model the SFH of a galaxy with two parameters, time of quenching, $t_q$, and exponential rate, $\tau$, given the observed near ultra-violet (NUV) and optical colours. {\changed This is complementary to the work of  \citet{Martin07} who using a similar model, estimated mass fluxes across the green valley; this work demonstrates a significant improvement over this previous study through the use of a Bayesian-MCMC methodology.} Through this we aim to determine the following: (i) Are galaxies currently hosting an AGN undergoing quenching? (ii) If so, when and at what rate does this quenching occur? (iii) Is this quenching occurring at different times and rates compared to a control sample of inactive galaxies?
+Here we present a large observational population study of the quenching of Type 2 AGN the host galaxies identified by line diagnostics. We use a new Bayesian method \citep{Sme2015} to effectively determine the most probable SFH of a galaxy, modelled with two parameters, time of quenching, $t_q$, and exponential rate, $\tau$, given the observed near ultra-violet (NUV) and optical colours. {\changed This is complementary to the work of \citet{Martin07} and \citet{Sch2014}, however this study demonstrates a significant improvement over these previous studies through the use of a Bayesian-MCMC methodology.} Through this we aim to determine the following: (i) Are galaxies currently hosting an AGN undergoing quenching? (ii) If so, when and at what rate does this quenching occur? (iii) Is this quenching occurring at different times and rates compared to a control sample of inactive galaxies?
+
+\begin{figure*}
+\includegraphics[width=\textwidth]{bpt/mosaic_agn_type_2_blue_one_line_4.pdf}
+\caption{Randomly selected SDSS \emph{gri} composite images from the sample of $1,244$ Type 2 AGN in a redshift range $0.04 < z < 0.05$.  The galaxies are ordered from least to most featured according to their debiased `disc or featured' vote fraction, $p_d$ (see \citealt{GZ2}). The scale for each image is $0.099~\rm{arcsec/pixel}$.}
+\label{mosaic}
+\end{figure*}
 
 The zero points of all magnitudes are in the AB system and where necessary, we adopt the WMAP Seven-Year Cosmology (Jarosik et al. 2011) with $(\Omega_m , ~\Omega_\Lambda , ~h) = (0.26, 0.73, 0.71)$.
 
-%\begin{figure*}
-%\includegraphics[width=\textwidth]{fig1.pdf}
-%\caption{Randomly selected SDSS \emph{gri} composite images from the sample of $1,244$ Type 2 AGN in a redshift range $0.04 < z < 0.05$.  The galaxies are ordered from least to most featured according to their debiased `disc or featured' vote fraction, $p_d$ (see \citealt{GZ2}). The scale for each image is $0.099~\rm{arcsec/pixel}$.}
-%\label{mosaic}
-%\end{figure*}
+
 
 \section{Data \& Methods}
 
 In this investigation we use visual classifications of galaxy morphologies from the Galaxy Zoo 2\footnote{\url{http://zoo2.galaxyzoo.org/}} (GZ2) citizen science project \citep{GZ2}, which obtains multiple independent classifications for each optical image. The full question tree for an image is shown in Figure 1 of \citeauthor{GZ2}  The GZ2 project used $304, 022$ images from the Sloan Digital Sky Survey Data Release 7 (SDSS; \citealt{York2000, Abazajian09}) all classified by \emph{at least} 17 independent users, with a mean number of classifications of $\sim42$.
 
-Further to this, we required NUV photometry from the GALEX survey, within which $\sim42\%$ of the GZ2 sample was observed, giving $126, 316$ galaxies total ($0.01 < z < 0.25$). This will be referred to as the \textsc{gz2-galex} sample. The completeness of this sample ($-22 < M_u < -15$) is shown in Figure 2 of \cite{Sme2015}. 
+Further to this, we required NUV photometry from the GALEX survey \citep{Martin05}, within which $\sim42\%$ of the GZ2 sample was observed, giving $126, 316$ galaxies total ($0.01 < z < 0.25$). This will be referred to as the \textsc{gz2-galex} sample. The completeness of this sample ($-22 < M_u < -15$) is shown in Figure 2 of \cite{Sme2015}. 
 
 {\changed Observed fluxes are corrected for galactic extinction \citep{Oh11} by applying the \citet*{Cardelli89} law. We also adopt k-corrections to $z = 0.0$ and obtain absolute magnitudes from the NYU-VAGC \citep{Blanton05, Pad08, BR07}.}
 %with the $u$-band absolute magnitude against redshift for this sample in comparison to the SDSS data set. 
@@ -95,9 +97,11 @@ i_{sfr}(t_q) & \text{if } t < t_q \\
 i_{sfr}(t_q) \times exp{\left( \frac{-(t-t_{q})}{\tau}\right)} & \text{if } t > t_q 
 \end{cases}
 \end{equation}
-where $i_{sfr}$ is an initial constant star formation rate dependent on $t_q$ \citep{Sch2014, Sme2015}.  A smaller $\tau$ value corresponds to a rapid quench, whereas a larger $\tau$ value corresponds to a slower quench. {\changed \cite{Martin07} showed that such an exponential SFH leads to the largest UV colour change over time giving an upper limit on the mass flux of galaxies quenching to the red sequence. They concluded that this SFH was the most appropriate when studying such a large population of galaxies in comparison to smooth, burst and complex SFHs. Such an investigation is also planned using \starpy~ in future work.} 
+where $i_{sfr}$ is an initial constant star formation rate dependent on $t_q$ \citep{Sch2014, Sme2015}.  A smaller $\tau$ value corresponds to a rapid quench, whereas a larger $\tau$ value corresponds to a slower quench. {\changed Such a SFH model has previously been shown to be appropriate for describing quenching galaxies by \citet{Weiner06, Martin07, Noeske07} and  \citet{Sch2014}.}
 
-The probabilistic fitting methods to this SFH for an observed galaxy are described in full detail in {\changed Section 3.2 of} \cite{Sme2015} wherein the \starpy ~~code was used to characterise the SFHs of the \textsc{gz2-galex} sample. {\changed We assume a flat prior on all the model parameters and a double gaussian likelihood function for the $u-r$ and $NUV-u$ colours (Equation 2 in \citealt{Sme2015}).} The output of \starpy  ~ is probabilistic in nature and provides the posterior probability distribution across the entirety of the two parameter space for an individual galaxy. {\changed To study the SFH across a given population of galaxies, these individual posterior probability distributions can be combined by summing each binned distribution. We also utilise the GZ debiased vote fractions to obtain separate summed posterior probability distributions for both smooth and disc galaxies; obtained by weighting by either the disc, $p_d$ or smooth, $p_s$ vote fraction of each galaxy when summing. This ensures that the entirety of the population is used, with galaxies with a higher $p_d$ contributing more to the disc weighted than the smooth weighted posterior distribution. This negates the need for a threshold on the GZ vote fractions (e.g. $p_d > 0.8$), unlike in previous studies \citep{Sch2014}.}
+%{\changed \cite{Martin07} showed that such an exponential SFH leads to the largest UV colour change over time giving an upper limit on the mass flux of galaxies quenching to the red sequence. They concluded that this SFH was the most appropriate when studying such a large population of galaxies in comparison to smooth, burst and complex SFHs. Such an investigation is also planned using \starpy~ in future work.} 
+
+The probabilistic fitting methods to this SFH for an observed galaxy are described in full detail in {\changed Section 3.2 of} \cite{Sme2015} wherein the \starpy ~~code was used to characterise the SFHs of the \textsc{gz2-galex} sample. {\changed We assume a flat prior on all the model parameters and a double gaussian likelihood function for the $u-r$ and $NUV-u$ colours (Equation 2 in \citealt{Sme2015}).} The output of \starpy  ~ is probabilistic in nature and provides the posterior probability distribution across the entirety of the two parameter space for an individual galaxy. {\changed To study the SFH across a given population of galaxies, these individual posterior probability distributions can be combined by summing each binned distribution. We also utilise the GZ debiased vote fractions to obtain separate summed posterior probability distributions for both smooth and disc galaxies; obtained by weighting by either the disc, $p_d$ or smooth, $p_s$ vote fraction of each galaxy when summing, as in \citet*{Sme2015}. This ensures that the entirety of the population is used, with galaxies with a higher $p_d$ contributing more to the disc weighted than the smooth weighted posterior distribution. This negates the need for a threshold on the GZ vote fractions (e.g. $p_d > 0.8$), unlike in previous studies \citep{Sch2014}.}
 
 %These individual galaxy likelihoods can be combined to visualise the areas of high probability in the model parameter space for a given population of galaxies (e.g. the green valley as in \citealt{Sme2015} and here with active and inactive galaxies). The GZ2 data also provides uniquely powerful continuous measurements of a galaxy’s morphology, therefore we utilise the user vote fractions to obtain separate model likelihood parameter distributions for both smooth and disc galaxies; obtained by weighting by the morphology vote fraction of each galaxy when combined. We stress that this portion of the methodology is a non-Bayesian visualisation of the combined individual galaxy results for each population.
 
@@ -117,7 +121,7 @@ Type 2 AGN were used in this analysis as opposed to Type 1 due to their photomet
 
 \cite{Simmons11} showed that the obscuration of a Type 2 AGN is more efficient in the NUV than in the optical. Residual NUV flux from the AGN can thus be neglected in comparison to that of the galaxy. However there is often some residual optical flux that can affect the measurements of the host galaxy's photometry. We can subtract this central optical AGN flux using the magnitudes provided by SDSS fit to a central point spread function (PSF), however the change in the colours of these galaxies after this correction is negligible, with $\Delta(u-r) \sim 0.09$. We therefore use the uncorrected colours to avoid unnecessary complexity and minimise the propagation of uncertainty from the colours through to the SFHs. Including these corrected colours does not change the results described below.  
 
-Figure \ref{bpt} shows those galaxies in the \textsc{agn-host} sample marked in red and the matched \textsc{gz2-galex} galaxies in black on a BPT diagram.  For the \textsc{agn-host} sample the mean $\log (L[OIII] ~[\rm{erg~s^{-1}}]) \sim 41.3$ and median $\log (L[OIII] ~[\rm{erg~s^{-1}}]) \sim 41.0$, with a range of $\log (L[OIII] ~[\rm{erg~s^{-1}}])$ luminosities of $39.4-43.0$. 
+Image from SDSS for ten randomly selected galaxies from the \textsc{agn-host} sample are shown in Figure \ref{mosaic} and Figure \ref{bpt} shows the entire \textsc{agn-host} sample and the matched \textsc{gz2-galex} galaxies on a BPT diagram.  For the \textsc{agn-host} sample the mean $\log (L[OIII] ~[\rm{erg~s^{-1}}]) \sim 41.3$ and median $\log (L[OIII] ~[\rm{erg~s^{-1}}]) \sim 41.0$, with a range of $\log (L[OIII] ~[\rm{erg~s^{-1}}])$ luminosities of $39.4-43.0$. 
 
 %All of the galaxies satisfying any of the inequalities defined in \cite{Kew01} are removed from the \textsc{gz2-galex} sample along with any of those identified as Type 1 AGN by \citet{Oh15} to produce a largely inactive sample of typical galaxies. These inactive galaxies are used as a control sample to the Type 2 AGN sample and will be referred to as the \textsc{inactive} sample. 
 
@@ -146,7 +150,7 @@ We also split both the \textsc{agn-host} and \textsc{inactive} samples into low,
 
 \begin{table*}
 \centering
-\caption{Table showing the number of galaxies in each of the three mass bins for both the \textsc{agn-hosts} and \textsc{inactive} galaxy samples and the percentage of the summed PDF across each population found in the rapid, intermediate and slow quenching regimes.}
+\caption{Table showing the number of galaxies in each of the three mass bins for both the \textsc{agn-hosts} and \textsc{inactive} galaxy samples and the percentage of the summed probability distribution across each morphologically weighted population found in the rapid, intermediate and slow quenching regimes.}
 \label{massbins}
 \begin{tabular}{c|c|c|c|c|c|c}
 \hline
@@ -159,14 +163,14 @@ We also split both the \textsc{agn-host} and \textsc{inactive} samples into low,
                            &                                                 & $p_s$     & $24\pm_{3}^{4}$                     & $26\pm_{6}^{5}$                    & $50\pm_{7}^{7}$        &                                                      \\ \hline \hline
 \multirow{6}{*}{INACTIVE}  & \multirow{2}{*}{$\log [M_*/M_{\odot}] < 10.25 $}                       & $p_d$     & $37\pm_{14}^{8}$                    & $39\pm_{6}^{8}$                    & $24\pm_{6}^{8}$        & \multirow{2}{*}{$807 (13.2\%)$}                      \\
                            &                                                 & $p_s$     & $47\pm_{11}^{5}$                    & $36\pm_{5}^{9}$                    & $17\pm_{5}^{4}$        &                                                      \\ \cline{2-7} 
-                           & \multirow{2}{*}{$10.25 < \log [M_*/M_{\odot}] < 10.75$}                    & $p_d$     &                                    &                                   &                       & \multirow{2}{*}{$3094 (50.7\%)$}                     \\
-                           &                                                 & $p_s$     & \multicolumn{1}{l}{}               & \multicolumn{1}{l}{}              & \multicolumn{1}{l|}{} &                                                      \\ \cline{2-7} 
-                           & \multicolumn{1}{l|}{\multirow{2}{*}{$\log [M_*/M_{\odot}] > 10.75$}} & $p_d$     & \multicolumn{1}{l}{}               & \multicolumn{1}{l}{}              & \multicolumn{1}{l|}{} & \multicolumn{1}{l}{\multirow{2}{*}{$2206 (36.1\%)$}} \\
-                           & \multicolumn{1}{l|}{}                           & $p_s$      & \multicolumn{1}{l}{}               & \multicolumn{1}{l}{}              & \multicolumn{1}{l|}{} & \multicolumn{1}{l}{}                                 \\ \hline                       
+                           & \multirow{2}{*}{$10.25 < \log [M_*/M_{\odot}] < 10.75$}                    & $p_d$     &          $30\pm_{3}^{4}$                          &       $18\pm_{3}^{2}$                            &    $51\pm_{5}^{4}$                   & \multirow{2}{*}{$3094 (50.7\%)$}                     \\
+                           &                                                 & $p_s$     & $42\pm_{2}^{3}$            & $29\pm_{3}^{3}$   & $30\pm_{3}^{3}$ &                                                      \\ \cline{2-7} 
+                           & {\multirow{2}{*}{$\log [M_*/M_{\odot}] > 10.75$}} & $p_d$     & $36\pm_{2}^{2}$            & $24\pm_{3}^{3}$         & $41\pm_{4}^{3}$ & \multicolumn{1}{l}{\multirow{2}{*}{$2206 (36.1\%)$}} \\
+                           & \multicolumn{1}{l|}{}                           & $p_s$      & $38\pm_{2}^{2}$              & $28\pm_{3}^{3}$            & $34\pm_{3}^{4}$ & \multicolumn{1}{l}{}                                 \\ \hline                       
 \end{tabular}
 \end{table*}
 
-Figures \ref{time} and \ref{rate} show the summed posterior probability distributions for the quenching time, $t_q$ and exponential quenching rate, $\tau$, respectively. In each figure the summed 1-dimensional normalised posterior probability distribution across the given parameter is shown for smooth and disc dominated galaxies across three mass bins for the \textsc{agn-host} and \textsc{inactive} samples. {\changed In Table \ref{massbins} the percentage of the summed posterior distribution in each quenching regime} for rapid ($\tau < 1$ Gyr), intermediate ($1 < \tau ~\rm{[Gyr]} < 2$) and slow ($\tau > 2$ Gyr) quenching timescales, are shown. {\changed Errors on the percentages are calculated from the range of values spanned by $1000$ bootstrap iterations each sampling $90\%$ of the population.}
+Figures \ref{time} and \ref{rate} show the summed posterior probability distributions for the quenching time, $t_q$ and exponential quenching rate, $\tau$, respectively. In each figure the summed 1-dimensional normalised posterior probability distribution across the given parameter is shown for smooth and disc dominated galaxies across three mass bins for the \textsc{agn-host} and \textsc{inactive} samples. {\changed In Table \ref{massbins} the percentage of the summed posterior distribution in each quenching regime} for rapid ($\tau < 1$ Gyr), intermediate ($1 < \tau ~\rm{[Gyr]} < 2$) and slow ($\tau > 2$ Gyr) quenching timescales, are shown. {\changed Errors on the percentages are calculated from the range of values spanned by $N = 1000$ bootstrap iterations each sampling $90\%$ of the population.}
 
 It is immediately apparent from Figures \ref{time} and \ref{rate} that there is a distinct difference between the posterior probability distributions of \textsc{agn-host} and \textsc{inactive} populations.%For the \textsc{inactive} sample, the likelihood for quenching at later times decreases with increasing mass; for the lower mass galaxies the quenching is roughly constant with time for both morphologies (right panel Figure \ref{time}). 
 
@@ -177,8 +181,8 @@ At all masses, the posterior distribution for the \textsc{agn-host} population a
 The distributions of probability for the quenching rate, $\tau$, in Figure \ref{rate} and Table \ref{massbins} show the dominance of rapid quenching ($\tau < 1$ Gyr) across the \textsc{agn-host} population, particularly for smooth galaxies. With increasing mass the dominant quenching rate becomes slow ($\tau > 2$ Gyr) especially for disc galaxies hosting an AGN. Similar trends in the probability are observed for the \textsc{inactive} population but the overall distribution is very different. 
 
 \begin{figure}
-\includegraphics[width=0.485\textwidth]{bpt/quenching_time_histograms_smooth_red_disc_blue_inactive_mass_matched_5pc_sample_with_mode_and_66pc_around_mode.pdf}
-\caption{Normalised posterior probability distribution for the quenching time, $t_q$ parameter normalised so that the areas under the curves are equal. \textsc{agn-host} (left) and \textsc{inactive} (right) galaxies are split into low (top), medium (middle) and high (bottom) mass for smooth (red dashed) and disc (blue solid) galaxies. {\changed The mode, along with $\pm1\sigma$, are shown by the solid and dashed lines respectively for each distribution.} A low value of $t_q$ corresponds to the early Universe and a high value to the recent Universe.}
+\includegraphics[width=0.485\textwidth]{bpt/quenching_time_histograms_smooth_red_disc_blue_inactive_mass_matched_5pc_sample.pdf}
+\caption{Normalised posterior probability distribution for the quenching time, $t_q$ parameter normalised so that the areas under the curves are equal. \textsc{agn-host} (left) and \textsc{inactive} (right) galaxies are split into low (top), medium (middle) and high (bottom) mass for smooth (red dashed) and disc (blue solid) galaxies. A low value of $t_q$ corresponds to the early Universe and a high value to the recent Universe.}
 \label{time}
 \end{figure}
 
@@ -188,13 +192,13 @@ The posterior probability distribution for the \textsc{agn-host} galaxies theref
 
 The differences between the probability distribution of the \textsc{agn-host} and \textsc{inactive} galaxy populations reveal that an AGN can have a significant effect on the SFH of its host galaxy. Both recent, rapid quenching and early, slow quenching are observed in the probability distribution of the \textsc{agn-host} population. 
 
-{\changed There are minimal morphological differences across the \textsc{agn-host} population between the smooth and disc weighted posterior probability distributions. This is agreement with the conclusions of \citet*{Kauff03b} who found that the structural properties of AGN hosts depend very little on AGN power. }
+{\changed There are minimal differences between the smooth and disc weighted probability distributions of the quenching parameters across the \textsc{agn-host} population. This is agreement with the conclusions of \citet*{Kauff03b} who found that the structural properties of AGN hosts depend very little on AGN power. }
 
 %As well as the evidence for downsizing in the \textsc{inactive} population (Figure \ref{time}), we can also see its effect on the \textsc{agn-host} population. Although recent quenching is the dominant history, quenching at earlier times has significant likelihood, increasing with mass. These galaxies may have been affected by downsizing earlier in life with the current AGN also having an effect on the SFR through feedback, causing a recent, rapid quench of any residual star formation. 
 
 \begin{figure}
-\includegraphics[width=0.485\textwidth]{bpt/quenching_rate_histograms_smooth_red_disc_blue_inactive_mass_matched_5pc_sample_with_mode_and_66pc_around_mode.pdf}
-\caption{Likehood distribution for the quenching rate, $\tau$ normalised so that the areas under the curves are equal. \textsc{agn-host} (left) host and \textsc{inactive} (right) galaxies are split into low (top), medium (middle) and high (bottom) mass for smooth (red dashed) and disc (blue solid) galaxies. {\changed The mode, along with $\pm1\sigma$, are shown by the solid and dashed lines respectively for each distribution.} A small (large) value of $\tau$ corresponds to a rapid (slow) quench.}
+\includegraphics[width=0.485\textwidth]{bpt/quenching_rate_histograms_smooth_red_disc_blue_inactive_mass_matched_5pc_sample.pdf}
+\caption{Likehood distribution for the quenching rate, $\tau$ normalised so that the areas under the curves are equal. \textsc{agn-host} (left) host and \textsc{inactive} (right) galaxies are split into low (top), medium (middle) and high (bottom) mass for smooth (red dashed) and disc (blue solid) galaxies. A small (large) value of $\tau$ corresponds to a rapid (slow) quench.}
 \label{rate}
 \end{figure}
 
@@ -220,11 +224,11 @@ These recently triggered AGN in both massive disc and smooth galaxies do not hav
 
 Conversely, rapid quenching, possibly caused by the AGN itself through negative feedback, is the most dominant history for low mass \textsc{agn-host} galaxies with lower gravitational potentials which allow gas to be expelled more easily (or heated by the AGN) across the entire galaxy \citep{Torbra09}. 
 
-{\changed Conversely work by \citet{Yesuf14} has shown that AGN are more commonly hosted by post starburst galaxies, with the peak AGN activity appearing significantly after the peak star formation activity by $\geq 200 \pm 100 ~\rm{Myr}$. This implies that AGN may play only a secondary role in quenching after a starburst (possibly merger fueled) has exhausted the bulk of it's gas supply \citep{Croton06, Wild09, Snyder11, Hayward14}. The AGN may therefore be a consequence of another mechanism (e.g. a starburst) which has also caused the rapid, recent quenching observed across the \textsc{agn-host} population.}
+\cite{Torbra09} model the effects of negative AGN feedback on a typical early type (i.e. smooth) galaxy and find the time between the current galaxy age in their simulation, $t_{gal}$ and the time that the feedback began, $t_{AGN}$, peaks at $t_{gal} - t_{AGN} \sim 0.85 ~\rm{Gyr}$. This agrees with the location of the peak in Figure \ref{time} for low mass galaxies, where the difference between the peak of the probability and the average age of the population (galaxy age is calculated from the redshift by assuming all galaxies form at $t=0$) is $\sim0.83 ~\rm{Gyr}$. This implies that this dominant recent quenching history is caused directly by AGN feedback, as opposed to the AGN being a consequence of an alternative quenching mechanism.
 
-However, \cite{Torbra09} model the effects of negative AGN feedback on a typical early type (i.e. smooth) galaxy and find the time between the current galaxy age in their simulation, $t_{gal}$ and the time that the feedback began, $t_{AGN}$, peaks at $t_{gal} - t_{AGN} \sim 0.85 ~\rm{Gyr}$. This agrees with the location of the peak in Figure \ref{time} for low mass galaxies, where the difference between the peak of the probability and the average age of the population (galaxy age is calculated from the redshift by assuming all galaxies form at $t=0$) is $\sim0.83 ~\rm{Gyr}$. This implies that this dominant recent quenching history is caused directly by AGN feedback, as opposed to the AGN being a consequence of an alternative quenching mechanism.
+{\changed Such an alternate quenching mechanism could be the exhaustion of gas by a (possibly merger fuelled) starburst \citep{Croton06, Wild09, Snyder11, Hayward14}. Work by \citet{Yesuf14} has shown that AGN are more commonly hosted by post starburst galaxies, with the peak AGN activity appearing significantly after the peak star formation activity by $\geq 200 \pm 100 ~\rm{Myr}$. This is contrary to the results presented here, suggesting that at least for this population of AGN host galaxies, AGN feedback is an important mechanism for the quenching of star formation.}
 
-Rapid quenching is particularly dominant for low-to-medium mass smooth galaxies. \cite{Sme2015} suggest that incredibly rapid quenching rates could be attributed to mergers of galaxies in conjunction with AGN feedback, which are thought to be responsible for creating the most massive smooth galaxies \citep{Con03, SdMH05, Hopkins08}. This dominance of rapid quenching across the smooth \textsc{agn-host} population supports the idea that a merger, having caused a morphological transformation to a smooth galaxy, can also trigger an AGN, causing feedback and cessation of star formation (see Figure 14 of \citealt{Sch2014}).
+This rapid quenching is particularly dominant for low-to-medium mass smooth galaxies. \cite{Sme2015} suggest that incredibly rapid quenching rates could be attributed to mergers of galaxies in conjunction with AGN feedback, which are thought to be responsible for creating the most massive smooth galaxies \citep{Con03, SdMH05, Hopkins08}. This dominance of rapid quenching across the smooth \textsc{agn-host} population supports the idea that a merger, having caused a morphological transformation to a smooth galaxy, can also trigger an AGN, causing feedback and cessation of star formation (see Figure 14 of \citealt{Sch2014}).
 
 For the medium mass \textsc{agn-host} population we see a bimodal probability distribution between these two dominant quenching histories, highlighting the strength of this method which is capable of detecting such variation in the SFHs across a population of galaxies. 
 \\
@@ -315,9 +319,15 @@ We have used morphological classifications from the Galaxy Zoo 2 project to dete
 
 \bibitem[\protect\citeauthoryear{Marconi \& Hunt}{2003}]{MH03} Marconi, A. \& Hunt, L. K., 2003, ApJ, 589, 21
 
+\bibitem[\protect\citeauthoryear{Martin et al.}{2005}]{Martin05} Martin, D. C. et al., 2005, ApJ, 619, L1
+
+
 \bibitem[\protect\citeauthoryear{Martin et al.}{2007}]{Martin07} Martin, D. C. et al., 2007, ApJSS, 173, 342
 
 \bibitem[\protect\citeauthoryear{McIntosh et al.}{2014}]{McIntosh14} McIntosh, D. et al., 2014, MNRAS, 442, 533
+
+\bibitem[\protect\citeauthoryear{Noeske et al.}{2007}]{Noeske07} Noeske, K. G. et al., 2007, ApJ, 660, L47
+
 
 \bibitem[\protect\citeauthoryear{Oh et al.}{2011}]{Oh11} Oh, K. et al., 2011, ApJS, 195, 13
 
@@ -355,6 +365,8 @@ We have used morphological classifications from the Galaxy Zoo 2 project to dete
 
 \bibitem[\protect\citeauthoryear{Varela et al.}{2004}]{Varela04} Varela, J. et al., 2004, A\&A, 420, 873
 
+\bibitem[\protect\citeauthoryear{Weiner et al.}{2006}]{Weiner06} Weiner, B. J. et al., 2006, ApJ, 653, 1049
+
 \bibitem[\protect\citeauthoryear{Wild et al.}{2009}]{Wild09} Wild, V. et al., 2009, MNRAS, 395, 144
 
 \bibitem[\protect\citeauthoryear{Willett et al.}{2013}]{GZ2} Willett, K. et al., 2013, MNRAS, 435, 2835
@@ -374,28 +386,10 @@ We have used morphological classifications from the Galaxy Zoo 2 project to dete
 \section{Mass matched INACTIVE sample}
 
 
-\begin{figure}
-\includegraphics[width=0.48\textwidth]{bpt/mass_distributions_low_med_high_mass_inactive_sample_mass_pd_ps_matched.png}
-\caption{Histograms of the distribution of stellar masses in the \textsc{agn-host} (solid) and matched \textsc{inactive} (dashed) samples, split into low (left), medium (middle) and high (right) mass bins. A Kolmogorov-Smirnov test reveals that the two stellar mass distributions are statistically indistinguishable $(D \sim 0.01, p \sim 0.99)$.}
-\label{massm}
-\end{figure}
 
-\begin{figure}
-\includegraphics[width=0.48\textwidth]{bpt/pd_vote_fraction_distribution_low_med_high_mass_inactive_sample_mass_pd_ps_matched.png}
-\caption{Histograms of the distribution of GZ disc vote fractions, $p_d$, in the \textsc{agn-host} (solid) and matched \textsc{inactive} (dashed) samples, split into low (left), medium (middle) and high (right) mass bins. A Kolmogorov-Smirnov test reveals that the two $p_d$ distributions are statistically indistinguishable $(D \sim 0.03, p \sim 0.39)$.}
-\label{pdm}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=0.48\textwidth]{bpt/ps_vote_fraction_distribution_low_med_high_mass_inactive_sample_mass_pd_ps_matched.png}
-\caption{Histograms of the distribution of GZ smooth vote fractions, $p_s$, in the \textsc{agn-host} (solid) and matched \textsc{inactive} (dashed) samples, split into low (left), medium (middle) and high (right) mass bins. A Kolmogorov-Smirnov test reveals that the two $p_s$ distributions are statistically indistinguishable $(D \sim 0.04, p \sim 0.05)$.}
-\label{psm}
-\end{figure}
-
-Each galaxy in the \textsc{agn-host} sample has been matched to at least one and upto five inactive galaxies. These were matched to within $\pm5\%$ of the stellar mass and $\pm 0.1$ of each of the disc and smooth GZ vote fractions, $p_d$ and $p_s$. The distributions of these three variables are shown for both the \textsc{agn-host} and \textsc{inactive} samples in the three mass bins in Figures \ref{massm}, \ref{pdm} \& \ref{psm}. 
+Each galaxy in the \textsc{agn-host} sample has been matched to at least one and up to five inactive galaxies. These were matched to within $\pm5\%$ of the stellar mass and $\pm 0.1$ of each of the disc and smooth GZ vote fractions, $p_d$ and $p_s$.
 
 Both the \textsc{agn-host} and \textsc{inactive} galaxy samples are shown on an optical-NUV colour colour diagram in Figure \ref{colcol}. The \textsc{inactive} sample across all mass bins can be seen to encompass the entirety of the colour magnitude diagram, unlike the \textsc{agn-host} sample which reside at increasingly green colours with increasing mass. 
-
 
 \begin{figure*}
 \includegraphics[width=0.8\textwidth]{bpt/colour_colour_matched_sample_inactive_seyferts.png}
