@@ -97,7 +97,7 @@ i_{sfr}(t_q) & \text{if } t < t_q \\
 i_{sfr}(t_q) \times exp{\left( \frac{-(t-t_{q})}{\tau}\right)} & \text{if } t > t_q 
 \end{cases}
 \end{equation}
-where $i_{sfr}$ is an initial constant star formation rate dependent on $t_q$ \citep{Sch2014, Sme2015}.  A smaller $\tau$ value corresponds to a rapid quench, whereas a larger $\tau$ value corresponds to a slower quench. {\changed Such a SFH model has previously been shown to be appropriate for describing quenching galaxies by \citet{Weiner06, Martin07, Noeske07} and  \citet{Sch2014}.}
+where $i_{sfr}$ is an initial constant star formation rate dependent on $t_q$ \citep{Sch2014, Sme2015}.  A smaller $\tau$ value corresponds to a rapid quench, whereas a larger $\tau$ value corresponds to a slower quench. {\changed This SFH model has previously been shown as appropriate for describing quenching galaxies by \citet{Weiner06, Martin07, Noeske07} and  \citet{Sch2014}.}
 
 %{\changed \cite{Martin07} showed that such an exponential SFH leads to the largest UV colour change over time giving an upper limit on the mass flux of galaxies quenching to the red sequence. They concluded that this SFH was the most appropriate when studying such a large population of galaxies in comparison to smooth, burst and complex SFHs. Such an investigation is also planned using \starpy~ in future work.} 
 
@@ -186,6 +186,13 @@ The distributions of probability for the quenching rate, $\tau$, in Figure \ref{
 \label{time}
 \end{figure}
 
+
+\begin{figure}
+\includegraphics[width=0.485\textwidth]{bpt/quenching_rate_histograms_smooth_red_disc_blue_inactive_mass_matched_5pc_sample.pdf}
+\caption{Likehood distribution for the quenching rate, $\tau$ normalised so that the areas under the curves are equal. \textsc{agn-host} (left) host and \textsc{inactive} (right) galaxies are split into low (top), medium (middle) and high (bottom) mass for smooth (red dashed) and disc (blue solid) galaxies. A small (large) value of $\tau$ corresponds to a rapid (slow) quench.}
+\label{rate}
+\end{figure}
+
 The posterior probability distribution for the \textsc{agn-host} galaxies therefore shows evidence for the dominance of rapid, recent quenching having occurred across the entire population. This result implies the importance of AGN feedback for the evolution of these galaxies.
 
 \section{Discussion}\label{dis}
@@ -196,11 +203,6 @@ The differences between the probability distribution of the \textsc{agn-host} an
 
 %As well as the evidence for downsizing in the \textsc{inactive} population (Figure \ref{time}), we can also see its effect on the \textsc{agn-host} population. Although recent quenching is the dominant history, quenching at earlier times has significant likelihood, increasing with mass. These galaxies may have been affected by downsizing earlier in life with the current AGN also having an effect on the SFR through feedback, causing a recent, rapid quench of any residual star formation. 
 
-\begin{figure}
-\includegraphics[width=0.485\textwidth]{bpt/quenching_rate_histograms_smooth_red_disc_blue_inactive_mass_matched_5pc_sample.pdf}
-\caption{Likehood distribution for the quenching rate, $\tau$ normalised so that the areas under the curves are equal. \textsc{agn-host} (left) host and \textsc{inactive} (right) galaxies are split into low (top), medium (middle) and high (bottom) mass for smooth (red dashed) and disc (blue solid) galaxies. A small (large) value of $\tau$ corresponds to a rapid (slow) quench.}
-\label{rate}
-\end{figure}
 
 
 The difference between the \textsc{agn-host} and \textsc{inactive} population probability distributions in Figure \ref{rate} for the rate of quenching, $\tau$, tells a story of gas reservoirs. The distribution of probability for higher mass \textsc{agn-host} galaxies is dominated by slow, early quenching implying another mechanism is responsible for the cessation of star formation in these high mass galaxies prior to the triggering of the current AGN.  This preference for slow evolution timescales follows from the ideas of previously isolated discs evolving slowly by the Kennicutt-Schmidt \citep{Schmidt59, Kennicutt97} law which can then undergo an interaction or merger to reinvigorate star formation, feed the central black hole and trigger an AGN \citep{Varela04, Em15}. These galaxies would need a large enough gas reservoir to fuel both SF throughout their lifetimes and the recent AGN. These high mass galaxies also play host to the most luminous AGN (mean $\log (L[OIII] ~[\rm{erg}~s^{-1}]) \sim 41.6$) and so this SFH challenges the usual explanation for the co-evolution of luminous black holes and their host galaxies driven by merger growth. 
@@ -224,9 +226,11 @@ These recently triggered AGN in both massive disc and smooth galaxies do not hav
 
 Conversely, rapid quenching, possibly caused by the AGN itself through negative feedback, is the most dominant history for low mass \textsc{agn-host} galaxies with lower gravitational potentials which allow gas to be expelled more easily (or heated by the AGN) across the entire galaxy \citep{Torbra09}. 
 
-\cite{Torbra09} model the effects of negative AGN feedback on a typical early type (i.e. smooth) galaxy and find the time between the current galaxy age in their simulation, $t_{gal}$ and the time that the feedback began, $t_{AGN}$, peaks at $t_{gal} - t_{AGN} \sim 0.85 ~\rm{Gyr}$. This agrees with the location of the peak in Figure \ref{time} for low mass galaxies, where the difference between the peak of the probability and the average age of the population (galaxy age is calculated from the redshift by assuming all galaxies form at $t=0$) is $\sim0.83 ~\rm{Gyr}$. This implies that this SFH dominated by recent quenching is caused directly by AGN feedback.
+\cite{Torbra09} model the effects of jet induced AGN feedback on a typical early type (i.e. smooth) galaxy {\changed and observe a drastic suppression of star formation on a timescale of $\sim 3 ~\rm{Myr}$. They convolve the SFR observed in their simulations with the models of \citet{BC03} to produce synthetic colours which are compared to the observed colours of a sample of SDSS elliptical galaxies, and} find the time between the current galaxy age, $t_{gal}$ and the time that the feedback began, $t_{AGN}$, peaks at $t_{gal} - t_{AGN} \sim 0.85 ~\rm{Gyr}$. This agrees with the location of the peak in Figure \ref{time} for low mass galaxies, where the difference between the peak of the probability and the average age of the population (galaxy age is calculated from the redshift by assuming all galaxies form at $t=0$) is $\sim0.83 ~\rm{Gyr}$. This implies that this SFH dominated by recent quenching is caused directly by negative AGN feedback.
 
-{\changed However, there still remains the possibility that the AGN is merely a consequence of an alternative quenching mechanism. This idea is supported by simulations showing that the exhaustion of gas by a merger fuelled starburst could cause such a rapid quench in star formation and in turn also trigger an AGN \citep{Croton06, Wild09, Snyder11, Hayward14}. Indeed \citet{Yesuf14} showed that AGN are more commonly hosted by post starburst galaxies, with the peak AGN activity appearing $\geq 200 \pm 100 ~\rm{Myr}$ after the starburst. Such a SFH is not accounted for in our toy models, however this scenario is still consistent with the results presented in this paper; that AGN which are \emph{currently} active have been detected in host galaxies $\sim 1~\rm{Gyr}$ after the onset of quenching.}
+%They then set up a SFH model with free parameters: $t_{age}$, the age of a galaxy,  and $t_{AGN}$, the time at which the AGN begins to quench the star formation, beyond which the SFR is that observed in their simulations. Convolving this SFH with the models of \citet{BC03} to produce synthetic colours they fit to the observed colours of elliptical galaxies selected by \citet{Kav07}
+
+{\changed However, there still remains the possibility that the AGN is merely a consequence of an alternative quenching mechanism. This idea is supported by simulations showing that the exhaustion of gas by a merger fuelled starburst could cause such a rapid quench in star formation and in turn also trigger an AGN \citep{Croton06, Wild09, Snyder11, Hayward14}. \citet{Yesuf14} also showed that AGN are more commonly hosted by post starburst galaxies, with the peak AGN activity appearing $\geq 200 \pm 100 ~\rm{Myr}$ after the starburst. Such a SFH is not accounted for in the models presented here, however this scenario is still consistent with the results presented in this paper; that AGN which are \emph{currently} active have been detected in host galaxies $\sim 1~\rm{Gyr}$ after the onset of quenching.}
 
 
 %{\changed Such an alternate quenching mechanism could be the exhaustion of gas by a (possibly merger fuelled) starburst \citep{Croton06, Wild09, Snyder11, Hayward14}. Work by \citet{Yesuf14} has shown that AGN are more commonly hosted by post starburst galaxies, with the peak AGN activity appearing significantly after the peak star formation activity by $\geq 200 \pm 100 ~\rm{Myr}$. This is contrary to the results presented here, suggesting that at least for this population of AGN host galaxies, AGN feedback is an important mechanism for the quenching of star formation.}
