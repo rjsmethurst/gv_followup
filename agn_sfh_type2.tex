@@ -106,18 +106,20 @@ SDSS images for 10 randomly selected galaxies from the \textsc{agn-host} sample 
 We constructed a sample of inactive galaxies by removing from the \textsc{gz2-galex} sample {\changed all galaxies with line strengths indicative of potential AGN activity \citep*{Kauff03b}}, as well as sources identified as Type 1 AGN by the presence of broad emission lines \citep{Oh15}. {\changed We select mass- and morphology-matched inactive samples by identifying between 1 and 5 inactive galaxies for each \textsc{agn-host} galaxy with the same stellar mass (to within $\pm5\%$) and GZ2 `smooth' and `disc' vote fractions (to within $\pm 0.1$); this selects $6107$ galaxies.} We refer to this sample as the \textsc{inactive} sample. A Kolmogorov-Smirnov test revealed the redshift distributions of the \textsc{inactive} and \textsc{agn-host} samples are statistically indistinguishable ($D \sim 0.16$, $p \sim 0.88$). 
 
 
-{\newref We show the \textsc{agn-host} and \textsc{inactive}  samples on both an optical colour-magnitude diagram and in the SFR-stellar mass plane in Figure \ref{cmdsfms} in comparison to the distribution of SDSS DR7 galaxies. SFRs are calculated from the $H\alpha$ flux \citep{Kennicutt94} and stellar masses from the $(u-r)$ colour and absolute $r$-band magnitude of each galaxy \citep{Baldry06}. We note that the majority of the \textsc{agn-host} sample would be defined as residing in the blue cloud on the optical colour-magnitude diagram despite the fact that the majority of the sample ($92\%$) lie more than $1\sigma$ below the star forming ``main sequence'' (shown by the dashed line in the right panel of Figure \ref{cmdsfms}). This observation, that galaxies hosting AGN tend to be located between the star forming sequence and the quenched population, has been noted previously by many works including \citealt{Sch10, ref, ref, ref}. }
+{\newref We show the \textsc{agn-host} and \textsc{inactive}  samples on both an optical colour-magnitude diagram and in the SFR-stellar mass plane in Figure \ref{cmdsfms} in comparison to the distribution of SDSS DR7 galaxies. SFRs and stellar masses are obtained from the MPA JHU catalog, where available, which follow the prescriptions outlined in \cite{Brinch04} and \cite{Salim07} for calculating the total aperture corrected galaxy SFR in the presence of an AGN. 
 
-{\newref Here we must distinguish between \emph{quenching} where the SFR of a galaxy is currently in decline and \emph{quenched} or \emph{quiescent} where no more SF is occurring. We remind the reader that a slow quenching timescale does not fully quench a galaxy by $z=0$. Similarly, despite a rapid quenching timescale, star formation in a galaxy may still be ongoing at very low rates, rather than being fully quiescent. The signatures of star formation, e.g. NUV emission, will remain in a galaxy until the most massive stars from the last episode of star formation evolve off the main sequence. The \textsc{agn-host} galaxies are therefore currently under star forming but are not yet fully quenched or `quiescent', hence their detection in the NUV due to recent SF.}
+We note that the majority of the \textsc{agn-host} sample would be defined as residing in the blue cloud on the optical colour-magnitude diagram despite the fact that the majority of the sample ($51\%$) lie more than $1\sigma$ below the star forming ``main sequence'' at their observed redshift (see relation defined in Eq. 1 of \cite{Peng10}; shown by the dashed line in the right panel of Figure \ref{cmdsfms} for the mean redshift of the \textsc{agn-host} sample). This observation, that galaxies hosting AGN tend to be located between the star forming sequence and the quenched population, has been noted previously by many works including \citet{Salim07,Sch2010, Shimzu15} and \citet{Ellison16}. }
 
-Since this investigation is focussed on whether an AGN can have an impact on the SF of its host galaxy, we must consider {\changed possible selection effects}. The extent to which SF {\changedbds could obscure AGN} emission was addressed by \cite{Sch2010}. They showed, via analysis of simulated AGN emission added to star-forming galaxies, that BPT-based selection of AGN produces a complete sample at luminosities of $L[OIII] > 10^{40} \rm{erg~s}^{-1}$. Above this limit we therefore assume we have selected a complete sample of AGN independent of host galaxy SFR.
+{\newref Here we must distinguish between \emph{quenching} where the SFR of a galaxy is currently in decline and \emph{quenched} or \emph{quiescent} where no more SF is occurring. We remind the reader that a galaxy undergoing a slow quench is not necessarily quiescent when observed. Similarly, despite a rapid quench, star formation in a galaxy may still be ongoing at very low rates, rather than being fully quiescent. \cite{Ko13} show that in a sample of quiescent red-sequence galaxies without H? emission, $26\%$ show NUV excess emission and that the fraction with recent star formation is $39\%$. Therefore the detection of galaxies in the NUV, in both the \textsc{agn-host} and \textsc{inactive} samples, does not infer that they are star forming, as shown in the right panel of Figure 3.}
+
+Since this investigation is focussed on whether an AGN can have an impact on the SF of its host galaxy, we must also consider {\changed possible selection effects}. The extent to which SF {\changedbds could obscure AGN} emission was addressed by \cite{Sch2010}. They showed, via analysis of simulated AGN emission added to star-forming galaxies, that BPT-based selection of AGN produces a complete sample at luminosities of $L[OIII] > 10^{40} \rm{erg~s}^{-1}$. Above this limit we therefore assume we have selected a complete sample of AGN independent of host galaxy SFR.
 
 \subsection{Bayesian SFH Determination}\label{starpy}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.475\textwidth]{fig3.pdf}
-\caption{{\newref Optical colour-magnitude diagram (left) and SFR-stellar mass diagram (right) for the SDSS DR7 (black contours), the \textsc{agn-host} sample (red circles) and \textsc{inactive} sample (blue contours). The definition of the green valley from \citet{Baldry06} (solid line) with $\pm \sigma$ (dashed lines) and the prescription for the star forming ``main sequence'' from \citet{Peng10} at $z=0$ (solid line) with $\pm \sigma$ (dashed lines) are shown in the left and right panels respectively.}}
+\caption{{\newref Optical colour-magnitude diagram (left) and SFR-stellar mass diagram (right) for the SDSS DR7 (black contours), the \textsc{agn-host} sample (red circles) and \textsc{inactive} sample (blue contours). The definition of the green valley from \citet{Baldry06} (solid line) with $\pm \sigma$ (dashed lines) and the prescription for the star forming ``main sequence'' from \citet{Peng10} at $\overline{z}=0.083$ (solid line, the mean redshift of the \textsc{agn-host} sample) with $\pm \sigma$ (dashed lines) are shown in the left and right panels respectively.}}
 \label{cmdsfms}
 \end{figure}
 
@@ -273,6 +275,8 @@ RS acknowledges funding from the STFC Grant Code ST/K502236/1. BDS gratefully ac
 
 \bibitem[\protect\citeauthoryear{Emsellem et al.}{2015}]{Em15} Emsellem, E. et al. 2015, MNRAS, 446, 2468
 
+\bibitem[\protect\citeauthoryear{Ellison et al.}{2016}]{Ellison16} Ellison, S. et al. 2016, MNRAS, 458, L34
+
 \bibitem[\protect\citeauthoryear{Fabian}{2006}]{Fab06} Fabian, A. C. 2006, ARA\&A, 50, 455
 
 \bibitem[\protect\citeauthoryear{Foreman-Mackey et al.}{2013}]{Dan} Foreman-Mackey, D., Hogg, D. W., Lang, D., Goodman, J., 2013, PASP, 125, 306
@@ -335,6 +339,9 @@ RS acknowledges funding from the STFC Grant Code ST/K502236/1. BDS gratefully ac
 
 \bibitem[\protect\citeauthoryear{Padmanabhan et al.}{2008}]{Pad08} Padmanabhan, N. et al., 2008, ApJ, 674, 1217
 \bibitem[\protect\citeauthoryear{Peng et al.}{2010}]{Peng10} , Y. et al., 2010, ApJ, 721, 193
+
+\bibitem[\protect\citeauthoryear{Salim et al.}{2007}]{Salim07} Salim, S. et al., 2007, ApJSS, 173, 267
+
 \bibitem[\protect\citeauthoryear{Sanders et al.}{1988}]{Sanders88} Sanders, D. B. et al., 1988, ApJ, 325, 74
 
 \bibitem[\protect\citeauthoryear{Sarzi et al.}{2010}]{Sarzi10} Sarzi, M. et al., 2010, MNRAS, 402, 2187
@@ -350,6 +357,9 @@ RS acknowledges funding from the STFC Grant Code ST/K502236/1. BDS gratefully ac
 \bibitem[\protect\citeauthoryear{Simmons et al.}{2011}]{Simmons11} Simmons, B. D. et al., 2011, ApJ, 734, 121
 
 \bibitem[\protect\citeauthoryear{Singh et al.}{2013}]{Singh13} Singh, R. et al., 2013, A\&A, 558, 43
+
+\bibitem[\protect\citeauthoryear{Shimzu et al.}{2015}]{Shimzu15} Shimzu, T. et al., 2015, MNRAS, 452, 1841
+
 
 \bibitem[\protect\citeauthoryear{Snyder et al.}{2011}]{Snyder11} Snyder, G. F. et al., 2011, ApJ, 741, 77
 
